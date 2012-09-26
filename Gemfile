@@ -5,14 +5,19 @@ gem 'rails', '3.2.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql' , '2.8.1'
+#gem 'mysql' , '2.8.1'
+
+gem 'mysql2','0.2.7'
 
 gem 'haml-rails'
 gem 'formtastic'
 gem 'paperclip', '2.3.8'
 gem 'rmagick4j', '0.3.7'
 gem 'cancan', '1.6.5'
-gem 'therubyracer'
+#gem 'therubyracer'
+#gem 'libv8'
+gem 'thin', '~> 1.2.11'
+
 
 
 # Gems used only for assets and not required
