@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -11,8 +11,8 @@ gem 'haml-rails'
 gem 'formtastic'
 gem 'paperclip', '2.3.8'
 gem 'rmagick4j', '0.3.7'
-gem 'userstamp', '2.0.1'
 gem 'cancan', '1.6.5'
+gem 'therubyracer'
 
 
 # Gems used only for assets and not required
