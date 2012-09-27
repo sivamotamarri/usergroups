@@ -7,10 +7,10 @@ gem 'rails', '3.2.7'
 
 #gem 'mysql' , '2.8.1'
 
-gem 'mysql2','0.2.7'
+gem 'mysql2' , '0.3.11'
 
-gem 'haml-rails'
-gem 'formtastic'
+gem 'haml-rails' , '0.3.5'
+gem 'formtastic' , '2.2.1'
 gem 'paperclip', '2.3.8'
 gem 'rmagick4j', '0.3.7'
 gem 'cancan', '1.6.5'
