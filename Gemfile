@@ -20,6 +20,13 @@ gem 'userstamp', :git=>'https://github.com/sowmyadumpa/userstamp.git' #forked an
 gem 'thin', '~> 1.2.11'
 
 
+# Authentication with Federated Google identity tool kit
+gem 'omniauth', '>= 0.2.6'
+gem 'devise'
+gem "oa-core", "~> 0.3.2"
+gem "rest-client", "~> 1.6.7"
+# Authentication end
+
 
 # Gems used only for assets and not required
 # in production environments by default.
