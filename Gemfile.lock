@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/sowmyadumpa/userstamp.git
+  revision: 5a6c5d8d86881603e1afa74faf80ef799e20626b
+  specs:
+    userstamp (2.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -140,3 +146,4 @@ DEPENDENCIES
   shoulda (= 2.10.3)
   thin (~> 1.2.11)
   uglifier (>= 1.0.3)
+  userstamp!

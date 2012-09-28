@@ -14,6 +14,7 @@ gem 'formtastic' , '2.2.1'
 gem 'paperclip', '2.3.8'
 gem 'rmagick4j', '0.3.7'
 gem 'cancan', '1.6.5'
+gem 'userstamp', :git=>'https://github.com/sowmyadumpa/userstamp.git' #forked and added. will remove once the latest version of userstamp is inplace
 #gem 'therubyracer'
 #gem 'libv8'
 gem 'thin', '~> 1.2.11'
