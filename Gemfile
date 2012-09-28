@@ -25,6 +25,7 @@ gem 'omniauth', '>= 0.2.6'
 gem 'devise'
 gem "oa-core", "~> 0.3.2"
 gem "rest-client", "~> 1.6.7"
+gem 'soft-deletable'
 # Authentication end
 
 
@@ -61,4 +62,4 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'
