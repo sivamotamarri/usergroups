@@ -47,6 +47,12 @@ group :test do
     gem 'faker', '0.3.1'
 end
 
+group :development do
+   # To use debugger
+	gem 'debugger'
+end
+
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -61,5 +67,4 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-gem 'debugger'
+
