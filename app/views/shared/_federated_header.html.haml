@@ -1,0 +1,36 @@
+%script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", :type => "text/javascript"}
+%script{:src => "//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js", :type => "text/javascript"}
+%script{:src => "//ajax.googleapis.com/ajax/libs/googleapis/0.0.4/googleapis.min.js", :type => "text/javascript"}
+%script{:src => "//ajax.googleapis.com/jsapi", :type => "text/javascript"}
+:javascript
+  google.load("identitytoolkit", "1", {packages: ["ac"], language:"en"});
+:javascript
+  $(function() {
+    window.google.identitytoolkit.setConfig({
+        developerKey: "AIzaSyB8IrA9iaoSnQZbagf2rGxbIOk41IRKUA8",
+        companyName: "cloudfoundry-usergroups",
+        callbackUrl: "#{verify_user_url()}",
+        realm: "",
+        userStatusUrl: "/user_status",
+        loginUrl: "/login",
+        signupUrl: "/sign_up",
+        homeUrl: "/",
+        logoutUrl: "/logout",
+        idps: ["Gmail", "Yahoo"],
+        tryFederatedFirst: true,
+        useCachedUserStatus: false,
+        useContextParam: true
+    });
+    window.google.identitytoolkit.showSavedAccount("#{params[:email]||session[:email]}");
+    $("#navbar").accountChooser();
+  });
+/ Insert the navbar element somewhere in the HTML page
+#navbar
+- if !current_user.blank?
+  :javascript
+    $(function(){
+      window.google.identitytoolkit.updateSavedAccount({email: "#{session[:user][:email]}", displayName: "#{session[:user][:name]}","legacy": true });
+      window.google.identitytoolkit.showSavedAccount('#{session[:user][:email]}');
+      window.google.identitytoolkit.setConfig({ dropdownmenu: [{"label": "View profile","url": "#"},{"label": "Account settings","url": "#"},{"label": "Log out","handler": "onSignOutClicked"}] });
+    });
+  - session[:legacy] = nil
