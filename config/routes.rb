@@ -1,8 +1,19 @@
 CloudfoundryUsergroups::Application.routes.draw do
  
 
-  devise_for :users
+  devise_for :users , :controllers => { :registrations => "registrations" } do
+    get '/signin' => 'devise/sessions#new'
+    get '/sign_up', :to => "devise/registrations#new"
+    get '/users/confirm', :to => 'devise/confirmations#new'
+    get '/users/reset_password', :to => 'devise/passwords#new'
+    get '/users/change_password', :to => 'devise/passwords#edit'
+  end
 
+  match '/verify_user' => 'federated#verify_user'
+  match '/user_status' => 'federated#user_status' 
+  match '/login' => 'federated#login', :as => :login
+  match '/logout' => 'federated#logout'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

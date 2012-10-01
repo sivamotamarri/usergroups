@@ -1,0 +1,2 @@
+module FederatedHelper
+end
