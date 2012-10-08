@@ -1,6 +1,8 @@
 CloudfoundryUsergroups::Application.routes.draw do
  
 
+  resources :chapters
+
   devise_for :users , :controllers => { :registrations => "registrations" } do
     get '/signin' => 'devise/sessions#new'
     get '/sign_up', :to => "devise/registrations#new"

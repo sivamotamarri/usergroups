@@ -1,0 +1,26 @@
+= semantic_form_for @chapter do |f|
+  - if @chapter.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@chapter.errors.count, "error")} prohibited this chapter from being saved:"
+      %ul
+        - @chapter.errors.full_messages.each do |msg|
+          %li= msg
+  = f.input :name , :placeholder => 'Name' , :label =>false
+  = f.radio_button :chapter_type , 'student', :checked =>true 
+  = f.label :student ,"Student"
+  = f.radio_button :chapter_type , 'professional', :checked => false 
+  = f.label :professional ,"Professional"
+  %li      
+    = text_field_tag :country , nil, :placeholder => 'Country'
+  %li      
+    = text_field_tag :state ,nil ,:placeholder => 'State'
+  %li      
+    = text_field_tag :city , nil, :placeholder => 'City'
+  = f.input :locality ,  :placeholder => 'Locality' , :label => false
+  = f.input :address,   :placeholder => 'Address' , :label => false
+  = f.input :landmark,   :placeholder => 'Landmark' , :label => false
+  = f.hidden_field :country_id
+  = f.hidden_field :state_id
+  = f.hidden_field :city_id
+  .actions
+    = f.submit 'Save'
