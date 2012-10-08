@@ -14,7 +14,7 @@
         userStatusUrl: "/user_status",
         loginUrl: "/login",
         signupUrl: "/sign_up",
-        homeUrl: "/",
+        homeUrl: "/profile",
         logoutUrl: "/logout",
         idps: ["Gmail", "Yahoo"],
         tryFederatedFirst: true,
@@ -34,3 +34,8 @@
       window.google.identitytoolkit.setConfig({ dropdownmenu: [{"label": "View profile","url": "#"},{"label": "Account settings","url": "#"},{"label": "Log out","handler": "onSignOutClicked"}] });
     });
   - session[:legacy] = nil
+:css
+  .widget-email-box {display:none;}
+  .widget-nascar-list{border-right:none!important;}
+  .widget-footer {display:none;}
+  .widget-panel-chooser.widget-panel-nascar {width: 530px;}

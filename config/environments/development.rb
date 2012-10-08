@@ -35,5 +35,11 @@ CloudfoundryUsergroups::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  config.serve_static_assets = false
+
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  FEDERATED_KEY = 'AIzaSyB8IrA9iaoSnQZbagf2rGxbIOk41IRKUA8'
+
+  FEDERATED_BASE_URL = "https://www.googleapis.com/identitytoolkit/v1/relyingparty/verifyAssertion?key=#{FEDERATED_KEY}"
 end

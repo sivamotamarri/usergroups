@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
   stampable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me , :first_name, :last_name , :fullname
-  validates :first_name , :last_name , :presence => true
+  attr_accessible :email, :password, :password_confirmation, :remember_me , :first_name, :last_name , :fullname,:mobile, :website_url, :linkedin_url, :twitter_url
+#  validates :first_name , :last_name , :presence => true
 end

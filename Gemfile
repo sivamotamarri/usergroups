@@ -47,10 +47,10 @@ group :test do
     gem 'faker', '0.3.1'
 end
 
-group :development do
-   # To use debugger
-	gem 'debugger'
-end
+#group :development do
+#   # To use debugger
+#	gem 'debugger'
+#end
 
 
 gem 'jquery-rails'
