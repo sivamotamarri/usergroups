@@ -4,10 +4,8 @@ class FederatedController < ApplicationController
   require 'net/http'
 
   def verify_user
-    key = Rails.env == 'development' ? 'AIzaSyB8IrA9iaoSnQZbagf2rGxbIOk41IRKUA8' : 'AIzaSyB8IrA9iaoSnQZbagf2rGxbIOk41IRKUA8'
     api_params = {'requestUri' => request.url, 'postBody' => request.post? ? request.raw_post : URI.parse(request.url).query }
-    api_url = "https://www.googleapis.com/identitytoolkit/v1/relyingparty/verifyAssertion?key=#{key}"
-    verify_user_details(api_url, api_params)
+    verify_user_details(FEDERATED_BASE_URL, api_params)
   end
 
   def verify_user_details(api_url, api_params)
@@ -32,17 +30,15 @@ class FederatedController < ApplicationController
   def verify_registration_status
     @user = User.find_by_email(@email)
     if @user.nil? or @user.blank?
-     @user = User.create!(:email => @email,:password => "cloudfoundry", :password_confirmation => "cloudfoundry", :fullname => @res["fullName"])
-      session[:user_id] = @user.id
-      session[:email] = @user.email
-      session[:user] = {:id => @email, :verified => true, :f_name => @res["firstName"], :l_name => @res["lastName"]}
+      @user = User.create!(:email => @email,:password => "cloudfoundry", :password_confirmation => "cloudfoundry", :fullname => @res["fullName"])
+      session[:email] = @user.email      
       @registered = false
     else
       session[:user_id] = @user.id
       session[:email] = @user.email
-      session[:user], session[:user_id], session[:user_name] = {:name => @user.fullname, :email => @email, :id => @user.id}, @user.id, @user.fullname
+      session[:user] = {:email => @user.email, :verified => true, :name => @user.fullname}
      @registered = true
-    end
+    end    
   end
 
   def user_status
