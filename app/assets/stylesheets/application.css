@@ -387,7 +387,7 @@ background: url("social_icons.png") repeat scroll -26px -52px transparent;
 	font-weight: bold;
 	color: #d9541e;
 	width:inherit;
-	word-wrap:
+	word-wrap: 1px;
 }
 .pgt-bar .pgtbar-selected{
 	color: #003A69;
@@ -423,19 +423,19 @@ background: url("social_icons.png") repeat scroll -26px -52px transparent;
 
 .label-37{
 	font-size: px;
-	color:# ;
+	color: #fff;
 }
 .label-36{
 	font-size: px;
-	color:# ;
+	color: #fff;
 }
 .label-35{
 	font-size: px;
-	color:# ;
+	color: #fff;
 }
 .label-34{
 	font-size: px;
-	color:# ;
+	color: #fff;
 }
 .label-33{
 	font-size: 12px;
