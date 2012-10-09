@@ -59,6 +59,7 @@ GEM
     faker (0.3.1)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    gmaps4rails (1.5.5)
     haml (3.1.7)
     haml-rails (0.3.5)
       actionpack (>= 3.1, < 4.1)
@@ -154,6 +155,7 @@ DEPENDENCIES
   factory_girl (= 1.2.4)
   faker (= 0.3.1)
   formtastic (= 2.2.1)
+  gmaps4rails
   haml-rails (= 0.3.5)
   jquery-rails
   mysql2 (= 0.3.11)
