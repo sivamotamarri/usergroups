@@ -13,3 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function(){
+  $('.signup').click(function(){
+    $('#navbar').accountChooser('showAccountChooser');
+    $(".widget-header h1").text("Sign up");
+    $(".widget-nascar-list h2").text("Sign up with");
+  });
+  $('.signin').click(function(){
+    $('#navbar').accountChooser('showAccountChooser');   
+  });
+  $('.logout').click(function(){
+    window.location = window.google.identitytoolkit.easyrp.config.logoutUrl;
+  });
+
+});
