@@ -30,6 +30,12 @@ CloudfoundryUsergroups::Application.routes.draw do
       post 'uploader'
     end
   end
+
+   namespace :admin do
+    resources :sessions
+    resources :chapters
+   end
+   
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -83,6 +89,7 @@ CloudfoundryUsergroups::Application.routes.draw do
 #  post '/local_selection/:local' , :to => "home#local_selection"
   root :to => 'home#index'
 
+  
 
   # See how all your routes lay out with "rake routes"
 
