@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title CloudfoundryUsergroups
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"}
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"}
+    = csrf_meta_tags
+  %body
+    = render "shared/admin_header"
+    = yield
+    = render "shared/footer"
+    = yield :scripts

@@ -1,5 +1,5 @@
 class Admin::SessionsController < ApplicationController
-
+  layout 'admin'
   def new
     reset_session
   end

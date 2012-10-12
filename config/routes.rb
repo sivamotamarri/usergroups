@@ -16,7 +16,7 @@ CloudfoundryUsergroups::Application.routes.draw do
     get '/users/reset_password', :to => 'devise/passwords#new'
     get '/users/change_password', :to => 'devise/passwords#edit'
   end
-  
+  get "admin/log_out" => "admin/sessions#destroy", :as => "log_out"
   get '/sign_up' , :to => 'users#edit'
   match '/verify_user' => 'federated#verify_user'
   match '/user_status' => 'federated#user_status' 
