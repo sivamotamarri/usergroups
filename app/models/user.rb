@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   model_stamper
   acts_as_soft_deletable         
   stampable
+  has_one :eventbrite_oauth_token
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me , :first_name, :last_name , :fullname,:mobile, :website_url, :linkedin_url, :twitter_url

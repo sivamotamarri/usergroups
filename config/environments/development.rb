@@ -42,4 +42,10 @@ CloudfoundryUsergroups::Application.configure do
   FEDERATED_KEY = 'AIzaSyB8IrA9iaoSnQZbagf2rGxbIOk41IRKUA8'
 
   FEDERATED_BASE_URL = "https://www.googleapis.com/identitytoolkit/v1/relyingparty/verifyAssertion?key=#{FEDERATED_KEY}"
+
+   EVENTBRITE_CLIENT_ID = 'VHHM4OT2VSPEEBUSWW'
+   EVENTBRITE_CLIENT_SECRET = 'ZG7WVTHUWLLFDXHA4AIUWEVJTYDDNIYSXGWFKWBPYPCFLEBZX4'
+   EVENTBRITE_URL = 'https://www.eventbrite.com'
+   EVENTBRITE_REDIRECT_URL = 'http://localhost:3000/events/oauth_reader'
+
 end

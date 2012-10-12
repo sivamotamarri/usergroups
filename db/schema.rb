@@ -11,8 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20121008085545) do
+ActiveRecord::Schema.define(:version => 20121008085818) do
 
   create_table "chapter_members", :force => true do |t|
     t.integer  "chapter_id",   :null => false
@@ -61,6 +60,17 @@ ActiveRecord::Schema.define(:version => 20121008085545) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "eventbrite_oauth_tokens", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "event_brite_token"
+    t.string   "user_email"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "deleted_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
   create_table "states", :force => true do |t|
     t.string   "name"
     t.integer  "country_id"
@@ -70,7 +80,6 @@ ActiveRecord::Schema.define(:version => 20121008085545) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-ActiveRecord::Schema.define(:version => 20121008085818) do
 
   create_table "users", :force => true do |t|
     t.string   "email",                                :default => "", :null => false
@@ -89,7 +98,7 @@ ActiveRecord::Schema.define(:version => 20121008085818) do
     t.string   "last_name"
     t.string   "fullname"
     t.integer  "created_by"
-    t.integer  "updated_by"
+    t.string   "updated_by",             :limit => 10
     t.datetime "deleted_at"
     t.string   "mobile"
     t.string   "website_url"
