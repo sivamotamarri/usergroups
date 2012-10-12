@@ -1,4 +1,17 @@
-/*reset begins*/
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+ /*reset begins*/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
@@ -124,6 +137,7 @@ body {
 	overflow:hidden;
 	border: 2px solid #0097d7;
 	border-bottom: 0px;
+	padding-bottom: 30px;
 }
 .ca-bottom{
 	background-color: #231f20;
@@ -139,7 +153,7 @@ body {
 }
 
 .img-a{
-	margin: 0px 20px 0px 0px;
+	margin: 0px 20px 20px 0px;
 	max-width: 380px;
 }
 .img-b{
@@ -163,7 +177,7 @@ body {
 
 
 .ul-c li{
-	padding:15px 0px 5px 0px;
+	padding:10px 0px 10px 0px;
 	border-bottom: 1px solid #c5c6c7;
 	overflow: hidden;
 }
@@ -242,7 +256,7 @@ background: url("social_icons.png") repeat scroll -26px -52px transparent;
 	display: inline-block;
 	margin: 0px 20px 0px 0px;
 	position:relative;
-	top:-112px;
+	top:-90px;
 }
 .ul-e li{
 	display: inline;
@@ -264,7 +278,6 @@ background: url("social_icons.png") repeat scroll -26px -52px transparent;
 	display: inline-block;
 }
 .cc-top{
-	overflow:hidden;
 	padding-bottom: 20px;
 	border-bottom: 2px solid #ebebeb;
 }
@@ -296,7 +309,7 @@ background: url("social_icons.png") repeat scroll -26px -52px transparent;
 	position: absolute;
 	display:none;
 	bottom: -7px;
-	left:45%;
+	left:50%;
 }
 .ul-f .ulf-selected .bg-arrow-down-b{
 	display: block;
@@ -311,9 +324,6 @@ background: url("social_icons.png") repeat scroll -26px -52px transparent;
 	box-shadow: 0px 2px #003A69;
 }
 .ul-f .ulf-selected a{
-	color: #003A69;
-}
-.ul-i .uli-selected a{
 	color: #003A69;
 }
 .div-c{
@@ -332,7 +342,7 @@ background: url("social_icons.png") repeat scroll -26px -52px transparent;
 	margin: 5px 10px 0px 10px;
 }
 .ul-g li{
-	padding:30px 0px 10px;
+	padding:20px 0px 15px;
 	border-bottom: 1px solid #c5c6c7;
 	overflow: hidden;
 }
@@ -357,12 +367,12 @@ background: url("social_icons.png") repeat scroll -26px -52px transparent;
 }
 .ta-a{
 	font-family: Helvetica;
-	font-size:14px;
+	font-size:10px;
 	color: #a5a5a5;
 	border:2px solid #d7d7d7;
-	padding:3px 10px;
+	padding:10px;
 	width:600px;
-	height: 20px;
+	height: 10px;
 }
 .pgt-bar{
 	margin:30px 0px 10px 0px;
@@ -377,28 +387,10 @@ background: url("social_icons.png") repeat scroll -26px -52px transparent;
 	font-weight: bold;
 	color: #d9541e;
 	width:inherit;
-	word-wrap:1px;
-}
-a.label-25{display: inline-block;clear:both;}
-a.label-25:hover{
-	color: #d9541e;
-}
-a.label-32{
-	display: block;
-}
-
-a.label-33:hover{
-	color: #d9541e;
-}
-a.label-27{
-	display: inline-block;
-}
-a.label-9:hover{
-	color: #244466;
+	word-wrap: 1px;
 }
 .pgt-bar .pgtbar-selected{
-	color: #d9541e;
-	font-weight: bold;
+	color: #003A69;
 }
 .table-a td{
 	vertical-align: top;
@@ -409,12 +401,12 @@ a.label-9:hover{
 	margin-bottom: 20px;
 }
 .ul-h{
-	border:2px solid #949494;padding:5px 0px;
+	border:2px solid #4cb6e3;padding:5px 0px;
 	margin-top:10px;
 }
 
 .ul-h li{
-	padding:20px 0 0 10px;
+	padding:10px 0px 10px 10px;
 	border-bottom: 1px solid #c5c6c7;
 	overflow: hidden;
 
@@ -422,26 +414,8 @@ a.label-9:hover{
 .ul-h .ulh-last-li{
 	border-bottom: none;
 }
-.profile-img{
-	margin:20px 20px 0px 10px;
-}
-.ul-i{
-	width:100%;
-	border-bottom:2px solid #EBEBEB;
-	overflow: hidden;
-	margin:0px 0px 10px 0px;
-}
-.ul-i li{
-	display: inline;
-	float: left;
-	margin-right:30px;
-		padding:10px 0px 10px 10px;
 
-}
-.ul-i li a{
-	font-size: 12px;
-	color:#918f8f ;
-}
+
 
 
 
@@ -449,38 +423,19 @@ a.label-9:hover{
 
 .label-37{
 	font-size: px;
-	color:#fff;
+	color: #fff;
 }
 .label-36{
 	font-size: px;
-	color:#fff;
+	color: #fff;
 }
-.ul-c .label-33{margin-bottom: 5px;}
-.cc-top .label-34{margin-top:50px;}
-.div-c .label-26{height: 47px;overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;}
-.ul-h .label-27{margin-bottom:2px;}
-.divd-comment .label-27{margin-bottom:5px;}
-.pgt-bar .label-28{margin-right:30px;}
-.ul-e .label-21{margin-top:15px;}
-.ul-g .label-25{margin-bottom:10px;}
-.div-a .label-18{margin-bottom: 15px;}
-.div-a .label-19{margin-top:5px;}
-.cb-right .label-12{margin-bottom: 5px;}
-.ca-down .label-7{margin-bottom: 30px;}
-.cb-left .label-1{margin-bottom: 10px;}
-.cb-left .label-10{margin-bottom: 10px;}
-.cb-left .label-8{margin-bottom: 15px;}
-.cb-right .label-8{margin-bottom: 10px;}
-.ca-right .label-5{margin-bottom: 20px;}
-.ca-right .label-3{	margin: 5px 0px 10px 0px;}
 .label-35{
-	font-size: 12px;
-	color:#4cb6e3 ;
+	font-size: px;
+	color: #fff;
 }
 .label-34{
-	font-size: 24px;
-	color:#4c4c4c ;
-	font-weight: bold;
+	font-size: px;
+	color: #fff;
 }
 .label-33{
 	font-size: 12px;
@@ -515,7 +470,23 @@ a.label-9:hover{
 	font-size: 14px;
 	color: #0097d7;
 }
-
+.div-c .label-26{height: 47px;overflow: hidden;text-overflow: ellipsis; word-wrap:break-word;}
+.ul-h .label-27{margin-bottom:5px;}
+.divd-comment .label-27{margin-bottom:5px;}
+.pgt-bar .label-28{margin-right:30px;}
+.ul-e .label-21{margin-top:15px;}
+.ul-g .label-26{margin-bottom:10px;}
+.ul-g .label-25{margin-bottom:10px;}
+.div-a .label-18{margin-bottom: 5px;}
+.div-a .label-19{margin-top:5px;}
+.cb-right .label-12{margin-bottom: 5px;}
+.ca-down .label-7{margin-bottom: 30px;}
+.cb-left .label-1{margin-bottom: 10px;}
+.cb-left .label-10{margin-bottom: 10px;}
+.cb-left .label-8{margin-bottom: 15px;}
+.cb-right .label-8{margin-bottom: 10px;}
+.ca-right .label-5{margin-bottom: 20px;}
+.ca-right .label-3{	margin: 5px 0px 10px 0px;}
 
 .label-26{
 	font-size: 14px;
@@ -546,7 +517,7 @@ a.label-9:hover{
 	text-shadow: 1px 1px #ccc;
 }
 .label-20{
-	font-size:12px;
+	font-size:14px;
 	color: #818386;
 }
 .label-19{
@@ -713,4 +684,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9672c', end
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1) inset, 0 -1px 0 0 rgba(0, 0, 0, 0.4) inset;
 }
 
-#gmap 		{height:400px;width:580px;margin:20px}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

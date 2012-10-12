@@ -1,4 +1,31 @@
 .content.wrapper
-  .content-a
-    .ca-top
-      %p= "welcome #{@current_user.fullname}"
+  .content-c
+    .cc-top
+      - if @user.avatar_file_name && (@user.errors[:avatar_content_type].blank? && @user.errors[:avatar_file_size].blank?)
+        %img.profile-img.img-a.flt-left{:src => @user.try(:avatar).url(:thumb) , :style => "width:100px;height: 100px;"}/
+      - else
+        %img.profile-img.img-a.flt-left{:src => "/assets/profile.png"}/
+      %h2.label-34 Welcome #{@user.fullname}!
+      %h5.label-20 Location: #{@user.location}
+      %a.label-35{:href => "#"} My Account
+    .cc-left
+      %ul.ul-f
+        %li.ulf-selected
+          %a{:href => "#"} Post
+          %i.bg-arrow-down-b
+        %li
+          %a{:href => "#"} Events
+          %i.bg-arrow-down-b
+        %li
+          %a{:href => "#"} Photos
+          %i.bg-arrow-down-b
+        %li
+      %ul.ul-i
+        %li.uli-selected
+          %a{:href => "#"} Group 1
+        %li
+          %a{:href => "#"} Group 2
+        %li
+          %a{:href => "#"} Group 3
+        %li
+          %a{:href => "#"} Group 4
