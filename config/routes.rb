@@ -25,7 +25,11 @@ CloudfoundryUsergroups::Application.routes.draw do
 #  get '/event' , :to => 'home#event'
 #  get '/mine' , :to => "home#mine"
 
-  resources :users
+  resources :users do
+    collection do
+      post 'uploader'
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

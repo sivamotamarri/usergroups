@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
+  layout 'chapters'
 
- 
-  
   def edit
     @user = User.find_by_email(params[:email])
   end
@@ -16,5 +15,15 @@ class UsersController < ApplicationController
 
 
   def profile
+  end
+
+  def uploader    
+    @user = User.find(params[:id])
+    @user.update_attributes(params[:user])
+    mime_type = MIME::Types.type_for(@user.avatar_file_name) 
+    @user.update_attributes(:avatar_content_type => mime_type.first.content_type.to_s) if mime_type.first
+    respond_to do |format|
+      format.json { render json: @user.avatar.url(:medium)}
+    end
   end
 end

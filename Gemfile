@@ -11,7 +11,8 @@ gem 'mysql2' , '0.3.11'
 
 gem 'haml-rails' , '0.3.5'
 gem 'formtastic' , '2.2.1'
-gem 'paperclip', '2.3.8'
+gem "paperclip", "~> 3.0"
+gem 'mime-types', :require => 'mime/types'
 gem 'rmagick4j', '0.3.7'
 gem 'cancan', '1.6.5'
 gem 'userstamp', :git=>'https://github.com/sowmyadumpa/userstamp.git' #forked and added. will remove once the latest version of userstamp is inplace
