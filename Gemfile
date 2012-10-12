@@ -15,6 +15,7 @@ gem "paperclip", "~> 3.0"
 gem 'mime-types', :require => 'mime/types'
 gem 'rmagick4j', '0.3.7'
 gem 'cancan', '1.6.5'
+gem 'eventbrite-client'
 gem 'userstamp', :git=>'https://github.com/sowmyadumpa/userstamp.git' #forked and added. will remove once the latest version of userstamp is inplace
 #gem 'therubyracer'
 #gem 'libv8'
@@ -51,11 +52,12 @@ end
 
 #group :development do
 #   # To use debugger
-#	gem 'debugger'
+	#gem 'debugger'
 #end
 
 
 gem 'jquery-rails'
+gem 'oauth2'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

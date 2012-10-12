@@ -3,6 +3,11 @@ CloudfoundryUsergroups::Application.routes.draw do
 
 
   resources :chapters
+  resources :events do
+    collection do 
+      get 'oauth_reader'
+    end  
+  end
 
 #scope ':locale' do
   devise_for :users , :controllers => { :registrations => "registrations" } do
@@ -11,7 +16,7 @@ CloudfoundryUsergroups::Application.routes.draw do
     get '/users/reset_password', :to => 'devise/passwords#new'
     get '/users/change_password', :to => 'devise/passwords#edit'
   end
-
+  
   get '/sign_up' , :to => 'users#edit'
   match '/verify_user' => 'federated#verify_user'
   match '/user_status' => 'federated#user_status' 

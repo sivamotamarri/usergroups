@@ -66,4 +66,8 @@ CloudfoundryUsergroups::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   FEDERATED_KEY = 'AIzaSyB8IrA9iaoSnQZbagf2rGxbIOk41IRKUA8'
   FEDERATED_BASE_URL = "https://www.googleapis.com/identitytoolkit/v1/relyingparty/verifyAssertion?key=#{FEDERATED_KEY}"
+  EVENTBRITE_CLIENT_ID = 'VHHM4OT2VSPEEBUSWW'
+  EVENTBRITE_CLIENT_SECRET = 'ZG7WVTHUWLLFDXHA4AIUWEVJTYDDNIYSXGWFKWBPYPCFLEBZX4'
+  EVENTBRITE_URL = 'https://www.eventbrite.com'
+  EVENTBRITE_REDIRECT_URL = 'http://user-groups.cloudfoundry.com/events/oauth_reader' 
 end
