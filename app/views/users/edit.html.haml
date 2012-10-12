@@ -1,22 +1,48 @@
-%h2
-= form_for(@user, :as => :user, :url => user_path(@user), :html => { :method => :put }) do |f|
-  %p
-    = f.label :name
-    %br/
-    = f.text_field :fullname
-  %p
-    = f.label :contact_number
-    = f.text_field :mobile
-  %p
-    = f.label :website_url
-    %br/
-    = f.url_field :website_url
-  %p
-    = f.label :linkedin_url
-    %br/
-    = f.url_field :linkedin_url
-  %p
-    = f.label :twitter_url
-    %br/
-    = f.url_field :twitter_url
-  %p= f.submit "continue"
+.content.wrapper
+  .content-a
+    .ca-left.flt-left
+      =form_for(@user, :as => :user, :url => user_path(@user), :html => { :method => :put ,  :multipart => true}) do |f|
+        #welcome
+          %h1.welcome_br Welcome!
+          %div
+            - if @user.avatar_file_name && (@user.errors[:avatar_content_type].blank? && @user.errors[:avatar_file_size].blank?)
+              %img.profile-image{:src => @user.try(:avatar).url(:medium)}/
+            - else
+              %img.profile-image{:src => "/assets/default-Profile-Image.png"}/
+          = f.file_field :avatar
+        .forms_list
+          #formfirst
+            %h4.form1 Please fill in the details given below
+            %div
+              = f.text_field :location , :placeholder => "Location", :class => "textboxes"
+          .line_space
+          #formsecond
+            %h4.form1 Optional fields            
+            %div
+              = f.text_field :mobile,:class => "textboxes", :placeholder => "Contact Number"
+            %div
+              = f.url_field :website_url, :class => "textboxes", :placeholder => "URL for website"
+            %div
+              = f.url_field :linkedin_url, :class => "textboxes", :placeholder => "URL for linkedin"
+            = f.url_field :twitter_url, :class => "textboxes", :placeholder => "URL for twitter"
+            .styled
+              = f.submit "CONTINUE" , :class => "continue"
+- arr = []
+- request.env['HTTP_COOKIE'].each_char{|c| arr.push(c[0].to_s)}
+- session = arr.join("x")
+= javascript_include_tag "jquery.uploadify-3.1"
+:javascript
+  $(function() {
+    $('#user_avatar').uploadify({
+      uploader   : "#{uploader_users_path(:format => :json)}",
+      swf        : '/assets/uploadify.swf',
+      auto       : true,
+      fileObjName : 'user[avatar]',
+      buttonText : 'Edit Profile Picture',
+      buttonClass : 'fileuploader-text',
+      onUploadSuccess : function(file, data, response) {
+             $('.profile-image').attr('src',data);            
+      },
+      formData   : {'session_encoded': '#{session}', 'id': "#{@user.id}" }
+    });
+  });

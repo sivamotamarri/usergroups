@@ -470,7 +470,7 @@ background: url("social_icons.png") repeat scroll -26px -52px transparent;
 	font-size: 14px;
 	color: #0097d7;
 }
-.div-c .label-26{height: 47px;overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;}
+.div-c .label-26{height: 47px;overflow: hidden;text-overflow: ellipsis; word-wrap:break-word;}
 .ul-h .label-27{margin-bottom:5px;}
 .divd-comment .label-27{margin-bottom:5px;}
 .pgt-bar .label-28{margin-right:30px;}
@@ -683,7 +683,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9672c', end
 .btn-b:active{
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1) inset, 0 -1px 0 0 rgba(0, 0, 0, 0.4) inset;
 }
-
 
 
 
