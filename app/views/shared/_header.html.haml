@@ -2,13 +2,16 @@
   .header-a
     .wrapper
       .bg-logo.flt-left
-        %img{:src => "/assets/logo.png"}
+        %a{:href => "#{root_path}"}
+          %img{:src => "/assets/logo.png"}
       %h5.flt-right.label-2
         (EN)
         %label.bold English
         %a.dd-a{:href => "#"}
-      %ul.ul-a.flt-right
+      %ul.ul-a.flt-right        
         - if !current_user.blank?
+          %li
+            %a.label-2.logout{:href => "#{profile_path}"} My Profile
           %li
             %a.label-2.logout{:href => "#"} Log out
         - else
