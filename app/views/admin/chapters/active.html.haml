@@ -1,0 +1,12 @@
+%table
+  %tr
+    %th Name
+    %th{:style => "width:20px"}
+    %th{:colspan => 3} Actions
+
+  - @chapters.each do |chapter|
+    %tr
+      %td= chapter.name
+      %td{:style => "width:30px;"}
+      %td
+        %button.change_status{"data-url" => "#{change_status_admin_chapter_path(chapter, :status => 'active_to_incubate')}"} Incubate

@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :chapters , :through => :chapter_members
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me , :first_name, :last_name , :fullname,:mobile, :website_url, :linkedin_url, :twitter_url , :avatar , :avatar_content_type,:location
+  attr_accessible :email, :password, :password_confirmation, :remember_me , :first_name, :last_name , :fullname,:mobile, :website_url, :linkedin_url, :twitter_url , :avatar , :avatar_content_type,:location , :admin
   has_attached_file :avatar,
     :styles => { :medium => "157x161>", :thumb => "100x100>" },
     :path => ":rails_root/public/system/:attachment/:id/:style/:filename",

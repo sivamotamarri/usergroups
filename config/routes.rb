@@ -16,7 +16,7 @@ CloudfoundryUsergroups::Application.routes.draw do
     get '/users/reset_password', :to => 'devise/passwords#new'
     get '/users/change_password', :to => 'devise/passwords#edit'
   end
-  
+  get "admin/log_out" => "admin/sessions#destroy", :as => "log_out"
   get '/sign_up' , :to => 'users#edit'
   match '/verify_user' => 'federated#verify_user'
   match '/user_status' => 'federated#user_status' 
@@ -35,6 +35,23 @@ CloudfoundryUsergroups::Application.routes.draw do
       post 'uploader'
     end
   end
+
+   namespace :admin do
+    resources :sessions
+    resources :anouncements
+    resources :mails
+    resources :chapters do
+      collection do
+        get 'incubate'
+        get 'active'
+        get 'delist'
+      end
+      member do
+        get 'change_status'
+      end
+    end
+   end
+   
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -88,6 +105,7 @@ CloudfoundryUsergroups::Application.routes.draw do
 #  post '/local_selection/:local' , :to => "home#local_selection"
   root :to => 'home#index'
 
+  
 
   # See how all your routes lay out with "rake routes"
 
