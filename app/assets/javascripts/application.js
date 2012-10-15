@@ -27,4 +27,36 @@ $(function(){
     window.location = window.google.identitytoolkit.easyrp.config.logoutUrl;
   });
 
+   // Admin Tab System
+   $( "#tabs" ).tabs({
+          beforeLoad: function( event, ui ) {
+              ui.jqXHR.error(function() {
+                  ui.panel.html(
+                      "Couldn't load this tab. We'll try to fix this as soon as possible. " +
+                      "If this wouldn't be a demo." );
+              });
+          }
+      });
+
+   $( "#inner-tabs" ).tabs({
+          beforeLoad: function( event, ui ) {
+              ui.jqXHR.error(function() {
+                  ui.panel.html(
+                      "Couldn't load this tab. We'll try to fix this as soon as possible. " +
+                      "If this wouldn't be a demo." );
+              });
+          }
+     });
+   // Changing chapter status
+    $(".change_status").live('click',function(){
+      var obj = $(this)
+      $.ajax({
+        url: obj.attr('data-url'),
+        success: function(data){
+            $(obj).parent().html(data.msg)
+        },
+        contentType: "application/json",
+        dataType: 'json'
+      });
+    });
 });

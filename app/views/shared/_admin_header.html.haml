@@ -8,16 +8,14 @@
         %label.bold English
         %a.dd-a{:href => "#"}
       %ul.ul-a.flt-right
-        - if !current_user.blank?
+        - if !admin_user.blank?
           %li
             %a.label-2{:href => "#{log_out_path}"} Log out
         - else
           %li
-            %a.label-2.signup{:href => "#"} Sign up
+            %a.label-2.signup{:href => "#{new_admin_session_path}"} Login
           %li
-            %label.label-2.bold{:style => "position: relative;top: -2px;font-size: 18px;color:#afafaf;"} |
-          %li
-            %a.label-2.signin{:href => "#"} Login
+            %label.label-2.bold{:style => "position: relative;top: -2px;font-size: 18px;color:#afafaf;"}           
   .header-b
     .wrapper
       %ul.ul-b.flt-left
@@ -28,4 +26,4 @@
         %li
           %a{:href => "#"} wiki
         %li
-          %a{:href => "#"} admin
+          %a{:href => "#{new_admin_session_path}"} admin

@@ -38,7 +38,18 @@ CloudfoundryUsergroups::Application.routes.draw do
 
    namespace :admin do
     resources :sessions
-    resources :chapters
+    resources :anouncements
+    resources :mails
+    resources :chapters do
+      collection do
+        get 'incubate'
+        get 'active'
+        get 'delist'
+      end
+      member do
+        get 'change_status'
+      end
+    end
    end
    
   # The priority is based upon order of creation:

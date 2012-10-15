@@ -1,1 +1,36 @@
-%p welcome admin
+#tabs
+  %ul
+    %li
+      %a{:href => "#tabs-1"} Chapter Satus
+    %li
+      %a{:href => "#{admin_mails_path}"} Mails
+    %li
+      %a{:href => "#{admin_anouncements_path}"} Anouncement
+  #tabs-1
+    #inner-tabs
+      %ul
+        %li
+          %a{:href => "#inner-tab1"} Applied
+        %li
+          %a{:href => "#{incubate_admin_chapters_path}"} Incubate
+        %li
+          %a{:href => "#{active_admin_chapters_path}"} Active
+        %li
+          %a{:href => "#{delist_admin_chapters_path}"} Delist
+      #inner-tab1
+        %table
+          %tr
+            %th Name
+            %th{:style => "width:20px"}
+            %th{:colspan => 3} Actions
+
+          - @chapters.each do |chapter|
+            %tr
+              %td= chapter.name
+              %td{:style => "width:30px;"}
+              %td
+                - if chapter.incubated?
+                  %span Approved on 3 /10 / 2012
+                - else
+                  %button.change_status{"data-url" => "#{change_status_admin_chapter_path(chapter, :status => 'incubate')}"} Approve
+              
