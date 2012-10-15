@@ -1,5 +1,241 @@
 %p#notice= notice
 
+.content.wrapper
+  .content-c
+    .cc-top
+      %img{:src => "/assets/img-c.png", :style => "width:1010px;"}
+        .div-b
+          %img.bg-logo-b{:src => "/assets/logo-b.png"}
+          %br/
+          %button.btn-a
+            JOIN US!
+        .div-a
+          %h2.label-17 Group Name
+          %h5.label-18 Location: Hyderabad | Founded on Oct 21, 2012
+          %h5.label-20
+            Founded by
+            %a.label-20{:href => "#"} Pranav K
+            on Oct 7, 2012
+          %h5.label-19
+            Primary Group Coordinator:
+            %label.label-20 #{@primary_coord.try(:user).email}
+          -if @secondary_coord.present? 
+            %h5.label-19
+              Group Coordinator:
+              %label.label-20
+                @secondary_coord.each |coord| do   #{coord.user.email}           end
+        %ul.ul-e.statistics
+          %li
+            %h2.label-21 #{@totalcount}
+            %h5.label-39 Members
+          %li
+            %h2.label-21 #{@chapter.events.try(:size)}
+            %h5.label-39 Events
+          %li{:style => "width:192px;height:133px;"}
+            %i.bg-img-e{:style => "width:182px;height:123px; "}
+            .black-bar
+              7 Photos in Event Name...
+            .info-bar
+              %h5.label-40 Status: Active
+              %h5.label-40 Last Event Date: Sep 07, 2012
+    .cc-left
+      %ul.ul-f
+        %li.ulf-selected
+          %a{:href => "#"} Post
+          %i.bg-arrow-down-b
+        %li
+          %a{:href => "#"} Events
+          %i.bg-arrow-down-b
+        %li
+          %a{:href => "#"} Photos
+          %i.bg-arrow-down-b
+        %li
+      %ul.ul-g
+        %li
+          .div-c
+            %h1.label-23 30
+            %h4.label-24 Sep
+          .div-h
+            %a.label-9{:href => "#"} Title of Article
+            %a.label-25{:href => "#"} Subramaniam
+            %label.label-25 , Delhi I Sept 30th  2012
+            %p.label-26
+              Lorem ipsum Lorem ipsum dolor sit amet
+              , consectetur adipisicing elit, sed do eiusmod dolor s
+              it amet, consectetur adonsequat.
+        %li
+          %img.img-a.flt-left{:src => "/assets/img-f.png"}
+            %a.label-9{:href => "#"} Title of Article
+            %a.label-25{:href => "#"} Subramaniam
+            %label.label-25 , Delhi I Sept 30th  2012
+            %p.label-26
+              Lorem ipsum Lorem ipsum dolor sit amet
+              , consectetur adipisicing elit, sed do eiusmod dolor s
+              it amet, consectetur adipisicing elit, sed do eiusmod te
+              mpor incididunt ut laboo consequat.
+        %li.ulg-expanded
+          %a.label-9{:href => "#"} Title of Article
+          %a.label-25{:href => "#"} Subramaniam
+          %label.label-25 , Delhi I Sept 30th  2012
+          %p.label-26
+            Lorem ipsum Lorem ipsum dolor sit amet
+            , consectetur adipisicing elit, sed do eiusmod dolor s
+            it amet, consectetur adipisicing elit, sed do eiusmod te
+            mpor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco labori
+            s nisi ut aliquip ex ea commodo consequat.
+          %img.img-b{:src => "/assets/img-g.png"}
+          %img.img-b{:src => "/assets/img-g.png"}
+          %img.img-b{:src => "/assets/img-g.png"}
+          %img.img-b{:src => "/assets/img-g.png"}
+          %img.img-b{:src => "/assets/img-g.png"}
+          .div-d
+            .divd-comment
+              %img.img-c.flt-left{:src => "/assets/img-d.png"}
+                %h5.label-27
+                  Rohit -
+                  %label.label-25 Delhi, 23 Sep
+                %p.label-16
+                  Does JXTA supports voice chat?: I'm developing a LAN mes
+                  senger in java. I'm followi
+                  ng P2P, Does JXTA supports voice chat?: I'm d
+            .divd-comment
+              %img.img-c.flt-left{:src => "/assets/img-d.png"}
+                %h5.label-27
+                  Rohit -
+                  %label.label-25 Delhi, 23 Sep
+                %p.label-16
+                  Does JXTA supports voice chat?: I'm developing a LAN mes
+                  senger in java. I'm followi
+                  ng P2P, Does JXTA supportwing P2P.
+          %textarea.ta-a{:placeholder => "alpha"}
+        %li
+          %a.label-9{:href => "#"} Title of Article
+          %a.label-25{:href => "#"} Subramaniam
+          %label.label-25 , Delhi I Sept 30th  2012
+          %img.img-b{:src => "/assets/img-g.png"}
+          %img.img-b{:src => "/assets/img-g.png"}
+          %img.img-b{:src => "/assets/img-g.png"}
+          %img.img-b{:src => "/assets/img-g.png"}
+        %li
+          %a.label-9{:href => "#"} Title of Article
+          %a.label-25{:href => "#"} Subramaniam
+          %label.label-25 , Delhi I Sept 30th  2012
+          %p.label-26
+            Lorem ipsum Lorem ipsum dolor sit amet
+            , consectetur adipisicing elit, sed do eiusmod dolor s
+            it amet, consectetur adipisicing elit, sed do eiusmod te
+            mpor incididunt ut labore et donsequat.
+        %li
+          %img.img-a.flt-left{:src => "/assets/img-f.png"}
+            %a.label-9{:href => "#"} Title of Article
+            %a.label-25{:href => "#"} Subramaniam
+            %label.label-25 , Delhi I Sept 30th  2012
+            %p.label-26
+              Lorem ipsum Lorem ipsum dolor sit amet
+              , consectetur adipisicing elit, sed do eiusmod dolor s
+              it amet, consectetur adipisicing elit, sed do eiusmod te
+              mpor incididunt ut labore et dolore magna aliqua. Ut enim
+              ad minim veniam, quis nostrud exercitation ullamco labori
+              s nisi ut aliquip ex ea commodo consequat.
+      .pgt-bar
+        %label.label-28 Page
+        %a.pgtbar-selected{:href => "#"} 1
+        %a{:href => "#"} 2
+        %a{:href => "#"} 3
+        %a{:href => "#"} 4
+        %a{:href => "#"} 5
+        %a{:href => "#"} 6
+        %a{:href => "#"} 7
+        %a{:href => "#"} 8
+        %a.flt-right{:href => "#", :style => "margin-left:30px;"} NEXT >
+        %a.flt-right{:href => "#"} < PREVIOUS
+    .cc-right
+      %h2.label-29 Upcoming Event
+      .div-e
+        %h5.label-41 Something is happening in the group here...
+        %table.table-a
+          %tr
+            %td
+              %h5.label-19 Venue:
+            %td
+              %h5.label-20 Singh Bhavan, Vasant Road,Defence Colony, Delhi
+          %tr
+            %td
+              %h5.label-19.flt-left Date:
+            %td
+              %h5.label-20 Saturday, Sept 30, 2012
+          %tr
+            %td
+              %h5.label-19.flt-left Time:
+            %td
+              %h5.label-20 7pm
+        .blue-bar-a
+          %h1.label-23 30
+          %h4.label-24 Sep
+      %h2.label-29 Announcements
+      %ul.ul-c
+        %li
+          %a.label-32{:href => "#"} Title of articles
+          %a.label-33 Subramaniam Nath
+          %label.label-33 , Posted on 20th September
+          %h5.label-16 Lorem ipsum dolor sit amet, consectetur adipisicin t amet, consectetur adi.
+        %li
+          %a.label-32{:href => "#"} Title of articles
+          %a.label-33 Subramaniam Nath
+          %label.label-33 , Posted on 20th September
+          %h5.label-16 Lorem ipsum dolor sit amet, consectetur adipisicin t amet, consectetur adi.
+        %li
+          %a.label-32{:href => "#"} Title of articles
+          %a.label-33 Subramaniam Nath
+          %label.label-33 , Posted on 20th September
+          %h5.label-16 Lorem ipsum dolor sit amet, consectetur adipisicin t amet, consectetur adi.
+      %h2.label-29 Live Comment Stream
+      %ul.ul-h
+        %li
+          %img.img-c.flt-left{:src => "/assets/img-d.png"}
+            %a.label-27{:href => "#"} Rohit -
+            %label.label-25 Delhi, 23 Sep
+            %p.label-16
+              Does JXTA supports voice chat?: I'm developing a LAN mes
+        %li
+          %img.img-c.flt-left{:src => "/assets/img-d.png"}
+            %a.label-27{:href => "#"} Rohit -
+            %label.label-25 Delhi, 23 Sep
+            %p.label-16
+              Does JXTA supports voice chat?: I'm developing a LAN mes
+        %li
+          %img.img-c.flt-left{:src => "/assets/img-d.png"}
+            %a.label-27{:href => "#"} Rohit -
+            %label.label-25 Delhi, 23 Sep
+            %p.label-16
+              Does JXTA supports voice chat?: I'm developing a LAN mes
+        %li
+          %img.img-c.flt-left{:src => "/assets/img-d.png"}
+            %a.label-27{:href => "#"} Rohit -
+            %label.label-25 Delhi, 23 Sep
+            %p.label-16
+              Does JXTA supports voice chat?: I'm developing a LAN mes
+        %li
+          %img.img-c.flt-left{:src => "/assets/img-d.png"}
+            %a.label-27{:href => "#"} Rohit -
+            %label.label-25 Delhi, 23 Sep
+            %p.label-16
+              Does JXTA supports voice chat?: I'm developing a LAN mes
+        %li.ulh-last-li
+          %img.img-c.flt-left{:src => "/assets/img-d.png"}
+            %h5.label-27
+              Rohit -
+              %label.label-25 Delhi, 23 Sep
+            %p.label-16
+              Does JXTA supports voice chat?: I'm developing a LAN mes
+
+
+
+
+
+
+
 
 = link_to 'Edit', edit_chapter_path(@chapter)
 \|

@@ -38,8 +38,8 @@ website.png: website-71c4c600ece513ab922543d7d374e014.png
 yahoo.png: yahoo-62dcb95107a3e245a038a5e6fc6bf5c8.png
 yahoo_logo.jpg: yahoo_logo-d3eeb916a3203709bcbc11f4a4c6e721.jpg
 youtube.png: youtube-6f205efbc540bf4d49dde60982ee5819.png
-application.js: application-051603ebe748d4abacfeee83876e5ed5.js
-chapters.js: chapters-3af39f1da6f167c2cbf453ed74daff3d.js
+application.js: application-673e96e19b5f3109f777c44d2ab92343.js
+chapters.js: chapters-2f7fc0bc33e1bc506923720bdae77014.js
 federated.js: federated-3af39f1da6f167c2cbf453ed74daff3d.js
 gmaps4rails/gmaps4rails.base.js: gmaps4rails/gmaps4rails.base-579a2673f165661f33268c62a3621df4.js
 gmaps4rails/gmaps4rails.bing.js: gmaps4rails/gmaps4rails.bing-d67a3296df6bb176e5db223caebe70d1.js
@@ -51,8 +51,8 @@ jquery.uploadify-3.1.js: jquery.uploadify-3.1-3b72e1760ada15551e004e8fc5f3f87b.j
 registrations.js: registrations-3af39f1da6f167c2cbf453ed74daff3d.js
 uploadify.swf: uploadify-a31da4f2221ec60270ccf198417af9af.swf
 users.js: users-3af39f1da6f167c2cbf453ed74daff3d.js
-application.css: application-810e589c8c8f9fae094b8116509ace4d.css
-chapters.css: chapters-e6959ddc2ce94806be5a6d87e1ace6fd.css
+application.css: application-8e3a61329037b1051ba75ad491c1af20.css
+chapters.css: chapters-102ccb96f15c5dfcd2859983654c31c2.css
 federated.css: federated-7270767b2a9e9fff880aa5de378ca791.css
 gmaps4rails.css: gmaps4rails-ba3211a975e098cdbe8e26a7ae918b06.css
 home.css: home-7270767b2a9e9fff880aa5de378ca791.css

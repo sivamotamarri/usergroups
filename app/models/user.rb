@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   acts_as_soft_deletable         
   stampable
   has_one :eventbrite_oauth_token
+  has_many :chapters , :through => :chapter_members
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me , :first_name, :last_name , :fullname,:mobile, :website_url, :linkedin_url, :twitter_url , :avatar , :avatar_content_type,:location

@@ -33,8 +33,9 @@ lib/java/applets/*.class
 log/*
 logs/*
 
-public/assets/*
-public/stylesheets/compiled
+public/assets/
+public/assets/*.js.gz
+
 
 tmp/
 tmp/**/*

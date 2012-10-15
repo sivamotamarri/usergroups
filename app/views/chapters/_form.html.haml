@@ -1,26 +1,43 @@
-= semantic_form_for @chapter do |f|
-  - if @chapter.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@chapter.errors.count, "error")} prohibited this chapter from being saved:"
-      %ul
-        - @chapter.errors.full_messages.each do |msg|
-          %li= msg
-  = f.input :name , :placeholder => 'Name' , :label =>false
-  = f.radio_button :chapter_type , 'student', :checked =>true 
-  = f.label :student ,"Student"
-  = f.radio_button :chapter_type , 'professional', :checked => false 
-  = f.label :professional ,"Professional"
-  %li      
-    = text_field_tag :country , nil, :placeholder => 'Country'
-  %li      
-    = text_field_tag :state ,nil ,:placeholder => 'State'
-  %li      
-    = text_field_tag :city , nil, :placeholder => 'City'
-  = f.input :locality ,  :placeholder => 'Locality' , :label => false
-  = f.input :address,   :placeholder => 'Address' , :label => false
-  = f.input :landmark,   :placeholder => 'Landmark' , :label => false
-  = f.hidden_field :country_id
-  = f.hidden_field :state_id
-  = f.hidden_field :city_id
-  .actions
-    = f.submit 'Save'
+.content.wrapper
+  .content-a
+    .Creation-form
+      %h1.chapter Chapter Creation
+      %h3.label-11 Founder Information
+      .Info
+        %h4.info_label Name: #{@current_user.fullname}
+        %h4.info_label Email Id: #{@current_user.email}
+      %h3.label-11 Chapter Type & Location
+      = semantic_form_for @chapter do |f|
+        #Form_ch        
+          .form_r             
+            /= f.input :name, :placeholder => 'Name' ,  :label =>false ,  :input_html => {:class => "textboxes"}
+            %span.info_label Chapter Type        
+            .chapter_type         
+              = f.radio_button :chapter_type , 'student', :checked =>true , :class => "radio"
+              = f.label :student ,"Student" , :class => 'r_label'
+              = f.radio_button :chapter_type , 'professional', :checked => false , :class => "radio"
+              = f.label :professional ,"Professional" , :class => 'r_label'
+          .drop_list
+            .one_side
+              %div               
+                = text_field_tag :country , nil, :placeholder => 'Country' ,:class => "textboxes"
+              %div
+                = text_field_tag :state ,nil ,:placeholder => 'State',  :class => "textboxes"
+              %div
+                = text_field_tag :city ,nil ,:placeholder => 'City',  :class => "textboxes"
+            .two_side
+              %div
+                = f.input :locality ,  :placeholder => 'Locality' , :label => false ,  :input_html => {:class => "textboxes"}            
+              %div
+                = f.input :address,   :placeholder => 'Address' , :label => false,  :input_html => {:class => "textboxes"}
+              %div
+                = f.input :landmark,   :placeholder => 'Landmark' , :label => false,  :input_html => {:class => "textboxes"}
+          %h3.label-11 Chapter Proposal
+          .proposal
+            %h4.ch_label To: admin@cloudfoundry.com          
+            = text_field_tag :message ,nil ,:class => 'send_text'            
+            = f.submit 'SEND PROPOSAL' , :class => 'send'
+                  
+
+
+
