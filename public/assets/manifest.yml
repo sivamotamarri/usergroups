@@ -38,7 +38,11 @@ website.png: website-71c4c600ece513ab922543d7d374e014.png
 yahoo.png: yahoo-62dcb95107a3e245a038a5e6fc6bf5c8.png
 yahoo_logo.jpg: yahoo_logo-d3eeb916a3203709bcbc11f4a4c6e721.jpg
 youtube.png: youtube-6f205efbc540bf4d49dde60982ee5819.png
-application.js: application-673e96e19b5f3109f777c44d2ab92343.js
+admin/anouncements.js: admin/anouncements-3af39f1da6f167c2cbf453ed74daff3d.js
+admin/chapters.js: admin/chapters-3af39f1da6f167c2cbf453ed74daff3d.js
+admin/mails.js: admin/mails-3af39f1da6f167c2cbf453ed74daff3d.js
+admin/sessions.js: admin/sessions-3af39f1da6f167c2cbf453ed74daff3d.js
+application.js: application-9f58fc53b9539f34d6a95038e75c2574.js
 chapters.js: chapters-2f7fc0bc33e1bc506923720bdae77014.js
 federated.js: federated-3af39f1da6f167c2cbf453ed74daff3d.js
 gmaps4rails/gmaps4rails.base.js: gmaps4rails/gmaps4rails.base-579a2673f165661f33268c62a3621df4.js
@@ -51,6 +55,10 @@ jquery.uploadify-3.1.js: jquery.uploadify-3.1-3b72e1760ada15551e004e8fc5f3f87b.j
 registrations.js: registrations-3af39f1da6f167c2cbf453ed74daff3d.js
 uploadify.swf: uploadify-a31da4f2221ec60270ccf198417af9af.swf
 users.js: users-3af39f1da6f167c2cbf453ed74daff3d.js
+admin/anouncements.css: admin/anouncements-7270767b2a9e9fff880aa5de378ca791.css
+admin/chapters.css: admin/chapters-7270767b2a9e9fff880aa5de378ca791.css
+admin/mails.css: admin/mails-7270767b2a9e9fff880aa5de378ca791.css
+admin/sessions.css: admin/sessions-7270767b2a9e9fff880aa5de378ca791.css
 application.css: application-8e3a61329037b1051ba75ad491c1af20.css
 chapters.css: chapters-102ccb96f15c5dfcd2859983654c31c2.css
 federated.css: federated-7270767b2a9e9fff880aa5de378ca791.css
