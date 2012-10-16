@@ -6,4 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(:email=>"siteadmin@gmail.com",:fullname=>"SiteAdmin",:password=>"admincloud", :password_confirmation => "admincloud",:admin => true)
+#User.create(:email=>"siteadmin@gmail.com",:fullname=>"SiteAdmin",:password=>"admincloud", :password_confirmation => "admincloud",:admin => true)
+
+
+User.create(:email=>"admin@cloudfoundry.com",:fullname=>"Admin",:password=>"pramati123", :password_confirmation => "pramati123",:admin => true)
