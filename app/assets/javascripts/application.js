@@ -29,7 +29,7 @@ $(function(){
 
    // Admin Tab System
    $( "#tabs" ).tabs({
-          beforeLoad: function( event, ui ) {
+          beforeLoad: function( event, ui ) {            
               ui.jqXHR.error(function() {
                   ui.panel.html(
                       "Couldn't load this tab. We'll try to fix this as soon as possible. " +
@@ -37,7 +37,7 @@ $(function(){
               });
           }
       });
-
+   
    $( "#inner-tabs" ).tabs({
           beforeLoad: function( event, ui ) {
               ui.jqXHR.error(function() {
@@ -58,5 +58,7 @@ $(function(){
         contentType: "application/json",
         dataType: 'json'
       });
-    });
+    });   
+   
+
 });

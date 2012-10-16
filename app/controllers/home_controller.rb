@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   layout "application"
 
   def index
+    @cities = Chapter.all.collect{|chapter| chapter.city.try(:name)}.compact
   	@markers = get_markers.to_json
   end
 
@@ -10,7 +11,7 @@ class HomeController < ApplicationController
 
   def get_markers
   	markers = []
-  	%w(Hyderabad Chennai CA Mexico China).each do |city|
+  	@cities.each do |city|
   		options = Gmaps4rails.geocode(city)
   		markers << {:lat => options.first[:lat], :lng => options.first[:lng], :title => options.first[:matched_address]}
   	end

@@ -6,10 +6,7 @@ class EventsController < ApplicationController
   before_filter :initialise_eventbrite_client
   def index
     @events = Event.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @events }
-    end
+    render :layout => false
   end
 
   # GET /events/1

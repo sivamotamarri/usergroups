@@ -7,25 +7,29 @@
         %img.profile-img.img-a.flt-left{:src => "/assets/profile.png"}/
       %h2.label-34 Welcome #{@user.fullname}!
       %h5.label-20 Location: #{@user.location}
-      %a.label-35{:href => "#"} My Account
-    .cc-left
+      %a.label-35{:href => "#"} My Account    
+    .cc-left      
       %ul.ul-f
-        %li.ulf-selected
+        %li
           %a{:href => "#"} Post
           %i.bg-arrow-down-b
         %li
-          %a{:href => "/events"} Events
+          %a{:href => "#"} Events
           %i.bg-arrow-down-b
         %li
           %a{:href => "#"} Photos
           %i.bg-arrow-down-b
         %li
-      %ul.ul-i
-        %li.uli-selected
-          %a{:href => "#"} Group 1
-        %li
-          %a{:href => "#"} Group 2
-        %li
-          %a{:href => "#"} Group 3
-        %li
-          %a{:href => "#"} Group 4
+          -if @is_primary_coord || @is_secondary_coord
+            %a{:href => "#", :id => 'photos'} Group Admin
+            %i.bg-arrow-down-b 
+      #profiletabs       
+        %ul.ul-i
+          - @user_chapters.each do |chaptermember|
+            %li
+              %a{:href => "#{posts_path}"} #{chaptermember.chapter.name}
+             
+
+:javascript 
+  Chapters.init();
+  

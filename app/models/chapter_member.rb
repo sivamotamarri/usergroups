@@ -9,4 +9,21 @@ class ChapterMember < ActiveRecord::Base
   SECONDARY_COORDINATOR = "secondary coordinator"
   MEMBER = 'member'
 
- end
+
+  def self.get_chapters(user_id)
+    ChapterMember.find_all_by_user_id(user_id) 
+  end
+
+  def self.is_primary_coordinator?(user_id)
+  	ChapterMember.find(:all , :conditions => [" user_id = ? and memeber_type = ?", user_id, PRIMARY_COORDINATOR]).present?
+  end
+
+  def self.is_secondary_coordinator?(user_id)
+  	ChapterMember.find(:all , :conditions => [" user_id = ? and memeber_type = ?", user_id, SECONDARY_COORDINATOR]).present?
+  end
+  
+  def self.is_just_member?(user_id)
+  	ChapterMember.find(:all , :conditions => [" user_id = ? and memeber_type = ?", user_id, MEMBER]).present?
+  end
+
+end

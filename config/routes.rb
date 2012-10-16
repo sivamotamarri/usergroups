@@ -3,6 +3,7 @@ CloudfoundryUsergroups::Application.routes.draw do
 
 
   resources :chapters
+  resources :posts
   resources :events do
     collection do 
       get 'oauth_reader'
