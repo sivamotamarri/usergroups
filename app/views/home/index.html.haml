@@ -21,8 +21,10 @@
       .ca-down
         %h2.label-6 Create a Chapter!
         %h5.label-7 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum. Lorem ipsum dolor sit amet,consectetur adipiscing elit. Donec elementum adipiscing elit. Donec elementum.
-        %button.btn-b
-          = link_to  "CREATE" , new_chapter_path 
+        - if !current_user.blank?
+          = link_to  "CREATE" , new_chapter_path, :class => "btn-b"
+        - else
+          %button.btn-b.signin CREATE
   .content-b
     .cb-left.flt-left
       %h2.label-8 Announcements
