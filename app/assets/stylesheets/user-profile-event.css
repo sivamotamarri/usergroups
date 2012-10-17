@@ -1,0 +1,67 @@
+.marg-top{
+margin-top:30px;
+}
+.label-A{
+	font-size: 24px;
+	color: #231f20;
+	font-weight: normal;
+}
+.img-d{
+float:left;
+	margin: 20px 10px 0px 0px;
+}
+
+.dis-inline{
+display:inline-block;
+}
+
+
+.img-hovers span
+{
+padding-left:10px;
+display:none;
+position:relative;
+}
+
+.ul-g li:hover .img-hovers span  
+{
+display:block;
+cursor:pointer;
+}
+.marg-top{
+margin-top:30px;
+}
+.label-A{
+	font-size: 24px;
+	color: #231f20;
+	font-weight: normal;
+	margin-bottom:-23px;
+}
+.img-d{
+float:left;
+	margin: 20px 10px 0px 0px;
+}
+
+.dis-inline{
+display:inline-block;
+}
+
+
+.img-hovers span
+{
+padding-left:10px;
+display:none;
+position:relative;
+}
+
+.div-h:hover .img-hovers span  
+{
+display:block;
+cursor:pointer;
+}
+.ulg-expanded .div-h .img-hovers span{
+	display: block;
+}
+.see-all-anchor{
+	margin-top:10px;
+}

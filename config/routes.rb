@@ -7,6 +7,8 @@ CloudfoundryUsergroups::Application.routes.draw do
   resources :events do
     collection do 
       get 'oauth_reader'
+      get 'userevents'
+      get 'get_chapter_events'
     end  
   end
 

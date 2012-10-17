@@ -17,8 +17,20 @@ class ChaptersController < ApplicationController
     @primary_coord = @chapter.chapter_members.where({:memeber_type => ChapterMember::PRIMARY_COORDINATOR}).try(:first)
     @secondary_coords = @chapter.chapter_members.where({:memeber_type => ChapterMember::SECONDARY_COORDINATOR}) || []
     @members = @chapter.chapter_members.where({:memeber_type => ChapterMember::MEMBER}) || []
-    @totalcount = @chapter.chapter_members.size
-    @chapter.users
+    @totalcount = @chapter.chapter_members.size    
+    
+    @all_events = Event.find_all_by_chapter_id(@chapter.id) || []
+    @past_events = []
+    @upcoming_events = []
+    @all_events.each do |event|       
+      if(!event.event_start_date.blank? && Time.parse(event.event_start_date.to_s) > Time.now)
+        @upcoming_events.push(event)
+      else
+        @past_events.push(event)
+      end
+    end
+    @upcoming_events.sort_by(&:event_start_date).reverse!
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @chapter }

@@ -42,6 +42,32 @@ class EventsController < ApplicationController
     end
   end
 
+
+  def userevents
+    chapter_id = params[:chapter_id]
+    user_events = EventMember.find_all_by_user_id(@current_user.id, :include => ['event'], :conditions => "events.chapter_id = #{chapter_id}") || []
+
+    @all_events = []
+    @past_events = []
+    @upcoming_events = []
+    user_events.each do |user_event|      
+      event = user_event.event      
+      @all_events.push(event)
+      
+      if(!event.event_start_date.blank? && event.event_start_date > Time.now)
+        @upcoming_events.push(event)
+      else
+        @past_events.push(event)
+      end
+    end
+    @upcoming_events.sort_by(&:event_start_date).reverse!
+
+     respond_to do |format|      
+      format.js {render :partial => 'events_list' }# new.html.erb
+    end
+ 
+  end
+
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])

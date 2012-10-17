@@ -21,13 +21,14 @@
           %i.bg-arrow-down-b
         %li
           -if @is_primary_coord || @is_secondary_coord
-            %a{:href => "#", :id => 'photos'} Group Admin
-            %i.bg-arrow-down-b 
-      #profiletabs       
-        %ul.ul-i
-          - @user_chapters.each do |chaptermember|
-            %li
-              %a{:href => "#{posts_path}"} #{chaptermember.chapter.name}
+            %a{:href => "#"} Group Admin
+            %i.bg-arrow-down-b                   
+      %ul.ul-i
+        - @user_chapters.each do |chaptermember|
+          %li
+            %a{:href => "#{userevents_events_url(chaptermember.chapter.id)}", :id=>"#{chaptermember.chapter.id}"} #{chaptermember.chapter.name}
+      #event_content
+      
              
 
 :javascript 

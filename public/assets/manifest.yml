@@ -42,8 +42,8 @@ admin/anouncements.js: admin/anouncements-3af39f1da6f167c2cbf453ed74daff3d.js
 admin/chapters.js: admin/chapters-3af39f1da6f167c2cbf453ed74daff3d.js
 admin/mails.js: admin/mails-3af39f1da6f167c2cbf453ed74daff3d.js
 admin/sessions.js: admin/sessions-3af39f1da6f167c2cbf453ed74daff3d.js
-application.js: application-2caf133a208037f17bce76fbc5c68df7.js
-chapters.js: chapters-e10585d951012f4313ecf6ca087630b7.js
+application.js: application-aa0eb51e458442e1c670e7cb168b2085.js
+chapters.js: chapters-28a9724895506ac0e436d5032fd45dab.js
 gmaps4rails/gmaps4rails.base.js: gmaps4rails/gmaps4rails.base-579a2673f165661f33268c62a3621df4.js
 gmaps4rails/gmaps4rails.bing.js: gmaps4rails/gmaps4rails.bing-d67a3296df6bb176e5db223caebe70d1.js
 gmaps4rails/gmaps4rails.googlemaps.js: gmaps4rails/gmaps4rails.googlemaps-a5ea7605ab0ee2729507f2a62148057e.js
@@ -55,7 +55,7 @@ admin/anouncements.css: admin/anouncements-7270767b2a9e9fff880aa5de378ca791.css
 admin/chapters.css: admin/chapters-7270767b2a9e9fff880aa5de378ca791.css
 admin/mails.css: admin/mails-7270767b2a9e9fff880aa5de378ca791.css
 admin/sessions.css: admin/sessions-7270767b2a9e9fff880aa5de378ca791.css
-application.css: application-8e3a61329037b1051ba75ad491c1af20.css
+application.css: application-63553ed45bfeafb2294ee8406f4e5bb2.css
 chapters.css: chapters-102ccb96f15c5dfcd2859983654c31c2.css
 federated.css: federated-7270767b2a9e9fff880aa5de378ca791.css
 gmaps4rails.css: gmaps4rails-ba3211a975e098cdbe8e26a7ae918b06.css
@@ -64,6 +64,7 @@ my-profile.css: my-profile-b8f40e179dc0d9f8c9074e4d1290e093.css
 posts.css: posts-7270767b2a9e9fff880aa5de378ca791.css
 registrations.css: registrations-7270767b2a9e9fff880aa5de378ca791.css
 scaffolds.css: scaffolds-7270767b2a9e9fff880aa5de378ca791.css
+user-profile-event.css: user-profile-event-618344e73d76fbec35cef6245d6bb6cb.css
 users.css: users-7270767b2a9e9fff880aa5de378ca791.css
 jquery-ui.js: jquery-ui-de7b57bc0ab30c2b9353dfbe89a4eadd.js
 jquery-ui.min.js: jquery-ui.min-62fab7113f99de8919f788dfe84039e5.js

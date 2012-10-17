@@ -1,0 +1,92 @@
+.marg-top
+  %h1.label-A Upcoming Event
+%ul.ul-g
+  - @upcoming_events.each do |event|
+    %li
+      .div-c
+        %h1.label-23 30
+        %h4.label-24 Sep
+      .div-h
+        %a.label-9{:href => "#"} #{event.title}
+        %label.label-25
+          -if(!event.event_start_date.blank?)                   
+            #{Time.parse(event.event_start_date.to_s).strftime('%A %I:%M %p,%b %d, %Y')} I #{event.entry_fee}  per person
+          Location: #{event.venue}
+        %p.label-26
+          #{event.description}
+.see-all-anchor
+  %a.label-27.flt-right{:href => "#"} See all upcoming events...
+.marg-top
+  %h1.label-A Past Events
+%ul.ul-g
+  %li
+    .div-c
+      %h1.label-23 30
+      %h4.label-24 Sep
+    .div-h
+      %a.label-9{:href => "#"} Event Title
+      %span.img-hov
+        %a.flt-right.img-hovers{:href => "default.asp"}
+          %span
+            %img{:src => "/assets/camera.png"}/
+        %a.flt-right.img-hovers{:href => "default.asp"}
+          %span
+            %img{:src => "/assets/youtube.png"}/
+        %a.flt-right.img-hovers{:href => "default.asp", :style => "padding-top:4px;"}
+          %span
+            +Post
+            %span
+      %label.label-25 Attendees: 20
+      %p.label-26
+        Lorem ipsum Lorem ipsum dolor sit amet
+        , consectetur adipisicing elit, sed do eiusmod dolor s
+        it amet, consectetur adonsequat.
+  %li.ulg-expanded
+    .div-c
+      %h1.label-23 30
+      %h4.label-24 Sep
+    .div-h
+      %a.label-9{:href => "#"} Event Title
+      %span.img-hov
+        %a.flt-right.img-hovers{:href => "default.asp"}
+          %span
+            %img{:src => "/assets/camera.png"}/
+        %a.flt-right.img-hovers{:href => "default.asp"}
+          %span
+            %img{:src => "/assets/youtube.png"}/
+        %a.flt-right.img-hovers{:href => "default.asp"}
+          %span
+            %img{:src => "/assets/slideshare.png"}/
+      %a.label-25{:href => "#"} Subramaniam
+      %label.label-25 , Delhi I Sept 30th  2012
+      %p.label-26
+        Attendees: 20
+        Tuesday 7pm, Sept 30, 2012 I Rs. 250 per person
+        Location: Singh Bhavan, Vasant Road, Defence Colony, Delhi
+        Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod dolor
+        sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore Lorem
+        ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod dolor sit
+        amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat.
+        Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod dolor
+        sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat.
+    .marg-top
+      %img.img-d{:src => "/assets/img-g.png"}
+      %img.img-d{:src => "/assets/img-g.png"}
+      %img.img-d{:src => "/assets/img-g.png"}
+      %img.img-d{:src => "/assets/img-g.png"}
+.pgt-bar
+  %label.label-28 Page
+  %a.pgtbar-selected{:href => "#"} 1
+  %a{:href => "#"} 2
+  %a{:href => "#"} 3
+  %a{:href => "#"} 4
+  %a{:href => "#"} 5
+  %a{:href => "#"} 6
+  %a{:href => "#"} 7
+  %a{:href => "#"} 8
+  %a.flt-right{:href => "#", :style => "margin-left:30px;"} NEXT >
+  %a.flt-right{:href => "#"} < PREVIOUS
