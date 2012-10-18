@@ -75,9 +75,19 @@ class EventsController < ApplicationController
 
   # POST /events
   # POST /events.json
-  def create
+  def create    
     @event = Event.new(params[:event])
-
+    start_date = params[:event][:event_start_date].blank? ? "" : params[:event][:event_start_date].to_s
+    end_date = params[:event][:event_start_date].blank? ? "" : params[:event][:event_end_date].to_s
+    venues_list = @eb_client.user_list_venues.parsed_response["venues"] 
+    existing=venues_list.select do |venue|   venue["venue"]["name"] == "something"  end 
+    if(existing.blank?)  
+     venue = @eb_client.venue_new(:organizer_id => EVENTBRITE_ORGANIZATON_ID, :name => params[:event][:venue_name],  :location => params[:event][:location], :address => params[:event][:address], :address2 => params[:event][:address2] ,:country_code => "IN")
+     venue_id = venue.parsed_response["process"]["id"]
+    else
+      venue_id = existing[0]["venue"]["id"]
+    end 
+    eventbrite_event = @eb_client.event_new(:venue_id => venue_id , :organizer_id =>  EVENTBRITE_ORGANIZATION_ID , :name => params[:name], :start_date => start_date, :end_date => end_date,  :title => params[:event][:title], :description => params[:event][:description])   
 
     respond_to do |format|
       if @event.save
