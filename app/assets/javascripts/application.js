@@ -47,6 +47,7 @@ $(function(){
               });
           }
      });
+  
    // Changing chapter status
     $(".change_status").live('click',function(){
       var obj = $(this)

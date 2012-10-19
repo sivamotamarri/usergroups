@@ -2,7 +2,19 @@
   .content-a
     .ca-top
       .ca-left.flt-left
-        = gmaps("markers" => { "data" => @markers })
+        = gmaps("markers" => { "data" => @markers }, "options" => { "draggable" => true  })
+        - content_for :script do        
+          :javascript
+              function redirect_to(url) {
+                return function(){window.location = url;}
+              };
+              Gmaps.map.callback = function() {        
+                for (var i = 0; i <  Gmaps.map.markers.length; i++) {
+                   google.maps.event.addListener(Gmaps.map.markers[i].serviceObject, 'click',  redirect_to(Gmaps.map.markers[i].link));
+                }
+              };
+     
+
         %ul{:id => "markers_list"}
       .ca-right.flt-right
         %h2.label-3
@@ -57,3 +69,6 @@
                 Title of articles-
                 %label.label-13 October 2, 2012
             %h5.label-16 Lorem ipsum dolor sit amet, consectetur adipisicin. t amet, consectetur adi
+    
+
+             
