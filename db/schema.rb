@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017063956) do
+ActiveRecord::Schema.define(:version => 20121019110625) do
 
   create_table "chapter_members", :force => true do |t|
     t.integer  "chapter_id",   :null => false
@@ -39,6 +39,9 @@ ActiveRecord::Schema.define(:version => 20121017063956) do
     t.datetime "deleted_at"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "city_name"
+    t.string   "state_name"
+    t.string   "country_name"
   end
 
   create_table "cities", :force => true do |t|

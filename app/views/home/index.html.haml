@@ -2,15 +2,15 @@
   .content-a
     .ca-top
       .ca-left.flt-left
-        = gmaps("markers" => { "data" => @markers }, "options" => { "draggable" => true  })
-        - content_for :script do        
+        = gmaps4rails(@markers)
+        - content_for :javascript do        
           :javascript
               function redirect_to(url) {
                 return function(){window.location = url;}
               };
               Gmaps.map.callback = function() {        
                 for (var i = 0; i <  Gmaps.map.markers.length; i++) {
-                   google.maps.event.addListener(Gmaps.map.markers[i].serviceObject, 'click',  redirect_to(Gmaps.map.markers[i].link));
+                   google.maps.event.addListener(Gmaps.map.markers[i].serviceObject, 'click',   redirect_to(Gmaps.map.markers[i].link));
                 }
               };
      
