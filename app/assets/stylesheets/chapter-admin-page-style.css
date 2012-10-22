@@ -1,0 +1,170 @@
+.Chapter-Info{
+	width:99%;
+	margin-top:20px;
+	padding: 10px 0 10px 10px;
+	overflow: hidden;
+}
+#admins{
+	border-top: 2px solid #0097D7;
+	padding-left: 10px;
+	margin-top:3px;
+}
+#Location{
+	border-top: 2px solid #0097D7;
+	padding-top: 20px;
+	padding-bottom:50px;
+	padding-left: 10px;
+	margin-top:3px;
+	width: 650px;		
+}
+.first{
+	float: left;
+	width:32%;
+}
+.second{
+	float: right;
+	width:60%;
+}
+.im-box{
+    margin-top:3px;
+	border-top: 2px solid #0097D7;
+   
+    height: 230px;
+    width: 650px;
+}
+#image{
+	width:23%;
+	padding-top: 20px;
+	text-align: center;
+	float: left;
+}
+#backgrnd {
+	float: left;
+    margin-top: 20px;
+    text-align: center;
+    width: 75%;
+}
+#First-head{
+	width:70%;
+	height:50px;
+}
+.primary{
+	margin-top:25px;
+}
+.p-in{
+	margin-top: 15px;
+	padding-bottom:20px;
+	line-height: 25px;
+}
+.p-info{
+	margin-top: 15px;
+	
+	padding-bottom: 30px;
+}
+.loc{
+	padding-right: 60px;
+	font-size: 14px;
+	color: #666;
+}
+
+
+.icon{
+	height: 125px;
+	width: 125px;
+}
+.brd{
+	height: 125px;
+	width: 450px;
+}
+.chap-ad{
+	font-size: 20px;
+	color: #666666;
+	
+	
+}
+
+.add{
+	font-size: 14px;
+	color: #0097D7;
+}
+.edit{
+	font-size: 14px;
+	color: #D9541E;
+}
+.del{
+	font-size: 14px;
+	color: #D9541E;
+}
+.tr{
+	font-size: 14px;
+	color: #D9541E;
+}
+.label-43{
+	font-size: 14px;
+	color:#777777 ;
+	font-weight: normal;
+}
+.label-42{
+	font-size: 14px;
+	color:#777777 ;
+}
+.label-41{
+	font-size: 14px;
+	color:#777777 ;
+}
+.label-40{
+	font-size: 14px;
+	color:#999 ;
+}
+.label-39{
+	padding-bottom: 4px;
+	font-size: 14px;
+	color: #666666;
+	border-bottom:2px solid #E2E2E2;
+	font-weight: bold;
+}
+.label-38{
+	font-size: 14px;
+	color:#777777 ;
+	font-weight: normal;
+}
+.p-in .label-38{
+	padding-right: 70px;
+	
+}
+.p-in #sec{
+	margin-bottom: 10px;
+}
+.p-in .label-43{
+	padding-right: 10px;
+}
+.p-info .label-43{
+	padding-right: 10px;
+}
+#Location .label-40{
+	padding-right: 5px;
+}
+.p-in .label-42{
+	padding-right:70px;
+}
+a.edit{margin-left: 20px;margin-top: 10px;}
+
+table.inform td.one{
+	padding-left: 5px;
+	padding-right: 15px;
+	font-size: 14px;
+	color:#666;
+	text-align: center;
+}
+table.inform td.two{
+	padding-left: 5px;
+	padding-right: 15px;
+	font-size: 14px;
+	color:#777;
+	text-align: right;
+}
+table.inform td.is{
+	font-size: 14px;
+	padding-right: 35px;
+	color:#000;
+}

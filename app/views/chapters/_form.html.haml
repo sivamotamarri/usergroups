@@ -1,16 +1,18 @@
 .content.wrapper
   .content-a
     .Creation-form
-      %h1.chapter Chapter Creation
+      %h1.label-34 Chapter Creation
       %h3.label-11 Founder Information
       .Info
         %h4.info_label Name: #{@current_user.fullname}
         %h4.info_label Email Id: #{@current_user.email}
-      %h3.label-11 Chapter Type & Location
+      %h3.label-11 Chapter Details
       = semantic_form_for @chapter do |f|
         #Form_ch        
-          .form_r             
-            = f.input :name, :placeholder => 'Name' ,  :label =>false ,  :input_html => {:class => "textboxes"}
+          .form_r                     
+            %div{:style => "margin:0px 0px 10px 0px; width:60%;"}
+              = f.label  "Chapter Name" , :class => 'info_label', :style => "margin-right:10px;    line-height: 23px;"
+              = f.input :name, :placeholder => 'Chapter Name' ,  :label =>false ,  :input_html => {:class => "textboxes flt-right", :style => "width: 76%;margin-top:-30px;margin-right:5px;"} 
             %span.info_label Chapter Type        
             .chapter_type         
               = f.radio_button :chapter_type , 'student', :checked =>true , :class => "radio"
@@ -39,8 +41,6 @@
           .proposal
             %h4.ch_label To: admin@cloudfoundry.com          
             = text_field_tag :message ,nil ,:class => 'send_text'            
-            = f.submit 'SEND PROPOSAL' , :class => 'send'
-                  
-
+            = f.submit 'SEND PROPOSAL' , :class => 'send'                 
 
 

@@ -27,9 +27,7 @@
         - @user_chapters.each do |chaptermember|
           %li
             %a{:href => "#{userevents_events_url(chaptermember.chapter.id)}", :id=>"#{chaptermember.chapter.id}"} #{chaptermember.chapter.name}
-      #event_content
-      
-             
+      #event_content                
 
 :javascript 
   Chapters.init();
