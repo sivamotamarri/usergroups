@@ -25,10 +25,20 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     respond_to do |format|      
-      format.html # new.html.erb
+      format.js{render :partial => 'form'} # new.html.erb
       format.json { render json: @event }
     end
   end
+
+  def create_event_form
+    @event = Event.new
+    respond_to do |format|      
+      format.html # new.html.erb
+      format.json { render json: @event }
+    end
+
+  end
+
 
   def oauth_reader
     if !params[:code].blank?
@@ -88,7 +98,7 @@ class EventsController < ApplicationController
       venue_id = existing[0]["venue"]["id"]
     end 
     eventbrite_event = @eb_client.event_new(:venue_id => venue_id , :organizer_id =>  EVENTBRITE_ORGANIZATION_ID , :name => params[:name], :start_date => start_date, :end_date => end_date,  :title => params[:event][:title], :description => params[:event][:description])   
-
+   
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }

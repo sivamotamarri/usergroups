@@ -66,7 +66,7 @@ a {
 .mar-top{margin-top:5px;}
 /*reset ends*/
 body {
-	background: url('images/bg.png');
+	background: url('/assets/bg.png');
 }
 .wrapper {
 	width: 1050px;
@@ -85,7 +85,7 @@ body {
 	border: 1px solid #d9d9d9;
 	width: 16px;
 	height: 16px;
-	background: url('images/arrow-down-a.png') no-repeat 3px 6px #fff;
+	background: url('/assets/arrow-down-a.png') no-repeat 3px 6px #fff;
 	border-radius: 4px;
 	margin-left: 5px;
 	position: relative;
@@ -256,14 +256,14 @@ body {
 }
 .bg-img-e{
 	margin:5px 0px 0px 0px;
-	background: url('images/img-h.png') no-repeat;
+	background: url('/assets/img-h.png') no-repeat;
 	display: inline-block;
 	
 }
 .black-bar{
 	color: #fff;
 	font-size:11px;
-	background: url('images/black-bar.png');
+	background: url('/assets/black-bar.png');
 	position: absolute;
 	bottom: 5px;
 	right: 5px;
@@ -304,7 +304,7 @@ body {
 	margin-right:20px;
 }
 .bg-arrow-down-b{
-	background: url('images/arrow-down-b.png') no-repeat;
+	background: url('/assets/arrow-down-b.png') no-repeat;
 	width:10px;
 	height:6px;
 	position: absolute;
@@ -381,7 +381,7 @@ body {
 	position: absolute;
 	width:72px;
 	height:82px;
-	background: url('images/calender.png') no-repeat;
+	background: url('/assets/calender.png') no-repeat;
 	left:-10px;
 	top:10px;
 	padding:10px 0px 0px 0px;
@@ -568,8 +568,8 @@ textarea.size-b{height: 84px;width: 163px;margin-bottom:0px;}
 	box-shadow: 0px 2px 2px 0px #dcdcdc;
 	border-radius: 8px;
 }
-.bg-google{background: url('images/Google.png') no-repeat 50% 50%;width:160px;}
-.bg-yahoo{background: url('images/yahoo.png') no-repeat 50% 50%;width:190px;}
+.bg-google{background: url('/assets/Google.png') no-repeat 50% 50%;width:160px;}
+.bg-yahoo{background: url('/assets/yahoo.png') no-repeat 50% 50%;width:190px;}
 
 .icon-bar-a{
 	position: absolute;
@@ -582,9 +582,9 @@ textarea.size-b{height: 84px;width: 163px;margin-bottom:0px;}
 	width:28px;
 	display: inline-block;
 }
-.icon-bar-a .bg-twitter{background: url("images/twitter.png") no-repeat;}
-.icon-bar-a .bg-linkedin{background: url("images/linkedin.png") no-repeat;}
-.icon-bar-a .bg-website{background: url("images/website.png") no-repeat;}
+.icon-bar-a .bg-twitter{background: url("/assets/twitter.png") no-repeat;}
+.icon-bar-a .bg-linkedin{background: url("/assets/linkedin.png") no-repeat;}
+.icon-bar-a .bg-website{background: url("/assets/website.png") no-repeat;}
 
 .popup-a{
 	margin: 0 auto;
@@ -601,7 +601,7 @@ textarea.size-b{height: 84px;width: 163px;margin-bottom:0px;}
 	display: inline-block;
 	top:10px;
 	right:10px;
-	background: url('images/cross.png') no-repeat;
+	background: url('/assets/cross.png') no-repeat;
 	height:24px;
 	width:24px;
 }
@@ -615,7 +615,7 @@ ul.inbox .table-b .bg-cross-b{
 	margin-top: 0px;
 }
 .bg-cross-b{
-	background: url('images/cross-b.png') no-repeat;
+	background: url('/assets/cross-b.png') no-repeat;
 	height:24px;
 	width:24px;
 	display: inline-block;
@@ -679,7 +679,7 @@ ul.inbox .table-b .bg-cross-b{
 }
 .td-approved{
 	padding-left:25px;
-	background: url('images/green-dot.png') no-repeat 5px 50%;
+	background: url('/assets/green-dot.png') no-repeat 5px 50%;
 }
 .table-e tbody tr{
 	border-bottom: 1px solid #f0f0f0;

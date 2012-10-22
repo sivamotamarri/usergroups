@@ -7,8 +7,11 @@
         .div-b
           %img.bg-logo-b{:src => "/assets/logo-b.png"}
           %br/
-          %button.btn-a
-            JOIN US!
+          -if !@is_part_of_chapter
+            = form_tag join_a_chapter_chapters_path, :method => :post do
+              = hidden_field_tag "chapter_id", "#{@chapter.id}"
+              = submit_tag 'JOIN US!' , :class => 'btn-a' 
+              
         .div-a
           %h2.label-17 #{@chapter.try(:name)}
           %h5.label-18 Location: #{@chapter.try(:city_name)} | Founded on #{Time.parse(@chapter.try(:created_at).to_s).strftime('%b %d, %Y')}
@@ -24,7 +27,7 @@
               Group Coordinator:
               %label.label-20
                 @secondary_coord.each |coord| do   #{coord.user.email}           end
-        %ul.ul-e.statistics
+        %ul.ul-e
           %li
             %h2.label-21 #{@totalcount}
             %h5.label-39 Members

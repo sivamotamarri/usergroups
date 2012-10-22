@@ -16,7 +16,10 @@ class UsersController < ApplicationController
 
   def profile
     @user = @current_user
-    @user_chapters = ChapterMember.get_chapters(@user.id) || []
+    @user_chapters = ChapterMember.get_chapters(@user.id) || []    
+
+    chapter_member = ChapterMember.get_details_if_coordinator(current_user.id).try(:first)
+    @chapter = chapter_member.chapter if chapter_member    
     @is_primary_coord = ChapterMember.is_primary_coordinator?(@user.id)
     @is_secondary_coord = ChapterMember.is_primary_coordinator?(@user_id)
     @upcoming_event = Event.all

@@ -21,14 +21,16 @@
           %i.bg-arrow-down-b
         %li
           -if @is_primary_coord || @is_secondary_coord
-            %a{:href => "#"} Group Admin
+            %a{:href => "#", :chapter_id => @chapter.id } Group Admin
             %i.bg-arrow-down-b                   
-      %ul.ul-i
+      
+      %ul.ul-i.profile_content
         - @user_chapters.each do |chaptermember|
           %li
-            %a{:href => "#{userevents_events_url(chaptermember.chapter.id)}", :id=>"#{chaptermember.chapter.id}"} #{chaptermember.chapter.name}
+            %a{:href => "#{userevents_events_url(chaptermember.chapter.id)}", :id=>"#{chaptermember.chapter.id}", :class=>"chapter_link"} #{chaptermember.chapter.name}
+      
       #event_content                
 
 :javascript 
-  Chapters.init();
-  
+  Chapters.init(); 
+  Events.init();

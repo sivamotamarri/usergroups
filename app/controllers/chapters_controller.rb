@@ -14,9 +14,12 @@ class ChaptersController < ApplicationController
   # GET /chapters/1.json
   def show
     @chapter = Chapter.find(params[:id])
+    @is_part_of_chapter = !@chapter.chapter_members.where({:user_id => current_user.id}).try(:first).nil?    
+
     @primary_coord = @chapter.chapter_members.where({:memeber_type => ChapterMember::PRIMARY_COORDINATOR}).try(:first)
     @secondary_coords = @chapter.chapter_members.where({:memeber_type => ChapterMember::SECONDARY_COORDINATOR}) || []
     @members = @chapter.chapter_members.where({:memeber_type => ChapterMember::MEMBER}) || []
+
     @totalcount = @chapter.chapter_members.size    
     
     @all_events = Event.find_all_by_chapter_id(@chapter.id) || []
@@ -97,4 +100,26 @@ class ChaptersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def join_a_chapter
+    @chapter = Chapter.find(params[:chapter_id])
+    member = ChapterMember.new({:memeber_type=>ChapterMember::MEMBER, :user_id => @current_user.id, :chapter_id => @chapter.id}) 
+    respond_to do |format|
+      if member.save
+         format.html { redirect_to @chapter }
+         format.json { render json: @chapter, status: :success, location: @chapter }
+      else
+        format.html { redirect_to @chapter }
+        format.json { render json: @chapter.errors, status: :unprocessable_entity }
+      end
+    end  
+  end 
+
+  def chapter_admin_home_page
+    @chapter = Chapter.find(params[:chapter_id])
+     respond_to do |format|
+      format.js {render :partial => 'chapter_admin_home_page' }
+     end
+  end 
+
 end

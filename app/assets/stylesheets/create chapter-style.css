@@ -43,7 +43,7 @@ a {
 .u-case{text-transform: uppercase;}
 /*reset ends*/
 body {
-	background: url('images/bg.png');
+	background: url('/assets/bg.png');
 }
 .wrapper {
 	width: 1050px;
@@ -62,7 +62,7 @@ body {
 	border: 1px solid #d9d9d9;
 	width: 16px;
 	height: 16px;
-	background: url('images/arrow-down-a.png') no-repeat 3px 6px #fff;
+	background: url('/assets/arrow-down-a.png') no-repeat 3px 6px #fff;
 	border-radius: 4px;
 	margin-left: 5px;
 	position: relative;
@@ -230,7 +230,7 @@ body {
 	
 }
 .bg-img-e{
-	background: url('images/img-e.png');
+	background: url('/assets/img-e.png');
 	display: inline-block;
 	max-width:120px;
 }

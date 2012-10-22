@@ -2,13 +2,18 @@ CloudfoundryUsergroups::Application.routes.draw do
  
 
 
-  resources :chapters
+  resources :chapters do
+     collection do
+      post 'join_a_chapter'
+      get  'chapter_admin_home_page'
+     end
+  end
   resources :posts
   resources :events do
     collection do 
       get 'oauth_reader'
       get 'userevents'
-      get 'get_chapter_events'
+      get 'get_chapter_events'      
     end  
   end
 
