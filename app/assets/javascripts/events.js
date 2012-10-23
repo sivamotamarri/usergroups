@@ -1,24 +1,21 @@
 Events ={  
 
 	init:function(){
-		$('#create_event').live('click',function(){
-			alert("here");
-			//var data = {chapter_id: element.attr('chapter_id')};    
+		$('#create_event').live('click',function(){			
+			var chapter_id= $('#group_admin_ref').attr('chapter_id');
 		    
 		    $.ajax({
-		      url: '/events/new',
-		      //data : data,
-		      success: function(data){
-		         //$('#event_content').html("");
+		      url: '/events/new',		      
+		      success: function(data){		          
 		          $('#admincontent').html(data);
+		          $('#event_chapter_id').val(chapter_id);
 		      },
 		      async:false,        
 		      dataType: 'html'
-		    }); 
-
-			
+		    }); 			
 		});
+
 	}
 
 
-}
+};

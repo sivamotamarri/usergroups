@@ -116,7 +116,8 @@ class ChaptersController < ApplicationController
   end 
 
   def chapter_admin_home_page
-    @chapter = Chapter.find(params[:chapter_id])
+    @chapter = Chapter.find(params[:chapter_id])    
+    @chapter_events = @chapter.events.sort{|a,b| b.created_at <=> a.created_at}.take(2)
      respond_to do |format|
       format.js {render :partial => 'chapter_admin_home_page' }
      end

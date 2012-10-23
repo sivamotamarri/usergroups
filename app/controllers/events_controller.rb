@@ -27,21 +27,12 @@ class EventsController < ApplicationController
   # GET /events/new.json
   def new
     @event = Event.new
+    @event.chapter_id = params[:chapter_id]
     respond_to do |format|      
-      format.js{render :partial => 'form'} # new.html.erb
+      format.js {render :partial => 'form'} # new.html.erb
       format.json { render json: @event }
     end
   end
-
-  def create_event_form
-    @event = Event.new
-    respond_to do |format|      
-      format.html # new.html.erb
-      format.json { render json: @event }
-    end
-
-  end
-
 
   def oauth_reader
     if !params[:code].blank?
@@ -51,7 +42,7 @@ class EventsController < ApplicationController
       @eb_client = EventbriteClient.new({ access_token: access_token_obj.token})
     end    
     respond_to do |format|      
-      format.html {redirect_to new_event_path}# new.html.erb
+      format.html {redirect_to profile_path}# new.html.erb
     end
   end
 
@@ -86,29 +77,31 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def get_venue_id
+    venues_list = @eb_client.user_list_venues.parsed_response["venues"] 
+    existing=venues_list.select do |venue|   venue["venue"]["name"] == "something"  end 
+    if(existing.blank?)  
+     venue = @eb_client.venue_new(:organizer_id => EVENTBRITE_ORGANIZATON_ID, :name => params[:event][:venue],  :location => params[:event][:location], :address => params[:event][:address_line1], :address2 => params[:event][:address_line2] ,:country_code => "IN")
+     venue_id = venue.parsed_response["process"]["id"]
+    else
+     venue_id = existing[0]["venue"]["id"]
+    end 
+    venue_id
+  end
+
   # POST /events
   # POST /events.json
   def create    
     @event = Event.new(params[:event])
-    start_date = params[:event][:event_start_date].blank? ? "" : params[:event][:event_start_date].to_s
-    end_date = params[:event][:event_start_date].blank? ? "" : params[:event][:event_end_date].to_s
-    venues_list = @eb_client.user_list_venues.parsed_response["venues"] 
-    existing=venues_list.select do |venue|   venue["venue"]["name"] == "something"  end 
-    if(existing.blank?)  
-     venue = @eb_client.venue_new(:organizer_id => EVENTBRITE_ORGANIZATON_ID, :name => params[:event][:venue_name],  :location => params[:event][:location], :address => params[:event][:address], :address2 => params[:event][:address2] ,:country_code => "IN")
-     venue_id = venue.parsed_response["process"]["id"]
-    else
-      venue_id = existing[0]["venue"]["id"]
-    end 
-    eventbrite_event = @eb_client.event_new(:venue_id => venue_id , :organizer_id =>  EVENTBRITE_ORGANIZATION_ID , :name => params[:name], :start_date => start_date, :end_date => end_date,  :title => params[:event][:title], :description => params[:event][:description])   
-   
+    start_date = params[:event][:event_start_date].blank? ? "" : Time.parse(params[:event][:event_start_date]+" " +params[:event][:event_start_time]).strftime('%Y-%m-%d %H:%M:%S')
+    end_date = params[:event][:event_start_date].blank? ? "" : Time.parse(params[:event][:event_end_date]+" " +params[:event][:event_end_time]).strftime('%Y-%m-%d %H:%M:%S')  
+    venue_id = get_venue_id()
+    eventbrite_event = @eb_client.event_new(:venue_id => venue_id , :organizer_id =>  EVENTBRITE_ORGANIZATION_ID , :name => params[:name], :start_date => start_date, :end_date => end_date,  :title => params[:event][:title], :description => params[:event][:description])      
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render json: @event, status: :created, location: @event }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        @chapter = Chapter.find(@event.chapter_id])
+        @chapter_events = @chapter.events.sort_by{|a,b| b.created_at <=> a.created_at}
+        format.js 
       end
     end
   end
