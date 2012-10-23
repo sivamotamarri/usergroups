@@ -416,7 +416,6 @@ body {
 	font-weight: bold;
 	color: #d9541e;
 	width:inherit;
-	word-wrap: 
 }
 a.label-25{display: inline-block;clear:both;}
 a.label-25:hover{
@@ -584,7 +583,7 @@ textarea.size-b{height: 84px;width: 163px;margin-bottom:0px;}
 }
 .icon-bar-a .bg-twitter{background: url("/assets/twitter.png") no-repeat;}
 .icon-bar-a .bg-linkedin{background: url("/assets/linkedin.png") no-repeat;}
-.icon-bar-a .bg-website{background: url("/assets/website.png") no-repeat;}
+.icon-bar-a .bg-website{background: url("/assets/website.png") no-repeat;} 
 
 .popup-a{
 	margin: 0 auto;
@@ -775,7 +774,7 @@ button.label-50{
 	padding:5px 10px;
 	cursor:pointer;
 	background: #fff;
-	color: #666
+	color: #666;
 	
 }
 .table-f button.label-50:hover{
@@ -784,27 +783,33 @@ button.label-50{
 .label-44 a.label-46{padding-right:10px;}
 .label-55{
 	font-size: px;
-	color:# ;
-}.label-54{
+	
+}
+.label-54{
 	font-size: px;
-	color:# ;
-}.label-53{
+
+}
+.label-53{
 	font-size: px;
-	color:# ;
-}.label-52{
+	
+}
+.label-52{
 	font-size: px;
-	color:# ;
-}.label-51{
+	
+}
+.label-51{
 	font-size: px;
-	color:# ;
-}.label-50{
+	
+}
+.label-50{
 	font-size: 14px;
 	color:#d9541e ;
 }
 .label-49{
 	font-size: 12px;
 	color:#cc6633 ;
-}.label-48{
+}
+.label-48{
 	font-size: 16px;
 	color:#333 ;
 }
