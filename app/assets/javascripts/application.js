@@ -35,6 +35,10 @@ $(function(){
                       "Couldn't load this tab. We'll try to fix this as soon as possible. " +
                       "If this wouldn't be a demo." );
               });
+          },
+          activate: function( event, ui ){
+            ui.newTab.attr('class','ulf-selected')
+            ui.oldTab.attr('class','ulf-selected1')
           }
       });
    

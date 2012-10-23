@@ -1,36 +1,81 @@
-#tabs
-  %ul
-    %li
-      %a{:href => "#tabs-1"} Chapter Satus
-    %li
-      %a{:href => "#{admin_mails_path}"} Mails
-    %li
-      %a{:href => "#{admin_anouncements_path}"} Anouncement
-  #tabs-1
-    #inner-tabs
-      %ul
-        %li
-          %a{:href => "#inner-tab1"} Applied
-        %li
-          %a{:href => "#{incubate_admin_chapters_path}"} Incubate
-        %li
-          %a{:href => "#{active_admin_chapters_path}"} Active
-        %li
-          %a{:href => "#{delist_admin_chapters_path}"} Delist
-      #inner-tab1
-        %table
-          %tr
-            %th Name
-            %th{:style => "width:20px"}
-            %th{:colspan => 3} Actions
-
-          - @chapters.each do |chapter|
-            %tr
-              %td= chapter.name
-              %td{:style => "width:30px;"}
-              %td
-                - if chapter.incubated?
-                  %span Approved on 3 /10 / 2012
-                - else
-                  %button.change_status{"data-url" => "#{change_status_admin_chapter_path(chapter, :status => 'incubate')}"} Approve
-              
+.content.wrapper
+  .content-d
+    .cd-top
+      %h1.label-42 Site Administrator
+      #tabs
+        %ul.ul-f
+          %li.ulf-selected
+            %a{:href => "#tabs-1"} Chapter Satus
+            %i.bg-arrow-down-b
+          %li
+            %a{:href => "#{admin_mails_path}"} Mails
+            %i.bg-arrow-down-b
+          %li
+            %a{:href => "#{admin_anouncements_path}"} Anouncement
+            %i.bg-arrow-down-b
+        #tabs-1
+          #inner-tabs
+            %ul.ul-i
+              %li.ulf-selected
+                %a{:href => "#inner-tab1"} Applied
+              %li
+                %a{:href => "#{incubate_admin_chapters_path}"} Incubate
+              %li
+                %a{:href => "#{active_admin_chapters_path}"} Active
+              %li
+                %a{:href => "#{delist_admin_chapters_path}"} Delist
+            #inner-tab1
+              %ul.ul-j
+                - @chapters.each do |chapter|
+                  - if chapter.incubated?
+                    %li
+                      %table.table-b
+                        %tr
+                          %td.tb-1-4
+                            %a.bg-profile-img-b{:href => "#"}
+                              %img.profile-img-b{:src => "/assets/img-d.png"}/
+                          %td.tb-2-4
+                            %a.label-43{:href => "#"} Rohit Rajan
+                            %h5.label-20 Location:  Hyderabad, Andhra Pradesh, India
+                          %td.tb-3-4
+                            %h5.label-20 Sep 12, 2012
+                            %h5.label-20.flt-right.td-approved Approved on Sep 30,2012
+                          %td.tb-4-4
+                            %a.bg-cross-b{:href => "#"}
+                  - else
+                    %li
+                      %table.table-b
+                        %tr
+                          %td.tb-1-4
+                            %a.bg-profile-img-b{:href => "#"}
+                              %img.profile-img-b{:src => "/assets/img-d.png"}/
+                          %td.tb-2-4
+                            %a.label-43{:href => "#", :style => "position: relative;"}
+                              Rohit Rajan
+                              %button.btn-a-small.change_status{:style => "top:-3px;left:500px;position: absolute;","data-url" => "#{change_status_admin_chapter_path(chapter, :status => 'incubate')}"} APPROVE
+                            %h5.label-20 September 12, 2012
+                            %h5.label-20 Location:  Hyderabad, Andhra Pradesh, India
+                            %h5.label-20 Emai: rohit_rajan@gmail.com
+                            %br/
+                            %h5.label-26
+                              Dear Vinod,
+                            %br/
+                            %p.label-26{:style => "padding-right:0px"}
+                              Does JXTA supports voice chat?: I'm developing a LAN messenger in ja
+                              va. Lorem ipsum dolor sit amet, consectetur adipiscing -elit. Fusce condiment
+                              um, odio interdum convallis accumsan, felis tellus pellentesque enim, non rhoncus
+                              purus diam at diam. Mauris convallis pellentesque. Nunc nisi nibh, pretium eget vu
+                              lputate vel, aliquam eget turpis. Cras leo lectus, pharetra sit amet ornare vitae, sollicitudin
+                              eget dolor. Pellentesque et lectus est, sed posuere felis. Morbi in nisi purus.
+                            %br/
+                            %p.label-26{:style => "padding-right:0px"}
+                              Proin dolor metus, mattis at interdum eu, blandit id neque.
+                              Integer purus quam, lacinia sed ante dignissim ipsum, id adipiscing tellus erat e
+                              get ligula. Donec posuere quam vel dolor tincidunt ac sodales neque dapibus.
+                            .div-k
+                              %textarea.textarea-a.label-26{:placeholder => "hello"} reply
+                            %button.btn-a-small.flt-right SEND
+                          %td.tb-3-4
+                            %button.btn-a-small REJECT
+                          %td.tb-4-4
+                            %a.bg-cross-b{:href => "#"}

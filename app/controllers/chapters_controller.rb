@@ -44,6 +44,9 @@ class ChaptersController < ApplicationController
   # GET /chapters/new.json
   def new
     @chapter = Chapter.new
+    @chapter.messages.build
+    @admin = User.find_by_email("admin@cloudfoundry.com")
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @chapter }
@@ -58,11 +61,12 @@ class ChaptersController < ApplicationController
   # POST /chapters
   # POST /chapters.json
   def create
-    @chapter = Chapter.new(params[:chapter])
+     @admin = User.find_by_email("admin@cloudfoundry.com")
+     @chapter = Chapter.new(params[:chapter])
      member = ChapterMember.new({:memeber_type=>ChapterMember::PRIMARY_COORDINATOR, :user_id => @current_user.id})
     
     respond_to do |format|
-      if @chapter.save
+      if @chapter.save!
         member.chapter_id = @chapter.id
         member.save
         format.html { redirect_to @chapter, notice: 'Chapter was successfully created.' }

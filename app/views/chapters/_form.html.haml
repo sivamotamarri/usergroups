@@ -39,8 +39,11 @@
                 = f.input :landmark,   :placeholder => 'Landmark' , :label => false,  :input_html => {:class => "textboxes"}
           %h3.label-11 Chapter Proposal
           .proposal
-            %h4.ch_label To: admin@cloudfoundry.com          
-            = text_field_tag :message ,nil ,:class => 'send_text'            
-            = f.submit 'SEND PROPOSAL' , :class => 'send'                 
+            %h4.ch_label To: admin@cloudfoundry.com
+            = f.semantic_fields_for :messages do |msg|
+              = msg.input :body, :label => false, :input_html => { :rows => 10, :cols => 50, :class => "send_text"  }
+              = msg.input :sender_id , :as => :hidden, :value => current_user.id
+              = msg.input :received_id , :as => :hidden, :value => @admin.id
+            = f.submit 'SEND PROPOSAL' , :class => 'send'
 
 
