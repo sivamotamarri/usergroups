@@ -99,8 +99,8 @@ class EventsController < ApplicationController
     eventbrite_event = @eb_client.event_new(:venue_id => venue_id , :organizer_id =>  EVENTBRITE_ORGANIZATION_ID , :name => params[:name], :start_date => start_date, :end_date => end_date,  :title => params[:event][:title], :description => params[:event][:description])      
     respond_to do |format|
       if @event.save
-        @chapter = Chapter.find(@event.chapter_id])
-        @chapter_events = @chapter.events.sort_by{|a,b| b.created_at <=> a.created_at}
+        @chapter = Chapter.find(@event.chapter_id)
+        @chapter_events = @chapter.events.sort{|a,b| b.created_at <=> a.created_at}
         format.js 
       end
     end
