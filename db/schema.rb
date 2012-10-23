@@ -100,6 +100,19 @@ ActiveRecord::Schema.define(:version => 20121019110625) do
     t.datetime "updated_at",       :null => false
   end
 
+  create_table "messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "received_id"
+    t.integer  "chapter_id"
+    t.text     "body"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "states", :force => true do |t|
     t.string   "name"
     t.integer  "country_id"
@@ -111,30 +124,30 @@ ActiveRecord::Schema.define(:version => 20121019110625) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                :default => "",    :null => false
-    t.string   "encrypted_password",                   :default => "",    :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                        :default => 0
+    t.integer  "sign_in_count",          :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                              :null => false
-    t.datetime "updated_at",                                              :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "fullname"
     t.integer  "created_by"
-    t.string   "updated_by",             :limit => 10
+    t.integer  "updated_by"
     t.datetime "deleted_at"
     t.string   "mobile"
     t.string   "website_url"
     t.string   "linkedin_url"
     t.string   "twitter_url"
     t.string   "location"
-    t.boolean  "admin",                                :default => false
+    t.boolean  "admin",                  :default => false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
