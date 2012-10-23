@@ -52,7 +52,7 @@ end
 
 #group :development do
 #   # To use debugger
-	gem 'debugger'
+	#gem 'debugger'
 #end
 
 
