@@ -30,7 +30,8 @@ class Admin::ChaptersController < ApplicationController
     case params[:status]
     when "incubate"
       chapter.incubate
-      msg = "Approved on 3 /10 / 2012"
+      chapter.update_attributes(:approved_on => chapter.updated_at)
+      msg = "Approved on #{chapter.approved_on.strftime("%b %d, %Y")}"
     when "active"
       chapter.active
       msg = "#{chapter.chapter_status}"
@@ -45,12 +46,24 @@ class Admin::ChaptersController < ApplicationController
       msg = "#{chapter.chapter_status}"
     else
       chapter.deny
-      msg = "#{chapter.chapter_status}"
+      chapter.update_attributes(:rejected_on => chapter.updated_at)
+      msg = "Rejected on #{chapter.rejected_on.strftime("%b %d, %Y")}"
     end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json{ render json: {:msg => msg} , status:  :ok }
+      format.json{ render json: {:msg => msg , :id => chapter.id} , status:  :ok }
+    end
+  end
+
+  def chapter_reply   
+    @chapter = Chapter.find(params[:id])
+    message = @chapter.messages.new(params[:message])
+    message.save
+
+    respond_to do |format|
+      format.html
+      format.js{}
     end
   end
 end

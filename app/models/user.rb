@@ -18,4 +18,9 @@ class User < ActiveRecord::Base
     :styles => { :medium => "157x161>", :thumb => "100x100>" },
     :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
     :url => "/system/:attachment/:id/:style/:filename"
+
+
+  def admin_user
+    User.find_by_email("admin@cloudfoundry.com")
+  end
 end

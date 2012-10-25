@@ -57,6 +57,7 @@ CloudfoundryUsergroups::Application.routes.draw do
       end
       member do
         get 'change_status'
+        post 'chapter_reply'
       end
     end
    end

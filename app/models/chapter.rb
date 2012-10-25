@@ -13,10 +13,10 @@ class Chapter < ActiveRecord::Base
   belongs_to :city
   belongs_to :user, :foreign_key => :created_by
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :chapter_type, :country_id , :state_id, :city_id , :locality, :address ,:landmark,:chapter_status, :country_name, :state_name, :city_name,:messages_attributes
+  attr_accessible :name, :chapter_type, :country_id , :state_id, :city_id , :locality, :address ,:landmark,:chapter_status, :country_name, :state_name, :city_name,:messages_attributes,:rejected_on , :approved_on
   
   #Scopes 
-   scope :applied_chapters, where(:chapter_status => [:applied, :incubated])
+   scope :applied_chapters, where(:chapter_status => [:applied, :incubated,:denied])
    scope :incubated_chapters, where(:chapter_status => :incubated)
    scope :active_chapters, where(:chapter_status => :active)
    scope :delist_chapters, where(:chapter_status => :delist)
@@ -49,4 +49,11 @@ class Chapter < ActiveRecord::Base
     end
 
   end
+
+  def location
+    location = city_name
+    location += "," + state_name if !state_name.blank?
+    location += "," + country_name if !country_name.blank?
+  end
+  
 end

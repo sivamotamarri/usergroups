@@ -27,19 +27,23 @@
             #inner-tab1
               %ul.ul-j
                 - @chapters.each do |chapter|
-                  - if chapter.incubated?
-                    %li
+                  - if chapter.incubated? || chapter.denied?
+                    %li{:id => "chapter#{chapter.id}"}
                       %table.table-b
                         %tr
                           %td.tb-1-4
                             %a.bg-profile-img-b{:href => "#"}
                               %img.profile-img-b{:src => "/assets/img-d.png"}/
                           %td.tb-2-4
-                            %a.label-43{:href => "#"} Rohit Rajan
-                            %h5.label-20 Location:  Hyderabad, Andhra Pradesh, India
+                            %a.label-43{:href => "#"}
+                              = chapter.user.fullname
+                            %h5.label-20= "Location:  #{chapter.location}"
                           %td.tb-3-4
-                            %h5.label-20 Sep 12, 2012
-                            %h5.label-20.flt-right.td-approved Approved on Sep 30,2012
+                            %h5.label-20= chapter.created_at.strftime("%B %d, %Y")
+                            - if chapter.incubated?
+                              %h5.label-20.flt-right.td-approved= "Approved on #{chapter.approved_on.strftime("%b %d, %Y")}"
+                            - else
+                              %h5.label-20.flt-right= "Rejected on #{chapter.rejected_on.strftime("%b %d, %Y")}"
                           %td.tb-4-4
                             %a.bg-cross-b{:href => "#"}
                   - else
@@ -51,31 +55,18 @@
                               %img.profile-img-b{:src => "/assets/img-d.png"}/
                           %td.tb-2-4
                             %a.label-43{:href => "#", :style => "position: relative;"}
-                              Rohit Rajan
-                              %button.btn-a-small.change_status{:style => "top:-3px;left:500px;position: absolute;","data-url" => "#{change_status_admin_chapter_path(chapter, :status => 'incubate')}"} APPROVE
-                            %h5.label-20 September 12, 2012
-                            %h5.label-20 Location:  Hyderabad, Andhra Pradesh, India
-                            %h5.label-20 Emai: rohit_rajan@gmail.com
-                            %br/
-                            %h5.label-26
-                              Dear Vinod,
-                            %br/
-                            %p.label-26{:style => "padding-right:0px"}
-                              Does JXTA supports voice chat?: I'm developing a LAN messenger in ja
-                              va. Lorem ipsum dolor sit amet, consectetur adipiscing -elit. Fusce condiment
-                              um, odio interdum convallis accumsan, felis tellus pellentesque enim, non rhoncus
-                              purus diam at diam. Mauris convallis pellentesque. Nunc nisi nibh, pretium eget vu
-                              lputate vel, aliquam eget turpis. Cras leo lectus, pharetra sit amet ornare vitae, sollicitudin
-                              eget dolor. Pellentesque et lectus est, sed posuere felis. Morbi in nisi purus.
+                              = chapter.user.fullname
+                              %span{:id => "approve-reject#{chapter.id}" , :style=>"font-size: 12px;text-align: right;left: 512px;position: absolute;width: 200px;"}
+                                %button.btn-a-small.change_status{:style => "top:-3px;","data-url" => "#{change_status_admin_chapter_path(chapter, :status => 'incubate')}"} APPROVE
+                                %button.btn-a-small.change_status{:style => "top:-3px;","data-url" => "#{change_status_admin_chapter_path(chapter, :status => 'deny')}"} REJECT
+                            %h5.label-20= chapter.created_at.strftime("%B %d, %Y")
+                            %h5.label-20= "Location:  #{chapter.location}"
+                            %h5.label-20= "Emai: #{chapter.user.email}"
                             %br/
                             %p.label-26{:style => "padding-right:0px"}
-                              Proin dolor metus, mattis at interdum eu, blandit id neque.
-                              Integer purus quam, lacinia sed ante dignissim ipsum, id adipiscing tellus erat e
-                              get ligula. Donec posuere quam vel dolor tincidunt ac sodales neque dapibus.
-                            .div-k
-                              %textarea.textarea-a.label-26{:placeholder => "hello"} reply
-                            %button.btn-a-small.flt-right SEND
-                          %td.tb-3-4
-                            %button.btn-a-small REJECT
+                              = chapter.messages.root.body
+                          %td.tb-3-4{:style => "width:150px;"}
                           %td.tb-4-4
                             %a.bg-cross-b{:href => "#"}
+                      %table.table-b{:id => "chapter#{chapter.id}"}
+                        = render :partial => "message" , :locals => {:chapter => chapter}
