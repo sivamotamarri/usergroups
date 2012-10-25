@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   before_filter :initialise_eventbrite_client
+  before_filter :set_profile_page
   def index
     @events = Event.all
     respond_to do |format|
@@ -34,6 +35,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def set_profile_page
+    @profile_page = true
+  end
+
   def oauth_reader
     if !params[:code].blank?
       access_token_obj = @auth_client_obj.auth_code.get_token(params[:code], { :redirect_uri => EVENTBRITE_REDIRECT_URL, :token_method => :post })      
@@ -51,12 +56,22 @@ class EventsController < ApplicationController
   def userevents
     chapter_id = params[:chapter_id]
     user_events = EventMember.find_all_by_user_id(@current_user.id, :include => ['event'], :conditions => "events.chapter_id = #{chapter_id}") || []
+    get_upcoming_and_past_events(user_events)
+     respond_to do |format|      
+      format.js {render :partial => 'events_list' }# new.html.erb
+    end
+ 
+  end
+
+  def get_upcoming_and_past_events(user_events, is_chapter_event=false)
     @all_events = []
     @past_events = []
     @upcoming_events = []
-    @profile_page = true
-    user_events.each do |user_event|      
-      event = user_event.event      
+    user_events.each do |user_event|   
+      event = user_event
+      if(!is_chapter_event)
+       event = user_event.event      
+      end
       @all_events.push(event)
       
       if(!event.event_start_date.blank? && Time.parse(event.event_start_date+" "+ event.event_start_time) >= Time.now)
@@ -65,13 +80,9 @@ class EventsController < ApplicationController
         @past_events.push(event)
       end
     end
-    @upcoming_events.sort
+    @two_upcoming_events = @upcoming_events.sort!.take(2)
     @past_events.sort
 
-     respond_to do |format|      
-      format.js {render :partial => 'events_list' }# new.html.erb
-    end
- 
   end
 
   # GET /events/1/edit
@@ -83,19 +94,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     @event_memeber = EventMember.new(:event_id => @event.id, :user_id => current_user.id)
     @event_memeber.save
-    @all_events = Event.find_all_by_chapter_id(@event.chapter_id) || []
-    @past_events = []
-    @upcoming_events = []
-    @all_events.each do |event|       
-      if(!event.event_start_date.blank? && Time.parse(event.event_start_date.to_s) > Time.now)
-        @upcoming_events.push(event)
-      else
-        @past_events.push(event)
-      end
-    end
-    @upcoming_events = @upcoming_events.sort.take(2)
-    @past_events.sort
-
+    chapter_events = Event.find_all_by_chapter_id(@event.chapter_id) || []
+    get_upcoming_and_past_events(chapter_events, true)
     respond_to do |format|      
       format.js {render :partial => 'events_list' }# new.html.erb
     end

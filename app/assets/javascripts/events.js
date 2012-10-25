@@ -31,6 +31,12 @@ Events ={
       });
     
   });
+  $('#upcoming_events').die('click').live('click', function(e){
+
+  	e.preventDefault();
+  	$('#two_events').toggle();
+  	$('#all_events').toggle();
+  });	
 
   }
 
