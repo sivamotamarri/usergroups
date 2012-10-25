@@ -1,0 +1,30 @@
+- chapter.messages.root.children.each do |child|
+  %tr
+    %td.tb-1-4
+      %a.bg-profile-img-b{:href => "#"}
+        %img.profile-img-b{:src => "/assets/img-d.png"}/
+    %td.tb-2-4
+      %a.label-43{:href => "#", :style => "position: relative;"}
+        = child.sender.fullname
+      %h5.label-20= child.sender.created_at.strftime("%B %d, %Y")
+      %h5.label-20= "Location:  #{child.sender.location}"
+      %h5.label-20= "Emai: #{child.sender.email}"
+      %br/
+      %p.label-26{:style => "padding-right:0px"}
+        = child.body
+    %td.tb-3-4{:style => "width:150px;"}
+    %td.tb-4-4
+%tr
+  %td.tb-1-4
+    &nbsp
+  %td.tb-2-4
+    = form_for "message" ,:url => chapter_reply_admin_chapter_path(chapter.id), :remote => true do |f|
+      .div-k
+        %textarea.textarea-a.label-26{:placeholder => "reply" , :name => "message[body]" , :id => "message_body"}
+        = hidden_field :message , :parent_id , :value => chapter.messages.root.id
+        = hidden_field :message , :received_id , :value => chapter.messages.root.sender_id
+        = hidden_field :message , :sender_id , :value => admin_user.id
+      = f.submit("SEND", :class => "btn-a-small flt-right")
+  %td.tb-3-4{:style => "width:150px;"}
+  %td.tb-4-4
+    
