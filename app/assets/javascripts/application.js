@@ -53,7 +53,7 @@ $(function(){
      });
   
    // Changing chapter status
-    $(".change_status").live('click',function(){
+    $(".change_status").die('click').live('click',function(){
       var obj = $(this)
       $.ajax({
         url: obj.attr('data-url'),

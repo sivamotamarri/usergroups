@@ -14,6 +14,7 @@ CloudfoundryUsergroups::Application.routes.draw do
       get 'oauth_reader'
       get 'userevents'
       get 'get_chapter_events'      
+      get 'follow_an_event'
     end  
   end
 

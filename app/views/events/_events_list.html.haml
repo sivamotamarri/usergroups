@@ -8,127 +8,127 @@
           %h1.label-23 30
           %h4.label-24 Sep
         .div-h
-          %a.label-9{:href => "#"} #{event.title}          
-          %button.btn-a-small.flt-right FOLLOW
+          %a.label-9{:href => "#"} #{event.title}  
+          -if @profile_page != true  and !event.am_i_member?(@current_user.id)                    
+            %button.btn-a-small.flt-right{:id=>"follow_an_event", :event_id => "#{event.id}"} FOLLOW
           %label.label-25
-            -if(!event.event_start_date.blank?)                   
+            -if(!event.event_start_date.blank?)
               #{Time.parse(event.event_start_date.to_s).strftime('%A %I:%M %p,%b %d, %Y')} I #{event.entry_fee}  per person
             Location: #{event.venue}
           %p.label-26
             #{event.description}
   %ul
     %li.flt-right{:style => "margin-top:10px;"}
-      %a.label-27{:href => "#"} See all upcoming events... 
-
+      %a.label-27{:href => "#"} See all upcoming events...   
   .marg-top
     %h1.label-44 Past Events
   %ul.ul-g{:style => "margin-top:-20px;"}
+  - @past_events.each do |event|
     %li
       .div-c
         %h1.label-23 30
         %h4.label-24 Sep
       .div-h
-        %a.label-9{:href => "#"} Event Title
-        %button.btn-a-small.flt-right{:style => "margin-left: 10px;"} FOLLOW
+        %a.label-9{:href => "#"} #{event.title}
+        -if @profile_page != true and !event.am_i_member?(@current_user.id)
+          %button.btn-a-small.flt-right{:style => "margin-left: 10px;", :id=>"follow_an_event", :event_id => "#{event.id}"} FOLLOW
         %a.flt-right{:href => "default.asp", :style => "padding-left:10px"}
           %span
             %img{:src => "/assets/camera.png"}/
         %a.flt-right{:href => "default.asp", :style => "padding-left:10px"}
           %span
             %img{:src => "/assets/youtube.png"}/
-        %label.label-25 Attendees: 20
+        %label.label-25 Attendees: #{event.event_members.size}
         %p.label-26
-          Lorem ipsum Lorem ipsum dolor sit amet
-          , consectetur adipisicing elit, sed do eiusmod dolor s
-          it amet, consectetur adonsequat.
-    %li.ulg-expanded
-      .div-c
-        %h1.label-23 30
-        %h4.label-24 Sep
-      .div-h
-        %a.label-9{:href => "#"} Event Title
-        /
-          <ul class="flt-right dis-inline">
-          <li class="dis-inline"><img src="/assets/slideshare.png"></li>
-          <li class="dis-inline"><img src="/assets/youtube.png"></li>
-          <li class="dis-inline"><img src="/assets/camera.png"></li>
-          </ul>
-        %button.btn-a-small.flt-right{:style => "margin-left: 10px;"} FOLLOW
-        %a.flt-right{:href => "default.asp", :style => "padding-left:10px"}
-          %span
-            %img{:src => "/assets/camera.png"}/
-        %a.flt-right{:href => "default.asp", :style => "padding-left:10px"}
-          %span
-            %img{:src => "/assets/youtube.png"}/
-        %a.flt-right{:href => "default.asp", :style => "padding-left:10px"}
-          %span
-            %img{:src => "/assets/slideshare.png"}/
-        %a.label-25{:href => "#"} Subramaniam
-        %label.label-25 , Delhi I Sept 30th  2012
-        %p.label-26
-          Attendees: 20
-          Tuesday 7pm, Sept 30, 2012 I Rs. 250 per person
-          Location: Singh Bhavan, Vasant Road, Defence Colony, Delhi
-          Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod dolor
-          sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore Lorem
-          ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod dolor sit
-          amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-          Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod dolor
-          sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-      <div class="lining"
-      %img.img-b{:src => "/assets/img-g.png"}
-      %img.img-b{:src => "/assets/img-g.png"}
-      %img.img-b{:src => "/assets/img-g.png"}
-      %img.img-b{:src => "/assets/img-g.png"}
-      %img.img-b{:src => "/assets/img-g.png"}
-  .div-d
-    .divd-comment-pos
-      %table.table-c
-        %tr
-          %td
-            %img.img-c.flt-left{:src => "/assets/img-d.png"}
-          %td
-            %h5.label-27
-              Rohit -
-              %label.label-25 Delhi, 23 Sep
-            %p.label-16
-              Does JXTA supports voice chat?: I'm developing a LAN mes
-              senger in java. I'm followi
-              ng P2P, Does JXTA support
-              ice chat?: I'm developing a LAN mes
-              senger in java. I'm followi
-              ng P2P, Does JXTA suppos voice chat?: I'm d
-    .divd-comment-pos
-      %table.table-c
-        %tr
-          %td
-            %img.img-c.flt-left{:src => "/assets/img-d.png"}
-          %td
-            %h5.label-27
-              Rohit -
-              %label.label-25 Delhi, 23 Sep
-            %p.label-16
-              Does JXTA supports voice chat?: I'm developing a LAN mes
-              senger in java. I'm followi
-              ng P2P, Does JXTA support
-              ice chat?: I'm developing a LAN mes
-              senger in java. I'm followi
-              ng P2P, Does JXTA suppos voice chat?: I'm d
-            %textarea.ta-a{:placeholder => "alpha"}
-    .pgt-bar
-    %label.label-28 Page
-    %a.pgtbar-selected{:href => "#"} 1
-    %a{:href => "#"} 2
-    %a{:href => "#"} 3
-    %a{:href => "#"} 4
-    %a{:href => "#"} 5
-    %a{:href => "#"} 6
-    %a{:href => "#"} 7
-    %a{:href => "#"} 8
-    %a.flt-right{:href => "#", :style => "margin-left:30px;"} NEXT >
-    %a.flt-right{:href => "#"} < PREVIOUS
+          #{event.description}
+  /   %li.ulg-expanded
+  /     .div-c
+  /       %h1.label-23 30
+  /       %h4.label-24 Sep
+  /     .div-h
+  /       %a.label-9{:href => "#"} Event Title
+  /       /
+  /         <ul class="flt-right dis-inline">
+  /         <li class="dis-inline"><img src="/assets/slideshare.png"></li>
+  /         <li class="dis-inline"><img src="/assets/youtube.png"></li>
+  /         <li class="dis-inline"><img src="/assets/camera.png"></li>
+  /         </ul>
+  /       %button.btn-a-small.flt-right{:style => "margin-left: 10px;"} FOLLOW
+  /       %a.flt-right{:href => "default.asp", :style => "padding-left:10px"}
+  /         %span
+  /           %img{:src => "/assets/camera.png"}/
+  /       %a.flt-right{:href => "default.asp", :style => "padding-left:10px"}
+  /         %span
+  /           %img{:src => "/assets/youtube.png"}/
+  /       %a.flt-right{:href => "default.asp", :style => "padding-left:10px"}
+  /         %span
+  /           %img{:src => "/assets/slideshare.png"}/
+  /       %a.label-25{:href => "#"} Subramaniam
+  /       %label.label-25 , Delhi I Sept 30th  2012
+  /       %p.label-26
+  /         Attendees: 20
+  /         Tuesday 7pm, Sept 30, 2012 I Rs. 250 per person
+  /         Location: Singh Bhavan, Vasant Road, Defence Colony, Delhi
+  /         Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod dolor
+  /         sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore Lorem
+  /         ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod dolor sit
+  /         amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+  /         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+  /         aliquip ex ea commodo consequat.
+  /         Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod dolor
+  /         sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+  /         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+  /         aliquip ex ea commodo consequat.
+  /     <div class="lining"
+  /     %img.img-b{:src => "/assets/img-g.png"}
+  /     %img.img-b{:src => "/assets/img-g.png"}
+  /     %img.img-b{:src => "/assets/img-g.png"}
+  /     %img.img-b{:src => "/assets/img-g.png"}
+  /     %img.img-b{:src => "/assets/img-g.png"}
+  / .div-d
+  /   .divd-comment-pos
+  /     %table.table-c
+  /       %tr
+  /         %td
+  /           %img.img-c.flt-left{:src => "/assets/img-d.png"}
+  /         %td
+  /           %h5.label-27
+  /             Rohit -
+  /             %label.label-25 Delhi, 23 Sep
+  /           %p.label-16
+  /             Does JXTA supports voice chat?: I'm developing a LAN mes
+  /             senger in java. I'm followi
+  /             ng P2P, Does JXTA support
+  /             ice chat?: I'm developing a LAN mes
+  /             senger in java. I'm followi
+  /             ng P2P, Does JXTA suppos voice chat?: I'm d
+  /   .divd-comment-pos
+  /     %table.table-c
+  /       %tr
+  /         %td
+  /           %img.img-c.flt-left{:src => "/assets/img-d.png"}
+  /         %td
+  /           %h5.label-27
+  /             Rohit -
+  /             %label.label-25 Delhi, 23 Sep
+  /           %p.label-16
+  /             Does JXTA supports voice chat?: I'm developing a LAN mes
+  /             senger in java. I'm followi
+  /             ng P2P, Does JXTA support
+  /             ice chat?: I'm developing a LAN mes
+  /             senger in java. I'm followi
+  /             ng P2P, Does JXTA suppos voice chat?: I'm d
+  /           %textarea.ta-a{:placeholder => "alpha"}
+  .pgt-bar
+  %label.label-28 Page
+  %a.pgtbar-selected{:href => "#"} 1
+  %a{:href => "#"} 2
+  %a{:href => "#"} 3
+  %a{:href => "#"} 4
+  %a{:href => "#"} 5
+  %a{:href => "#"} 6
+  %a{:href => "#"} 7
+  %a{:href => "#"} 8
+  %a.flt-right{:href => "#", :style => "margin-left:30px;"} NEXT >
+  %a.flt-right{:href => "#"} < PREVIOUS
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121023070116) do
+ActiveRecord::Schema.define(:version => 20121025064542) do
 
   create_table "chapter_members", :force => true do |t|
     t.integer  "chapter_id",   :null => false
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20121023070116) do
     t.string   "postal_code"
     t.string   "state_name"
     t.string   "country_name"
+    t.string   "eventbrite_id"
   end
 
   create_table "messages", :force => true do |t|

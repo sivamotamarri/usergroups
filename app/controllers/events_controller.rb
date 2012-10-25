@@ -46,25 +46,27 @@ class EventsController < ApplicationController
     end
   end
 
+ 
 
   def userevents
     chapter_id = params[:chapter_id]
     user_events = EventMember.find_all_by_user_id(@current_user.id, :include => ['event'], :conditions => "events.chapter_id = #{chapter_id}") || []
-
     @all_events = []
     @past_events = []
     @upcoming_events = []
+    @profile_page = true
     user_events.each do |user_event|      
       event = user_event.event      
       @all_events.push(event)
       
-      if(!event.event_start_date.blank? && event.event_start_date > Time.now)
+      if(!event.event_start_date.blank? && Time.parse(event.event_start_date+" "+ event.event_start_time) >= Time.now)
         @upcoming_events.push(event)
       else
         @past_events.push(event)
       end
     end
-    @upcoming_events.sort_by(&:event_start_date).reverse!
+    @upcoming_events.sort
+    @past_events.sort
 
      respond_to do |format|      
       format.js {render :partial => 'events_list' }# new.html.erb
@@ -75,6 +77,29 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+  end
+
+  def follow_an_event
+    @event = Event.find(params[:event_id])
+    @event_memeber = EventMember.new(:event_id => @event.id, :user_id => current_user.id)
+    @event_memeber.save
+    @all_events = Event.find_all_by_chapter_id(@event.chapter_id) || []
+    @past_events = []
+    @upcoming_events = []
+    @all_events.each do |event|       
+      if(!event.event_start_date.blank? && Time.parse(event.event_start_date.to_s) > Time.now)
+        @upcoming_events.push(event)
+      else
+        @past_events.push(event)
+      end
+    end
+    @upcoming_events = @upcoming_events.sort.take(2)
+    @past_events.sort
+
+    respond_to do |format|      
+      format.js {render :partial => 'events_list' }# new.html.erb
+    end
+
   end
 
   def get_venue_id
@@ -96,11 +121,15 @@ class EventsController < ApplicationController
     start_date = params[:event][:event_start_date].blank? ? "" : Time.parse(params[:event][:event_start_date]+" " +params[:event][:event_start_time]).strftime('%Y-%m-%d %H:%M:%S')
     end_date = params[:event][:event_start_date].blank? ? "" : Time.parse(params[:event][:event_end_date]+" " +params[:event][:event_end_time]).strftime('%Y-%m-%d %H:%M:%S')  
     venue_id = get_venue_id()
-    eventbrite_event = @eb_client.event_new(:venue_id => venue_id , :organizer_id =>  EVENTBRITE_ORGANIZATION_ID , :name => params[:name], :start_date => start_date, :end_date => end_date,  :title => params[:event][:title], :description => params[:event][:description])      
+    eventbrite_event = @eb_client.event_new(:venue_id => venue_id , :organizer_id =>  EVENTBRITE_ORGANIZATION_ID , :name => params[:name], :start_date => start_date, :end_date => end_date,  :title => params[:event][:title], :description => params[:event][:description])     
+    
+    @event.eventbrite_id = eventbrite_event.parsed_response["process"]["id"].to_s
     respond_to do |format|
       if @event.save
+        @event_memeber = EventMember.new(:event_id => @event.id, :user_id => current_user.id)
+        @event_memeber.save
         @chapter = Chapter.find(@event.chapter_id)
-        @chapter_events = @chapter.events.sort{|a,b| b.created_at <=> a.created_at}
+        @chapter_events = @chapter.events.sort.take(2)        
         format.js 
       end
     end

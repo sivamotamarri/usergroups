@@ -32,7 +32,8 @@ class ChaptersController < ApplicationController
         @past_events.push(event)
       end
     end
-    @upcoming_events.sort_by(&:event_start_date).reverse!
+    @upcoming_events = @upcoming_events.sort.take(2)
+    @past_events.sort
 
     respond_to do |format|
       format.html # show.html.erb
