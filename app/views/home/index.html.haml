@@ -18,35 +18,31 @@
         %ul{:id => "markers_list"}
       .ca-right.flt-right
         %h2.label-3
-          CFUs are user groups for
-
-          people who are interested in
-          %label.label-4 Cloud Foundry PLATFORM.
+          = t('welcome.desc')
+          %label.label-4= t('welcome.title')
         %h5.label-5
-          Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit. Donec elementum. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Donec elementum.
+          = t('welcome.about')
         - if current_user.blank?
           %button.btn-a.signup
-            SIGN UP!
+            = "#{t('menu.signup')}!"
     .ca-bottom
       .ca-down
-        %h2.label-6 Create a Chapter!
-        %h5.label-7 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum. Lorem ipsum dolor sit amet,consectetur adipiscing elit. Donec elementum adipiscing elit. Donec elementum.
+        %h2.label-6= t('chapter.create_title')
+        %h5.label-7= t('chapter.create_desc')
         - if !current_user.blank?
-          = link_to  "CREATE" , new_chapter_path, :class => "btn-b"
+          = link_to  t('chapter.create_create') , new_chapter_path, :class => "btn-b"
         - else
-          %button.btn-b.signin CREATE
+          %button.btn-b.signin= t('chapter.create_create')
   .content-b
     .cb-left.flt-left
-      %h2.label-8 Announcements
+      %h2.label-8= t('announcements.heading')
       %div
         %img.img-a.flt-left{:src => "assets/img-a.png"}
           %h3.label-9 Title of articles
           %h5.label-10 October 2, 2012
           %h5.label-1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     .cb-right.flt-right
-      %h2.label-8 Earlier Announcements...
+      %h2.label-8= t('announcements.earlier')
       %ul.ul-c
         %li
           %div

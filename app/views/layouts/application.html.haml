@@ -10,7 +10,7 @@
     %script{:src => "//ajax.googleapis.com/jsapi", :type => "text/javascript"}   
    
     :javascript
-      google.load("identitytoolkit", "1", {packages: ["ac"], language:"en"});
+      google.load("identitytoolkit", "1", {packages: ["ac"], language:"#{lang}"});
     :javascript
       $(function() {
         window.google.identitytoolkit.setConfig({
@@ -29,6 +29,12 @@
             useContextParam: true
         });
         $("#navbar").accountChooser();
+
+        $('.signup').click(function(){
+          $('#navbar').accountChooser('showAccountChooser');
+          $(".widget-header h1").text("#{t('menu.signup')}");
+          $(".widget-nascar-list h2").text("#{t('menu.signup_with')}");
+        });
       });
     = csrf_meta_tags
   %body

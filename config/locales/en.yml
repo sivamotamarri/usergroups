@@ -2,7 +2,43 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  menu:
+    about: "ABOUT"
+    directory: "Directory"
+    wiki: "Wiki"
+    admin: "Admin"
+    signup: "SIGN UP"
+    signup_with: "Sign up with"
+    login: "LOGIN"
+    logout: "LOGOUT"
+    myprofile: "My Profile"
+    english: "English"
+    chinese: "Chinese"
+  footer:
+    faq: "FAQ"
+    forums: "Forums"
+    blog: "Blog"
+    jobs: "Jobs"
+    legal: "Legal"
+    terms: "Terms"
+    privacy: "Privacy"
+    copyright: "Copyright © 2012 VMware, Inc. All rights reserved"
   welcome:
-    page_title:  "Welcome to my site!"
+    about:  "Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit. Donec elementum. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Donec elementum."
+    title: "Cloud Foundry PLATFORM"
+    desc: "CFUs are user groups for people who are interested in"
+
+  chapter:
+    create_title: "Create a Chapter!"
+    create_desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum. Lorem ipsum dolor sit amet,consectetur adipiscing elit. Donec elementum adipiscing elit. Donec elementum."
+    create_create: "CREATE"
+
+  announcements:
+    heading: "Announcements"
+    earlier: "Earlier Announcements..."
+
+
 
   

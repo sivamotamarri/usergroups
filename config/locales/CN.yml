@@ -1,0 +1,36 @@
+## YAML Template.
+CN:
+  menu:
+    about: "关于"
+    directory: "目录"
+    wiki: "维基"
+    admin: "管理员"
+    signup: "报名"
+    signup_with: "“注册”"
+    login: "注册"
+    logout: "注销"
+    myprofile: "我的个人资料"
+    english: "英语"
+    chinese: "中国的"
+  footer:
+    faq: "常问问题"
+    forums: "论坛"
+    blog: "博客"
+    jobs: "招聘信息"
+    legal: "法律"
+    terms: "条款"
+    privacy: "隐私"
+    copyright: "版权所有©2012 VMware公司保留所有权利"
+  welcome:
+    about: "Lorem存有悲坐AMET，，consectetur adipiscing ELIT。Donec elementum。Lorem存有悲坐AMET，，consectetur adipiscing ELIT。 Donec elementum。"
+    title: "Cloud Foundry的平台"
+    desc: "CFU的用户组，有兴趣的人"
+
+  chapter:
+    create_title: "创建一章！"
+    create_desc: "Lorem存有悲坐AMET，，consectetur adipiscing ELIT。Donec elementum。Lorem存有悲坐AMET，，consectetur adipiscing ELIT。 Donec elementum adipiscing ELIT。Donec elementum。"
+    create_create: "创建"
+
+  announcements:
+    heading: "公告"
+    earlier: "此前公告..."

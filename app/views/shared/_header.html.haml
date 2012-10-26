@@ -5,30 +5,35 @@
         %a{:href => "#{root_url}"}
           %img{:src => "/assets/logo.png"}
       %h5.flt-right.label-2
-        (EN)
-        %label.bold English
-        %a.dd-a{:href => "#"}
+        %form
+          %select.target
+            - if params[:locale].blank? || params[:locale] == 'en'
+              %option{:value => "en" , :selected=>'selected'}= t('menu.english')
+              %option{:value => "CN"}= t('menu.chinese')
+            - else
+              %option{:value => "en"}= t('menu.english')
+              %option{:value => "CN",  :selected=>'selected'}= t('menu.chinese')
       %ul.ul-a.flt-right        
         - if !current_user.blank?
           %li
-            %a.label-2.logout{:href => "#{profile_path}"} My Profile
+            %a.label-2.logout{:href => "#{profile_path}"}= t('menu.myprofile')
           %li
-            %a.label-2.logout{:href => "#"} Log out
+            %a.label-2.logout{:href => "#"}= t('menu.logout')
         - else
           %li
-            %a.label-2.signup{:href => "#"} Sign up
+            %a.label-2.signup{:href => "#"}= t('menu.signup')
           %li
             %label.label-2.bold{:style => "position: relative;top: -2px;font-size: 18px;color:#afafaf;"} |
           %li
-            %a.label-2.signin{:href => "#"} Login
+            %a.label-2.signin{:href => "#"}= t('menu.login')
   .header-b
     .wrapper
       %ul.ul-b.flt-left
         %li.ulb-selected
-          %a{:href => "#"} ABOUT
+          %a{:href => "#"}= t('menu.about')
         %li
-          %a{:href => "#"} Directory
+          %a{:href => "#"}= t('menu.directory')
         %li
-          %a{:href => "#"} wiki
+          %a{:href => "#"}= t('menu.wiki')
         %li
-          %a{:href => "#{new_admin_session_path}"} admin
+          %a{:href => "#{new_admin_session_path}"}= t('menu.admin')

@@ -14,12 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 
-$(function(){
-  $('.signup').click(function(){
-    $('#navbar').accountChooser('showAccountChooser');
-    $(".widget-header h1").text("Sign up");
-    $(".widget-nascar-list h2").text("Sign up with");
-  });
+$(function(){  
   $('.signin').click(function(){
     $('#navbar').accountChooser('showAccountChooser');   
   });
@@ -64,6 +59,16 @@ $(function(){
         dataType: 'json'
       });
     });   
-   
 
+
+   $(".target").change(function () {
+        var locationObj = window.location.href;        
+        if(locationObj.match(/(locale=[a-zA-Z]*)/)){
+          window.location = locationObj.replace(/(locale=[a-zA-Z]*)/,'locale=' + $(this).val())
+        }
+        else
+          {
+            window.location = locationObj+"?locale=" + $(this).val();
+          }
+       });
 });
