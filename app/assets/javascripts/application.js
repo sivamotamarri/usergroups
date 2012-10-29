@@ -71,4 +71,13 @@ $(function(){
             window.location = locationObj+"?locale=" + $(this).val();
           }
        });
+
+       $("input:radio[name='chapter[chapter_type]']").click(function() {
+            var value = $(this).val();
+            if(value == "student"){
+              $('#ct_selection').show();
+            }else{
+              $('#ct_selection').hide();
+            }            
+        });
 });

@@ -67,7 +67,7 @@ class ChaptersController < ApplicationController
      member = ChapterMember.new({:memeber_type=>ChapterMember::PRIMARY_COORDINATOR, :user_id => @current_user.id})
     
     respond_to do |format|
-      if @chapter.save!
+      if @chapter.save
         member.chapter_id = @chapter.id
         member.save
         format.html { redirect_to @chapter, notice: 'Chapter was successfully created.' }

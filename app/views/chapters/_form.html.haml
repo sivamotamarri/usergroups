@@ -17,7 +17,7 @@
             .chapter_type         
               = f.radio_button :chapter_type , 'student', :checked =>true , :class => "radio"
               = f.label :student ,"Student" , :class => 'r_label'
-              = f.radio_button :chapter_type , 'professional', :checked => false , :class => "radio"
+              = f.radio_button :chapter_type , 'professional', :class => "radio"
               = f.label :professional ,"Professional" , :class => 'r_label'
           .drop_list
             .one_side
@@ -30,7 +30,7 @@
               %div
                 = f.input :city_name , :placeholder => 'City',  :label => false ,  :input_html =>  {:class => "textboxes"}   
                 = f.hidden_field :city_id,  :value => 1
-            .two_side
+            .two_side{:id => "ct_selection"}
               %div
                 = f.input :locality ,  :placeholder => 'Locality' , :label => false ,  :input_html => {:class => "textboxes"}            
               %div
