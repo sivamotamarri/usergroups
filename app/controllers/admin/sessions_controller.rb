@@ -1,7 +1,9 @@
 class Admin::SessionsController < ApplicationController
   layout 'admin'
   def new
-    session[:admin_user_id] = nil
+    if !session[:admin_user_id].blank?
+      redirect_to admin_chapters_url
+    end
   end
 
   def create

@@ -1,8 +1,15 @@
-%h2 Sign in
-= form_tag(admin_sessions_path) do
-  %p
-    = email_field_tag :email ,nil, :placeholder => "Email"
-  %p
-    = password_field_tag :password ,nil, :placeholder => "Password"
-  %p= submit_tag "Sign in"
+.content.wrapper
+  .content-a
+    .Creation-form
+      %h1.label-34 Sign in
+      = form_tag(admin_sessions_path) do
+        #Form_ch
+          .drop_list
+            .one_side
+              %div
+                = email_field_tag :email ,nil, :placeholder => "Email",:class => "textboxes flt-right"
+              %div
+                = password_field_tag :password ,nil, :placeholder => "Password" , :class => "textboxes flt-right"
+          .proposal
+            = submit_tag "Sign in" , :class => 'send',:style=> "margin-left:0px;margin-right:0px;"
 

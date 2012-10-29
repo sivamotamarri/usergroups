@@ -7,6 +7,11 @@ class HomeController < ApplicationController
   	@markers = get_markers.to_json
   end
 
+  def directory
+    @chapters = Chapter.all
+    @markers = get_markers.to_json
+  end
+
   protected
 
   def get_markers

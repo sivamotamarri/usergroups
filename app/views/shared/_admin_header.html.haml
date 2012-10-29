@@ -4,10 +4,6 @@
       .bg-logo.flt-left
         %a{:href => "#{root_url}"}
           %img{:src => "/assets/logo.png"}
-      %h5.flt-right.label-2
-        (EN)
-        %label.bold English
-        %a.dd-a{:href => "#"}
       %ul.ul-a.flt-right
         - if !admin_user.blank?
           %li
@@ -23,7 +19,7 @@
         %li.ulb-selected
           %a{:href => "#"} ABOUT
         %li
-          %a{:href => "#"} Directory
+          %a{:href => "#{directory_path}"} Directory
         %li
           %a{:href => "#"} wiki
         %li
