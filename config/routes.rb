@@ -1,7 +1,7 @@
 CloudfoundryUsergroups::Application.routes.draw do
  
 
-
+  get '/chapters/subregion_options' => 'chapters#subregion_options'
   resources :chapters do
      collection do
       post 'join_a_chapter'

@@ -61,6 +61,7 @@ gem 'oauth2'
 
 gem "state_machine"
 gem 'awesome_nested_set'
+gem 'carmen-rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
