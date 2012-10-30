@@ -129,7 +129,8 @@ class EventsController < ApplicationController
         @event_memeber = EventMember.new(:event_id => @event.id, :user_id => current_user.id)
         @event_memeber.save
         @chapter = Chapter.find(@event.chapter_id)
-        @chapter_events = @chapter.events.sort.take(2)        
+        @chapter_events = @chapter.events.sort        
+        @two_chapter_events = @chapter_events.take(2)
         format.js 
       else
         format.js

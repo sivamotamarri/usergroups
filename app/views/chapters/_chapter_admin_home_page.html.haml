@@ -15,22 +15,40 @@
           %td.link
             %a.cp{:href => "#" , :id=> "create_event"} +Create Event
   .calendar-div{:style => "margin: 0 auto;margin-top:10px;width:90%;height:250px;background-color: #e0e0e0;margin-bottom: 20px;"}
-%table.table-d
-- @chapter_events.each do |event|   
-  %tr
-    %td{:style => "text-align: center;width:110px;"}
-      -starttime = ""
-      -startdate = ""
-      -if (event.event_start_date.present? && event.event_start_time.present?)
-        - datetime = Time.parse(event.event_start_date + " " + event.event_start_time)
-        - starttime = datetime.strftime('%a, %I:%M %p')
-        - startdate =  datetime.strftime('%b %d, %Y')
-      %h5.label-26 #{starttime}
-      %h5.label-26 #{startdate}
-    %td{:style => "text-align: left;width:380px;"}
-      - title = !event.title.blank? ? "#{event.title}" : "No Title"
-      %h5.label-36 #{title}
-      %h5.label-26 Post on #{Time.parse(event.created_at.to_s).strftime('%d %b, %Y')} by #{event.user.try(:fullname)}
-    %td{:style => "text-align: right; padding-right:10px;"}
-      %h5.label-26 #{event.entry_fee.blank? ? "Rs 0" : event.entry_fee} per person    
-%a.label-12.flt-right.block.mar-top{:href => "#"} See all planned events....
+%table.table-d{:style => "display:none", :id=>"all_events"}
+  - @chapter_events.each do |event|   
+    %tr
+      %td{:style => "text-align: center;width:110px;"}
+        -starttime = ""
+        -startdate = ""
+        -if (event.event_start_date.present? && event.event_start_time.present?)
+          - datetime = Time.parse(event.event_start_date + " " + event.event_start_time)
+          - starttime = datetime.strftime('%a, %I:%M %p')
+          - startdate =  datetime.strftime('%b %d, %Y')
+        %h5.label-26 #{starttime}
+        %h5.label-26 #{startdate}
+      %td{:style => "text-align: left;width:380px;"}
+        - title = !event.title.blank? ? "#{event.title}" : "No Title"
+        %h5.label-36 #{title}
+        %h5.label-26 Post on #{Time.parse(event.created_at.to_s).strftime('%d %b, %Y')} by #{event.user.try(:fullname)}
+      %td{:style => "text-align: right; padding-right:10px;"}
+        %h5.label-26 #{event.entry_fee.blank? ? "Rs 0" : event.entry_fee} per person
+%table.table-d{:id=>"two_events"}
+  - @two_chapter_events.each do |event|   
+    %tr
+      %td{:style => "text-align: center;width:110px;"}
+        -starttime = ""
+        -startdate = ""
+        -if (event.event_start_date.present? && event.event_start_time.present?)
+          - datetime = Time.parse(event.event_start_date + " " + event.event_start_time)
+          - starttime = datetime.strftime('%a, %I:%M %p')
+          - startdate =  datetime.strftime('%b %d, %Y')
+        %h5.label-26 #{starttime}
+        %h5.label-26 #{startdate}
+      %td{:style => "text-align: left;width:380px;"}
+        - title = !event.title.blank? ? "#{event.title}" : "No Title"
+        %h5.label-36 #{title}
+        %h5.label-26 Post on #{Time.parse(event.created_at.to_s).strftime('%d %b, %Y')} by #{event.user.try(:fullname)}
+      %td{:style => "text-align: right; padding-right:10px;"}
+        %h5.label-26 #{event.entry_fee.blank? ? "Rs 0" : event.entry_fee} per person    
+%a.label-12.flt-right.block.mar-top{:href => "#", :id=>"upcoming_events"} See all planned events....
