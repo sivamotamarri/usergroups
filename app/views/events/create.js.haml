@@ -1,2 +1,11 @@
-
-$("#event_content").html("#{escape_javascript render(:partial => 'chapters/chapter_admin_home_page', :locals => {:chapter_events => @chapter_events})}");
+-if @event.errors.blank?
+  $("#event_content").html("#{escape_javascript render(:partial => 'chapters/chapter_admin_home_page')}");
+-else    
+  $("#event_content p.inline-errors").remove();
+  - @event.errors.messages.each do |attribute, errors|
+    - msg= ''
+    -errors.each do |e|
+      -msg= msg+ e  
+    $("<p class=inline-errors>"+"#{msg.to_s}"+"</p>").insertAfter($('#event_'+"#{attribute}"));
+    
+  

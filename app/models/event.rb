@@ -6,8 +6,28 @@ class Event < ActiveRecord::Base
   belongs_to :chapter
   belongs_to :user , :foreign_key => :created_by
   attr_accessible :title, :event_start_date, :event_end_date, :status, :description, :venue, :entry_fee, :chapter_id , :location,  :address_line1,   :address_line2 ,:event_start_time ,:event_end_time, :city_name, :postal_code, :state_name, :country_name 
+  validates :title,:event_start_time ,:event_start_date, :presence => true
+  
+
+  validates :event_start_date ,:format => {
+  :with => /^([0-3])?[1-9]\/[0-1][0-9]\/[1-9][0-9][0-9][0-9]$/,
+    :message => "Date should be in dd/mm/yyyy format"
+  } , :unless => Proc.new{|event| event.event_start_date.blank?}
+
+  validates :event_end_date, :format => {
+  :with => /^([0-3])?[1-9]\/[0-1][0-9]\/[1-9][0-9][0-9][0-9]$/,
+    :message => "Date should be in dd/mm/yyyy format"
+  } , :unless => Proc.new{|event| event.event_end_date.blank?}
+  
+
 
   def <=> (other)
+    if (other.event_start_date.blank? or  other.event_start_time.blank?)
+      return 1
+    elsif (self.event_start_date.blank? or  self.event_start_time.blank?)
+      return 0 
+    end
+
   	Time.parse(other.event_start_date + " " + other.event_start_time) <=> Time.parse(self.event_start_date + " " + self.event_start_time)
   end 
 

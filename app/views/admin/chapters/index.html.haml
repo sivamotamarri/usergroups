@@ -64,7 +64,7 @@
                             %h5.label-20= "Emai: #{chapter.user.email}"
                             %br/
                             %p.label-26{:style => "padding-right:0px"}
-                              = chapter.messages.root.body
+                              = chapter.messages.root.try(:body)
                           %td.tb-3-4{:style => "width:150px;"}
                           %td.tb-4-4
                             %a.bg-cross-b{:href => "#"}
