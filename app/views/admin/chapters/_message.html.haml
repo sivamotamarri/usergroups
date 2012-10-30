@@ -1,19 +1,20 @@
-- (chapter.messages.root.try(:children)|| []).each do |child|
-  %tr
-    %td.tb-1-4
-      %a.bg-profile-img-b{:href => "#"}
-        %img.profile-img-b{:src => "/assets/img-d.png"}/
-    %td.tb-2-4
-      %a.label-43{:href => "#", :style => "position: relative;"}
-        = child.sender.fullname
-      %h5.label-20= child.sender.created_at.strftime("%B %d, %Y")
-      %h5.label-20= "Location:  #{child.sender.location}"
-      %h5.label-20= "Emai: #{child.sender.email}"
-      %br/
-      %p.label-26{:style => "padding-right:0px"}
-        = child.body
-    %td.tb-3-4{:style => "width:150px;"}
-    %td.tb-4-4
+- if chapter.messages
+  - chapter.messages.root.try(:children).each do |child|
+    %tr
+      %td.tb-1-4
+        %a.bg-profile-img-b{:href => "#"}
+          %img.profile-img-b{:src => "/assets/img-d.png"}/
+      %td.tb-2-4
+        %a.label-43{:href => "#", :style => "position: relative;"}
+          = child.sender.fullname
+        %h5.label-20= child.sender.created_at.strftime("%B %d, %Y")
+        %h5.label-20= "Location:  #{child.sender.location}"
+        %h5.label-20= "Emai: #{child.sender.email}"
+        %br/
+        %p.label-26{:style => "padding-right:0px"}
+          = child.body
+      %td.tb-3-4{:style => "width:150px;"}
+      %td.tb-4-4
 %tr
   %td.tb-1-4
     &nbsp

@@ -1,0 +1,19 @@
+#announcement-tabs
+  %ul.ul-i
+    %li.ulf-selected
+      %a{:href => "#{new_admin_announcement_path}"} Create Announcement
+    %li
+      %a{:href => "#{announcement_history_admin_announcements_path}"} Announcement History
+
+:javascript
+  $(function() {
+    $("#announcement-tabs").tabs({
+          beforeLoad: function( event, ui ) {
+              ui.jqXHR.error(function() {
+                  ui.panel.html(
+                      "Couldn't load this tab. We'll try to fix this as soon as possible. " +
+                      "If this wouldn't be a demo." );
+              });
+          }
+     });
+  });
