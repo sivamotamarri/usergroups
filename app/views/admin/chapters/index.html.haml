@@ -36,7 +36,7 @@
                               %img.profile-img-b{:src => "/assets/img-d.png"}/
                           %td.tb-2-4
                             %a.label-43{:href => "#"}
-                              = chapter.user.fullname
+                              = chapter.try(:user).try(:fullname)
                             %h5.label-20= "Location:  #{chapter.location}"
                           %td.tb-3-4
                             %h5.label-20= chapter.created_at.strftime("%B %d, %Y")
@@ -55,7 +55,7 @@
                               %img.profile-img-b{:src => "/assets/img-d.png"}/
                           %td.tb-2-4
                             %a.label-43{:href => "#", :style => "position: relative;"}
-                              = chapter.user.fullname
+                              = chapter.try(:user).try(:fullname)
                               %span{:id => "approve-reject#{chapter.id}" , :style=>"font-size: 12px;text-align: right;left: 512px;position: absolute;width: 200px;"}
                                 %button.btn-a-small.change_status{:style => "top:-3px;","data-url" => "#{change_status_admin_chapter_path(chapter, :status => 'incubate')}"} APPROVE
                                 %button.btn-a-small.change_status{:style => "top:-3px;","data-url" => "#{change_status_admin_chapter_path(chapter, :status => 'deny')}"} REJECT
