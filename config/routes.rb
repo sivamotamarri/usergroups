@@ -50,7 +50,11 @@ CloudfoundryUsergroups::Application.routes.draw do
 
    namespace :admin do
     resources :sessions
-    resources :anouncements
+    resources :announcements do
+      collection do
+        get 'announcement_history'
+      end
+    end
     resources :mails
     resources :chapters do
       collection do

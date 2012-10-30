@@ -8,11 +8,11 @@
         %form
           %select.target
             - if params[:locale].blank? || params[:locale] == 'en'
-              %option{:value => "en" , :selected=>'selected'}= t('menu.english')
-              %option{:value => "CN"}= t('menu.chinese')
+              %option{:value => "en" , :selected=>'selected'} English
+              %option{:value => "CN"} Chinese
             - else
-              %option{:value => "en"}= t('menu.english')
-              %option{:value => "CN",  :selected=>'selected'}= t('menu.chinese')
+              %option{:value => "en"} English
+              %option{:value => "CN",  :selected=>'selected'} Chinese
       %ul.ul-a.flt-right        
         - if !current_user.blank?
           %li
