@@ -1,7 +1,10 @@
 :css
   .gmaps4rails_map {
       height: 336px;
-      width: 996px;
+      width: 945px;
+  }
+  .map {
+    border:none;
   }
   .map_container {
       width: 996px;
@@ -14,126 +17,9 @@
       %a.label-36{:href => "#"} + Create Group
       .div-g
         .column-a
-          %h3.label-37
-            Country Name
-          %ul.ui-j
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-          %h3.label-37
-            Country Name
-          %ul.ui-j
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-          %h3.label-37
-            Country Name
-          %ul.ui-j
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-        .column-a
-          %h3.label-37
-            Country Name
-          %ul.ui-j
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-          %h3.label-37
-            Country Name
-          %ul.ui-j
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-          %h3.label-37
-            Country Name
-          %ul.ui-j
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-        .column-a
-          %h3.label-37
-            Country Name
-          %ul.ui-j
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-          %h3.label-37
-            Country Name
-          %ul.ui-j
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-          %h3.label-37
-            Country Name
-          %ul.ui-j
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-        .column-a
-          %h3.label-37
-            Country Name
-          %ul.ui-j
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-          %h3.label-37
-            Country Name
-          %ul.ui-j
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-          %h3.label-37
-            Country Name
-          %ul.ui-j
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
-            %li
-              %a.label-28{:href => "#"} Alpha
+          - @chapters.each_with_index do |chapter,i|
+            %h3.label-37
+              = chapter.country_name
+            %ul.ui-j
+              %li
+                %a.label-28{:href => "#"}= chapter.name

@@ -12,6 +12,13 @@ class HomeController < ApplicationController
     @markers = get_markers.to_json
   end
 
+  def about
+
+  end
+  def wiki
+    
+  end
+
   protected
 
   def get_markers

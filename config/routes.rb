@@ -4,6 +4,8 @@ CloudfoundryUsergroups::Application.routes.draw do
   get '/chapters/subregion_options' => 'chapters#subregion_options'
 
   get '/directory' => 'home#directory' , :as => "directory"
+  get '/about' => 'home#about' , :as => "about"
+  get '/wiki' => 'home#wiki' , :as => "wiki"
   
   resources :chapters do
      collection do

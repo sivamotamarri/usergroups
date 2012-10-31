@@ -2,6 +2,7 @@
 CN:
   menu:
     about: "关于"
+    home: "家"
     directory: "目录"
     wiki: "维基"
     admin: "管理员"
@@ -17,18 +18,20 @@ CN:
     forums: "论坛"
     blog: "博客"
     jobs: "招聘信息"
-    legal: "法律"
     terms: "条款"
     privacy: "隐私"
-    copyright: "版权所有©2012 VMware公司保留所有权利"
+    legal: "除非另有說明，此內容的許可下"
+    creative: "除非另有說明，此內容的許可下"
+    details: "使用Cloud Foundry的標誌及商標的詳細信息和限制，請參閱本"
+    license: "內容許可證"
   welcome:
-    about: "Lorem存有悲坐AMET，，consectetur adipiscing ELIT。Donec elementum。Lorem存有悲坐AMET，，consectetur adipiscing ELIT。 Donec elementum。"
+    about: "這些組集中學習和分享信息Cloud Foundry的開源PaaS的。"
     title: "Cloud Foundry的平台"
-    desc: "CFU的用户组，有兴趣的人"
+    desc: "CFDGs是為有興趣的開發人員"
 
   chapter:
     create_title: "创建一章！"
-    create_desc: "Lorem存有悲坐AMET，，consectetur adipiscing ELIT。Donec elementum。Lorem存有悲坐AMET，，consectetur adipiscing ELIT。 Donec elementum adipiscing ELIT。Donec elementum。"
+    create_desc: "開始專業學生的一章，以幫助建立開發者社區。"
     create_create: "创建"
 
   announcements:
