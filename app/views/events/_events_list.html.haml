@@ -5,8 +5,9 @@
     - @two_upcoming_events.each do |event|    
       %li
         .div-c
-          %h1.label-23 30
-          %h4.label-24 Sep
+          -if(!event.event_start_date.blank?)
+            %h1.label-23 #{Time.parse(event.event_start_date.to_s).strftime('%d')}
+            %h4.label-24 #{Time.parse(event.event_start_date.to_s).strftime('%b')}
         .div-h
           %a.label-9{:href => "#"} #{event.title}  
           -if @profile_page != true  and !event.am_i_member?(@current_user.id)                    
@@ -21,8 +22,9 @@
     - @upcoming_events.each do |event|
       %li
         .div-c
-          %h1.label-23 30
-          %h4.label-24 Sep
+          -if(!event.event_start_date.blank?)
+            %h1.label-23 #{Time.parse(event.event_start_date.to_s).strftime('%d')}
+            %h4.label-24 #{Time.parse(event.event_start_date.to_s).strftime('%b')}
         .div-h
           %a.label-9{:href => "#"} #{event.title}  
           -if @profile_page != true  and !event.am_i_member?(@current_user.id)                    
@@ -42,9 +44,10 @@
   %ul.ul-g{:style => "margin-top:-20px;"}
   - @past_events.each do |event|
     %li
-      .div-c
-        %h1.label-23 30
-        %h4.label-24 Sep
+      .div-c 
+        -if(!event.event_start_date.blank?)
+          %h1.label-23 #{Time.parse(event.event_start_date.to_s).strftime('%d')}
+          %h4.label-24 #{Time.parse(event.event_start_date.to_s).strftime('%b')}
       .div-h
         %a.label-9{:href => "#"} #{event.title}
         -if @profile_page != true and !event.am_i_member?(@current_user.id)

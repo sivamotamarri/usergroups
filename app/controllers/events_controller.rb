@@ -80,8 +80,8 @@ class EventsController < ApplicationController
         @past_events.push(event)
       end
     end
-    @two_upcoming_events = @upcoming_events.sort!.take(2)
-    @past_events.sort
+    @two_upcoming_events = @upcoming_events.sort!.reverse!.take(2)
+    @past_events.sort!
 
   end
 
@@ -174,6 +174,6 @@ class EventsController < ApplicationController
   	else
   	 @auth_client_obj = OAuth2::Client.new(EVENTBRITE_CLIENT_ID, EVENTBRITE_CLIENT_SECRET, {:site => EVENTBRITE_URL})
   	 @accept_url = @auth_client_obj.auth_code.authorize_url( :redirect_uri => EVENTBRITE_REDIRECT_URL)
-  	end	
+  	end	     
   end
 end

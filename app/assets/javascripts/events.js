@@ -31,11 +31,17 @@ Events ={
       });
     
   });
-  $('#upcoming_events').die('click').live('click', function(e){
 
+  $('#upcoming_events').die('click').live('click', function(e){    
   	e.preventDefault();
+    var default_text= "See all upcoming events...";
   	$('#two_events').toggle();
   	$('#all_events').toggle();
+    if($('#two_events').is(':hidden')){
+      default_text = "collapse"
+    }
+    $('#upcoming_events').text(default_text);
+
   });	
 
   }
