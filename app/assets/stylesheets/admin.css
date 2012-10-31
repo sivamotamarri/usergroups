@@ -419,7 +419,6 @@ body {
 	font-weight: bold;
 	color: #d9541e;
 	width:inherit;
-	word-wrap:
 }
 a.label-25{display: inline-block;clear:both;}
 a.label-25:hover{
@@ -807,7 +806,7 @@ button.label-50{
 	color: #D9541E;
 }
 .label-44 a.label-46{padding-right:10px;}
-.label-55{
+/*.label-55{
 	font-size: px;
 	color:# ;
 }.label-54{
@@ -819,7 +818,8 @@ button.label-50{
 }.label-52{
 	font-size: px;
 	color:# ;
-}.label-51{
+}*/
+.label-51{
 	font-size: 11px;
 	color:#666 ;
 }.label-50{
