@@ -44,7 +44,7 @@ class ChaptersController < ApplicationController
     end
     @two_upcoming_events = @upcoming_events.sort!.take(2)
     @past_events.sort
-
+    @announcements = Announcement.all
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @chapter }

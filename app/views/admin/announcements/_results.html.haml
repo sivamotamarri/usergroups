@@ -1,0 +1,16 @@
+%table.table-b
+  %tr
+    %td.tb-1-4
+      %img.img-c.flt-left{:src => "/assets/img-g.png"}
+    %td.tb-2-4
+      %a.label-36.bold{:href => "#"} Title of Announcement
+      %p.label-26{:style => "padding-top:5px"}
+        Lorem ipsum Lorem ipsum dolor sit amet
+        , consectetur adipisicing elit, sed do eiusmod dolor s
+        it amet, consectetur adipisicing elit, sed do eiusmod te
+        mpor incididunt ut labore et donsequat.
+    %td.tb-3-4
+      %h5.label-20.flt-right.date-cross September 12, 2012
+    %td.tb-4-4
+      %a.bg-cross-b.date-cross{:href => "#"}
+= will_paginate @announcements, :renderer => RemoteLinkRenderer

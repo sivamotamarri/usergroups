@@ -23,7 +23,10 @@ class Admin::AnnouncementsController < ApplicationController
   end
 
   def announcement_history
-    @announcements = Announcement.all
-    render :layout => false
+    @announcements = Announcement.paginate(:page => params[:page], :per_page => 1)
+    respond_to do |format|
+      format.html { render :layout => false }
+      format.js {}
+    end
   end
 end

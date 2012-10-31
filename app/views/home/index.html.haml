@@ -19,7 +19,7 @@
       .ca-right.flt-right
         %h2.label-3
           = t('welcome.desc')
-          %label.label-4= t('welcome.title')
+          %label.label-4{:style=> "font-size:35px;"}= t('welcome.title')
         %h5.label-5
           = t('welcome.about')
         - if current_user.blank?
@@ -43,33 +43,22 @@
       %h2.label-8= t('announcements.heading')
       %div
         %img.img-a.flt-left{:src => "assets/img-a.png"}
-          %h3.label-9 Title of articles
+          %h3.label-9 CFDG Launched in India
           %h5.label-10 October 2, 2012
-          %h5.label-1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          %h5.label-1 We are excited to announce launch of Cloud Foundry Developer Groups in India. This site is focussed on helping these groups coordinate and share their online activities about Cloud Foundry, create a new event or update Photos from the existing events.
     .cb-right.flt-right
       %h2.label-8= t('announcements.earlier')
       %ul.ul-c
-        %li
-          %div
-            %h3.label-12
-              %img.img-c{:src => "assets/img-b.png"}
-                Title of articles-
-                %label.label-13 October 2, 2012
-            %h5.label-16 Lorem ipsum dolor sit amet, consectetur adipisicin t amet, consectetur adi.
-        %li
-          %div
-            %h3.label-12
-              %img.img-c{:src => "assets/img-b.png"}
-                Title of articles-
-                %label.label-13 October 2, 2012
-            %h5.label-16 Lorem ipsum dolor sit amet, consectetur adipisicin. t amet, consectetur adi
-        %li
-          %div
-            %h3.label-12
-              %img.img-c{:src => "assets/img-b.png"}
-                Title of articles-
-                %label.label-13 October 2, 2012
-            %h5.label-16 Lorem ipsum dolor sit amet, consectetur adipisicin. t amet, consectetur adi
-    
-
-             
+        - if @announcements.blank?
+          %li
+            %div
+              %h3.label-12 No Earlier Announcements
+        - else
+          - @announcements.each do |ann|
+            %li
+              %div
+                %h3.label-12
+                  %img.img-c{:src => "assets/img-b.png"}
+                    = ann.title
+                    %label.label-13 October 2, 2012
+                %h5.label-16= ann.body

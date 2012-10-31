@@ -4,6 +4,7 @@
 en:
   menu:
     about: "ABOUT"
+    home: "HOME"
     directory: "Directory"
     wiki: "Wiki"
     admin: "Admin"
@@ -19,20 +20,20 @@ en:
     forums: "Forums"
     blog: "Blog"
     jobs: "Jobs"
-    legal: "Legal"
     terms: "Terms"
     privacy: "Privacy"
-    copyright: "Copyright © 2012 VMware, Inc. All rights reserved"
+    legal: "Except as noted, this content is licensed under"
+    creative: "Creative Commons Attribution 2.5."
+    details: "For details and restrictions on using Cloud Foundry Logo and Trademarks refer to this"
+    license: "Content License"
   welcome:
-    about:  "Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit. Donec elementum. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Donec elementum."
+    about:  "These groups are focussed on learning and sharing information about Cloud foundry Open Source Paas. "
     title: "Cloud Foundry PLATFORM"
-    desc: "CFUs are user groups for people who are interested in"
+    desc: "CFDGs are groups for developers who are interested in "
 
   chapter:
     create_title: "Create a Chapter!"
-    create_desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum. Lorem ipsum dolor sit amet,consectetur adipiscing elit. Donec elementum adipiscing elit. Donec elementum."
+    create_desc: "Start a Professional or Student chapter to help build the developer community."
     create_create: "CREATE"
 
   announcements:
