@@ -7,7 +7,7 @@ module ApplicationHelper
     end
   end
 
-  def active_class(link,cont)
+  def active_class(link, cont)
     if params[:action] == link && params[:controller] == cont
          "ulb-selected"
     elsif params[:controller].split('/')[0] == link

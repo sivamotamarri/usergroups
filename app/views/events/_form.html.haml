@@ -13,13 +13,13 @@
         .el-cont
           %label.flt-left.label-26 Starts On
 
-          = f.input :event_start_time ,  :placeholder => "00:00 pm", :label => false ,:style => " margin:0px 10px 0px 10px;",  :input_html => {:class => "input-b size-b size-of-inputs flt-right" }
+          = f.input :event_start_time ,  :placeholder => "00:00 pm", :label => false,   :input_html => {:class => "input-b size-b size-of-inputs flt-right",:style => " margin:0px 10px 0px 10px;", }
           = f.input :event_start_date , :input_html => {:class => "input-b size-b size-of-inputs flt-right"} , :placeholder => "dd/mm/yyyy", :label => false 
          
       .event-right
         .el-cont{:style => "margin-top:45px;"}
           %label.flt-left.label-26 Ends On          
-          = f.input :event_end_time ,  :placeholder => "00:00 pm", :label => false ,:style => "margin:0px 10px 0px 10px;",  :input_html => {:class => "input-b size-b size-of-inputs flt-right" }          
+          = f.input :event_end_time ,  :placeholder => "00:00 pm", :label => false , :input_html => {:class => "input-b size-b size-of-inputs flt-right", :style => " margin:0px 10px 0px 10px;", }          
           = f.input :event_end_date , :input_html => {:class => "input-b size-b size-of-inputs flt-right"} , :placeholder => "dd/mm/yyyy", :label => false 
       .event-bottom
     .event-form
@@ -32,14 +32,13 @@
           %label.flt-left.label-26 Entry Fee
           = f.input :entry_fee , :input_html => {:class => "input-b size-d" }, :placeholder => "Rs. 0", :label => false, :style => "margin-left:10px"
           /%input.input-b.size-d{:placeholder => "Rs. 0", :style => "margin-left:10px"}
-      .event-right
+      .event-right 
         .el-cont
-        / .el-cont
-        /   %h5.label-26.flt-left Location
-        /   .dd-chapter-ad
-        /     %h5.label-11
-        /       New Event
-        /       %img.arrow-down-chap-ad-img.flt-right{:src => "/assets/arrow-down-d.png"}/
+          %h5.label-26.flt-left Location
+          .dd-chapter-ad
+            %h5.label-11
+              New Event
+              %img.arrow-down-chap-ad-img.flt-right{:src => "/assets/arrow-down-d.png"}/
         .el-cont
           = f.input :venue , :input_html => {:class => "input-b size-text-event-create"} , :placeholder => "Venue Name", :label => false 
           
