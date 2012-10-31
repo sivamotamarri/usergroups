@@ -5,6 +5,7 @@ class HomeController < ApplicationController
   def index
     @chapters = Chapter.all || []
   	@markers = get_markers.to_json
+    @announcements = Announcement.all
   end
 
   def directory
