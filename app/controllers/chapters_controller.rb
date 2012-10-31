@@ -59,7 +59,7 @@ class ChaptersController < ApplicationController
     @admin = User.find_by_email("admin@cloudfoundry.com")
     
     respond_to do |format|
-      format.html # new.html.erb
+      format.html {render :layout => "create_chapter"}
       format.json { render json: @chapter }
     end
   end
@@ -71,6 +71,7 @@ class ChaptersController < ApplicationController
 
   # POST /chapters
   # POST /chapters.json
+
   def create
      @admin = User.find_by_email("admin@cloudfoundry.com")
      @chapter = Chapter.new(params[:chapter])

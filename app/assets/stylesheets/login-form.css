@@ -4,7 +4,7 @@
 }
 
 .forms_list{
-	margin-top:100px;
+	margin-top:50px;
 	display:inline-block;
 }
 
@@ -21,8 +21,6 @@ float: left}
 #welcome{
 	display:inline-block;
 	vertical-align:top;
-	margin-top:50px;
-	margin-left:50px;
 }
 
 #formfirst {
