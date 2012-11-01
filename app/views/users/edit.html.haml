@@ -3,7 +3,7 @@
     .ca-left.flt-left
       =form_for(@user, :as => :user, :url => user_path(@user), :html => { :method => :put ,  :multipart => true}) do |f|
         #welcome
-          %h1.welcome_br Welcome!
+          %h1.label-17 Welcome!
           %div
             - if @user.avatar_file_name && (@user.errors[:avatar_content_type].blank? && @user.errors[:avatar_file_size].blank?)
               %img.profile-image{:src => @user.try(:avatar).url(:medium)}/
@@ -14,19 +14,20 @@
           #formfirst
             %h4.form1 Please fill in the details given below
             %div
-              = f.text_field :location , :placeholder => "Location", :class => "textboxes"
+              = f.text_field :location , :placeholder => "Location", :class => "textboxes input-a"
           .line_space
           #formsecond
             %h4.form1 Optional fields            
             %div
-              = f.text_field :mobile,:class => "textboxes", :placeholder => "Contact Number"
+              = f.text_field :mobile,:class => "textboxes input-a", :placeholder => "Contact Number "
             %div
-              = f.url_field :website_url, :class => "textboxes", :placeholder => "URL for website"
+              = f.url_field :website_url, :class => "textboxes input-a", :placeholder => "URL for website"
             %div
-              = f.url_field :linkedin_url, :class => "textboxes", :placeholder => "URL for linkedin"
-            = f.url_field :twitter_url, :class => "textboxes", :placeholder => "URL for twitter"
+              = f.url_field :linkedin_url, :class => "textboxes input-a", :placeholder => "URL for linkedin"
+            = f.url_field :twitter_url, :class => "textboxes input-a", :placeholder => "URL for twitter"
             .styled
-              = f.submit "CONTINUE" , :class => "continue"
+              = f.submit "CONTINUE" , :class => "continue btn-a-small flt-right"
+
 - arr = []
 - request.env['HTTP_COOKIE'].each_char{|c| arr.push(c[0].to_s)}
 - session = arr.join("x")
