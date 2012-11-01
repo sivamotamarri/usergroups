@@ -122,14 +122,13 @@ body {
 }
 .ca-top{
 	overflow:hidden;
-	border: 2px solid #0097d7;
-	border-bottom: 0px;
+/*	border: 2px solid #0097d7;
+	border-bottom: 0px;*/
 	padding-bottom: 30px;
 }
 .ca-bottom{
 	background-color: #231f20;
 	overflow: hidden;
-	padding-bottom: 20px;
 }
 .ca-down{
 	width:600px;
@@ -152,11 +151,11 @@ body {
 }
 .cb-left{
 	width:650px;
-	margin:40px 10px 20px 20px;
+	margin:0px 10px 20px 20px;
 }
 .cb-right{
 	width:330px;
-	margin: 40px 20px 20px 10px
+	margin: 0px 20px 20px 10px
 }
 
 
