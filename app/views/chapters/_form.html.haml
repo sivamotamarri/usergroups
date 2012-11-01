@@ -9,6 +9,7 @@
         %h4.info_label Email Id: #{@current_user.email}
       %h3.label-11 Chapter Details
       = semantic_form_for @chapter do |f|
+        - showclass = (f.object.chapter_type == "professional" ? "display:none" : "display:block")
         %div{:style => "margin:25px 0px 10px 0px; width:60%;"}
           = f.label  "Chapter Name" , :class => 'info_label', :style => "margin-right:10px;    line-height: 23px;"
           = f.input :name, :placeholder => 'Chapter Name' ,  :label =>false ,  :input_html => {:class => "textboxes flt-right", :style => "width: 76%;margin-top:-30px;margin-right:5px;"} 
@@ -30,8 +31,8 @@
                 = f.hidden_field :state_id,  :value => 1
               %div
                 = f.input :city_name , :placeholder => 'City',  :label => false ,  :input_html =>  {:class => "textboxes"}   
-                = f.hidden_field :city_id,  :value => 1
-            .two_side{:id => "ct_selection"}
+                = f.hidden_field :city_id,  :value => 1              
+            .two_side{:id => "ct_selection" , :style => "#{showclass}"}
               %div
                 = f.input :locality ,  :placeholder => 'Locality' , :label => false ,  :input_html => {:class => "textboxes"}            
               %div
