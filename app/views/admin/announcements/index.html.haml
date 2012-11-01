@@ -1,6 +1,6 @@
 #announcement-tabs
   %ul.ul-i
-    %li.ulf-selected
+    %li.uli-selected
       %a{:href => "#{new_admin_announcement_path}"} Create Announcement
     %li
       %a{:href => "#{announcement_history_admin_announcements_path}"} Announcement History
@@ -14,6 +14,10 @@
                       "Couldn't load this tab. We'll try to fix this as soon as possible. " +
                       "If this wouldn't be a demo." );
               });
+          },
+          activate: function( event, ui ){
+            ui.newTab.attr('class','uli-selected')
+            ui.oldTab.attr('class','uli-selected1')
           }
      });
   });
