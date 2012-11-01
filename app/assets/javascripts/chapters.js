@@ -37,6 +37,10 @@ renderChapterAdmin: function(element){
   
 },  
 
+ firstChapterClick: function(){
+  $($('.chapter_link')[0]).click()
+ },
+
  init: function(){
 	$( "#profiletabs").tabs({
     	beforeLoad: function( event, ui ) {    
