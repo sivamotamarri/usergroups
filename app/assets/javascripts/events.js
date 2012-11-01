@@ -24,7 +24,7 @@ Events ={
         url: '/events/follow_an_event',
         data : data,
         success: function(data){
-            $('#event_content').html(data);            
+            $('#events').html(data);            
         },
         async:false,        
         dataType: 'html'

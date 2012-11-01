@@ -93,7 +93,7 @@ class EventsController < ApplicationController
   def follow_an_event
     @event = Event.find(params[:event_id])
     @event_memeber = EventMember.new(:event_id => @event.id, :user_id => current_user.id)
-    @event_memeber.save
+    @event_memeber.save!
     chapter_events = Event.find_all_by_chapter_id(@event.chapter_id) || []
     get_upcoming_and_past_events(chapter_events, true)
     respond_to do |format|      
@@ -127,7 +127,7 @@ class EventsController < ApplicationController
         eventbrite_id = eventbrite_event.parsed_response["process"]["id"].to_s
         @event.update_attribute(:eventbrite_id, eventbrite_id)
         @event_memeber = EventMember.new(:event_id => @event.id, :user_id => current_user.id)
-        @event_memeber.save
+        @event_memeber.save!
         @chapter = Chapter.find(@event.chapter_id)
         @chapter_events = @chapter.events.sort        
         @two_chapter_events = @chapter_events.take(2)
