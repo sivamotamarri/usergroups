@@ -30,7 +30,9 @@
             %a{:href => "#{userevents_events_url(chaptermember.chapter.id)}", :id=>"#{chaptermember.chapter.id}", :class=>"chapter_link"} #{chaptermember.chapter.name}
       
       #event_content                
+    /=render "/events/comment_partial"
 
 :javascript 
   Chapters.init(); 
+  Chapters.firstChapterClick();
   Events.init();

@@ -43,10 +43,10 @@
               %h5.label-40 Last Event Date: Sep 07, 2012
     .cc-left
       %ul.ul-f
-        %li.ulf-selected
+        %li
           %a{:href => "#"} Post
           %i.bg-arrow-down-b
-        %li
+        %li.ulf-selected
           %a{:href => "#"} Events
           %i.bg-arrow-down-b
         %li
@@ -54,6 +54,7 @@
           %i.bg-arrow-down-b
         %li
       = render '/events/events_list' 
+    /=render '/events/comment_partial'
 
 
 :javascript 
