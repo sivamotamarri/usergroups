@@ -1271,6 +1271,16 @@ li{
 }
 
 
+.validation-error li{
+  color: red;
+}
+.success-flash{
+  color: green;
+}
+.res{
+  border-bottom: medium none !important;
+}
+
 
 
 

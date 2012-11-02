@@ -1,0 +1,10 @@
+- if !@announcement.errors.full_messages.blank?
+  - if remotipart_submitted?
+    $(".validation-error").html("#{escape_javascript(render 'errors')}");
+  - else
+    $(".validation-error").html("#{escape_javascript(render 'errors')}");
+- else
+  - @announcement = Announcement.new
+  $(".div-j").html("#{escape_javascript(render 'form')}");
+  $(".success-flash").html("Announcement was successfully created.");
+  setTimeout(function(){$('.success-flash').slideUp(200)}, 1500);
