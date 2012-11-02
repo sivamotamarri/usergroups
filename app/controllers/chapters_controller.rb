@@ -46,11 +46,18 @@ class ChaptersController < ApplicationController
       end
     end
     @two_upcoming_events = @upcoming_events.sort!.reverse!.take(2)
+    #@upcoming_events = @upcoming_events.paginate(:page => params[:page], :per_page => 5)
     @past_events.sort!
+    @past_events = @past_events.paginate(:page => params[:page], :per_page => 10)
     @announcements = Announcement.all
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @chapter }
+      if request.xhr?        
+        format.js {}
+      else
+        format.html # show.html.erb
+        format.json { render json: @chapter }
+       end
+
     end
   end
 

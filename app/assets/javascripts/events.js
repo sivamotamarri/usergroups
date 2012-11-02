@@ -59,6 +59,7 @@ Events ={
     $('#upcoming_events').text(default_text);
 
   });	
+  
 
   }
 

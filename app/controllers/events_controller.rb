@@ -58,7 +58,11 @@ class EventsController < ApplicationController
     user_events = EventMember.find_all_by_user_id(@current_user.id, :include => ['event'], :conditions => "events.chapter_id = #{chapter_id}") || []
     get_upcoming_and_past_events(user_events)
      respond_to do |format|      
-      format.js {render :partial => 'events_list' }# new.html.erb
+      if !params["page"].blank?
+         format.js
+      else
+        format.js {render :partial => 'events_list' }# new.html.erb
+      end
     end
  
   end
@@ -81,7 +85,9 @@ class EventsController < ApplicationController
       end
     end    
     @two_upcoming_events = @upcoming_events.sort!.reverse!.take(2)
+
     @past_events.sort!
+    @past_events = @past_events.paginate(:page => params[:page], :per_page => 10)
 
   end
 
@@ -182,6 +188,6 @@ class EventsController < ApplicationController
   	else
   	 @auth_client_obj = OAuth2::Client.new(EVENTBRITE_CLIENT_ID, EVENTBRITE_CLIENT_SECRET, {:site => EVENTBRITE_URL})
   	 @accept_url = @auth_client_obj.auth_code.authorize_url( :redirect_uri => EVENTBRITE_REDIRECT_URL)
-  	end	     
+  	end   
   end
 end
