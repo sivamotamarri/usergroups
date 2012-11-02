@@ -10,6 +10,6 @@
       %td.tb-3-4
         %h5.label-20.flt-right.date-cross= ann.created_at.strftime("%B %d, %Y")
       %td.tb-4-4
-        %a.bg-cross-b.date-cross{:href => "#"}
+        = link_to "", admin_announcement_path(ann), :confirm => "Are you sure you want to delete this announcement?", :method => :delete , :remote => true , :class => "bg-cross-b date-cross"        
 %div{:style => "border-bottom: 1px solid #C5C6C7;margin: 30px 0 10px;"}
 = will_paginate(@announcements, :class => 'pgt-bar',:inner_window => 2, :outer_window => 0, :renderer => RemoteLinkRenderer, :previous_label => '&lt; PREVIOUS'.html_safe, :next_label => 'NEXT &gt;'.html_safe)

@@ -29,4 +29,22 @@ class Admin::AnnouncementsController < ApplicationController
       format.js {}
     end
   end
+
+  def show
+    @announcements = Announcement.paginate(:page => params[:page], :per_page => 1)
+    respond_to do |format|
+      format.html { render :layout => false }
+      format.js {}
+    end
+  end
+
+  def destroy
+    announcement = Announcement.find(params[:id])
+    announcement.destroy
+    @announcements = Announcement.paginate(:page => params[:page], :per_page => 1)
+    respond_to do |format|
+      format.html { render :layout => false }
+      format.js {}
+    end
+  end
 end
