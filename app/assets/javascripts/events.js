@@ -32,6 +32,22 @@ Events ={
     
   });
 
+  $('.event_expand').die('click').live('click', function(e){    
+     e.preventDefault();
+     var data = {event_id: $(this).attr('event_id')};    
+     $.ajax({
+        context: this,
+        url: '/events/full_event_content',
+        data : data,
+        success: function(data){            
+            $(this).parent().parent().replaceWith(data);            
+        },
+        async:false,        
+        dataType: 'html'
+      });
+
+  }); 
+
   $('#upcoming_events').die('click').live('click', function(e){    
   	e.preventDefault();
     var default_text= "See all upcoming events...";

@@ -156,6 +156,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def full_event_content
+     @event = Event.find(params[:event_id])    
+     respond_to do |format|
+      format.js { render :partial => "/events/full_event" }
+    end
+  end
+
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
