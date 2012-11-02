@@ -25,6 +25,8 @@
         - if current_user.blank?
           %button.btn-a.signup
             = "#{t('menu.signup')}!"
+
+
     -if !current_user.blank? && !ChapterMember.is_primary_coordinator?(current_user.id)
       .ca-bottom
         .ca-down
@@ -32,7 +34,7 @@
           %h5.label-7= t('chapter.create_desc')          
           = link_to  t('chapter.create_create') , new_chapter_path, :class => "btn-b"
 
-    - elsif current_user.blank?
+    - else current_user.blank?
       .ca-bottom
         .ca-down
           %h2.label-6= t('chapter.create_title')
@@ -46,14 +48,10 @@
           %h3.label-9 CFDG Launched in India
           %h5.label-10 October 2, 2012
           %h5.label-1 We are excited to announce launch of Cloud Foundry Developer Groups in India. This site is focussed on helping these groups coordinate and share their online activities about Cloud Foundry, create a new event or update Photos from the existing events.
-    .cb-right.flt-right
-      %h2.label-8= t('announcements.earlier')
-      %ul.ul-c
-        - if @announcements.blank?
-          %li
-            %div
-              %h3.label-12 No Earlier Announcements
-        - else
+    - unless @announcements.blank?
+      .cb-right.flt-right
+        %h2.label-8= t('announcements.earlier')
+        %ul.ul-c
           - @announcements.each do |ann|
             %li
               %div

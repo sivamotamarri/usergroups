@@ -140,7 +140,7 @@ body {
 .ca-right{
 	width:380px;
 	text-align: center;
-	margin:50px 20px 20px 20px;
+	margin:50px 0px 20px 20px;
 }
 .ca-top{
 	overflow:hidden;
@@ -173,13 +173,13 @@ body {
 }
 .cb-left{
 	width:590px;
-	margin:0px 10px 20px 20px;
+	margin: 40px 10px 20px 20px;
 	 height: 275px;
     overflow: hidden;
 }
 .cb-right{
 	width:280px;
-	margin: 0px 20px 20px 10px
+	margin: 40px 20px 20px 10px
 }
 .ul-c li{
 	padding:15px 0px 10px 0px;
