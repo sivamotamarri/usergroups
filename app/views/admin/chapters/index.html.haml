@@ -56,7 +56,7 @@
                               = chapter.try(:user).try(:fullname)
                               %span{:id => "approve-reject#{chapter.id}" , :style=>"font-size: 12px;text-align: right;left: 540px;position: absolute;width: 200px;"}
                                 %button.btn-a-small.change_status{:style => "top:-3px;","data-url" => "#{change_status_admin_chapter_path(chapter, :status => 'incubate')}"} APPROVE
-                                %button.btn-a-small.change_status{:style => "top:-3px;","data-url" => "#{change_status_admin_chapter_path(chapter, :status => 'deny')}"} REJECT
+                                %button.btn-c-small.change_status{:style => "top:-3px;","data-url" => "#{change_status_admin_chapter_path(chapter, :status => 'deny')}"} REJECT
                             %h5.label-20= chapter.created_at.strftime("%B %d, %Y")
                             %h5.label-20= "Location:  #{chapter.location}"
                             %h5.label-20= "Emai: #{chapter.try(:user).try(:email)}"
