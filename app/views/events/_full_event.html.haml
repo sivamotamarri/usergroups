@@ -8,55 +8,52 @@
     -if !current_user.blank? and @profile_page != true  and !@event.am_i_member?(@current_user.id)                    
       %button.btn-a-small.flt-right{:id=>"follow_an_event", :event_id => "#{@event.id}"} FOLLOW
     %br
-    %label.label-25
+    %p.label-26{:id => "short_content"}
+      Attendees: #{@event.event_members.size}
+      %br
       -if(!@event.event_start_date.blank?)
         #{Time.parse(@event.event_start_date.to_s).strftime('%A %I:%M %p,%b %d, %Y')} I #{@event.entry_fee}  per person
+      %br
       Location: #{@event.venue}
-    %p.label-26{:id => "short_content"}
-      Attendees: 20
-      %br
-      Tuesday 7pm, Sept 30, 2012 I Rs. 250 per person
-      %br
-      Location: Singh Bhavan, Vasant Road, Defence Colony, Delhi
       %br
       #{@event.description}
-  .lining
-    %img.img-b{:src => "/assets/img-g.png"}
-    %img.img-b{:src => "/assets/img-g.png"}
-    %img.img-b{:src => "/assets/img-g.png"}
-    %img.img-b{:src => "/assets/img-g.png"}
-    %img.img-b{:src => "/assets/img-g.png"}
-  .div-d
-    .divd-comment-pos
-      %table.table-c
-        %tr
-          %td
-            %img.img-c.flt-left{:src => "css/images/img-d.png"}
-          %td
-            %h5.label-27
-              Rohit -
-              %label.label-25 Delhi, 23 Sep
-            %p.label-16
-              Does JXTA supports voice chat?: I'm developing a LAN mes
-              senger in java. I'm followi
-              ng P2P, Does JXTA support
-              ice chat?: I'm developing a LAN mes
-              senger in java. I'm followi
-              ng P2P, Does JXTA suppos voice chat?: I'm d
-    .divd-comment-pos
-      %table.table-c
-        %tr
-          %td
-            %img.img-c.flt-left{:src => "css/images/img-d.png"}
-          %td
-            %h5.label-27
-              Rohit -
-              %label.label-25 Delhi, 23 Sep
-            %p.label-16
-              Does JXTA supports voice chat?: I'm developing a LAN mes
-              senger in java. I'm followi
-              ng P2P, Does JXTA support
-              ice chat?: I'm developing a LAN mes
-              senger in java. I'm followi
-              ng P2P, Does JXTA suppos voice chat?: I'm d
-            %textarea.ta-a{:placeholder => "alpha"}
+  / .lining
+  /   %img.img-b{:src => "/assets/img-g.png"}
+  /   %img.img-b{:src => "/assets/img-g.png"}
+  /   %img.img-b{:src => "/assets/img-g.png"}
+  /   %img.img-b{:src => "/assets/img-g.png"}
+  /   %img.img-b{:src => "/assets/img-g.png"}
+  / .div-d
+  /   .divd-comment-pos
+  /     %table.table-c
+  /       %tr
+  /         %td
+  /           %img.img-c.flt-left{:src => "css/images/img-d.png"}
+  /         %td
+  /           %h5.label-27
+  /             Rohit -
+  /             %label.label-25 Delhi, 23 Sep
+  /           %p.label-16
+  /             Does JXTA supports voice chat?: I'm developing a LAN mes
+  /             senger in java. I'm followi
+  /             ng P2P, Does JXTA support
+  /             ice chat?: I'm developing a LAN mes
+  /             senger in java. I'm followi
+  /             ng P2P, Does JXTA suppos voice chat?: I'm d
+  /   .divd-comment-pos
+  /     %table.table-c
+  /       %tr
+  /         %td
+  /           %img.img-c.flt-left{:src => "css/images/img-d.png"}
+  /         %td
+  /           %h5.label-27
+  /             Rohit -
+  /             %label.label-25 Delhi, 23 Sep
+  /           %p.label-16
+  /             Does JXTA supports voice chat?: I'm developing a LAN mes
+  /             senger in java. I'm followi
+  /             ng P2P, Does JXTA support
+  /             ice chat?: I'm developing a LAN mes
+  /             senger in java. I'm followi
+  /             ng P2P, Does JXTA suppos voice chat?: I'm d
+  /             %textarea.ta-a{:placeholder => "alpha"}
