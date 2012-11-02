@@ -36,14 +36,14 @@ class ChaptersController < ApplicationController
     @past_events = []
     @upcoming_events = []
     @all_events.each do |event|       
-      if(!event.event_start_date.blank? && Time.parse(event.event_start_date.to_s) > Time.now)
+      if(!event.event_start_date.blank? && Time.parse(event.event_start_date+" "+ event.event_start_time) >= Time.now)
         @upcoming_events.push(event)
       else
         @past_events.push(event)
       end
     end
-    @two_upcoming_events = @upcoming_events.sort!.take(2)
-    @past_events.sort
+    @two_upcoming_events = @upcoming_events.sort!.reverse!.take(2)
+    @past_events.sort!
     @announcements = Announcement.all
     respond_to do |format|
       format.html # show.html.erb

@@ -74,12 +74,12 @@ class EventsController < ApplicationController
       end
       @all_events.push(event)
       
-      if(!event.event_start_date.blank? && Time.parse(event.event_start_date+" "+ event.event_start_time) >= Time.now)
+      if(!event.event_start_date.blank? && Time.parse(event.event_start_date+" "+ event.event_start_time) >= Time.now)         
         @upcoming_events.push(event)
       else
         @past_events.push(event)
       end
-    end
+    end    
     @two_upcoming_events = @upcoming_events.sort!.reverse!.take(2)
     @past_events.sort!
 
@@ -96,6 +96,7 @@ class EventsController < ApplicationController
     @event_memeber.save!
     chapter_events = Event.find_all_by_chapter_id(@event.chapter_id) || []
     get_upcoming_and_past_events(chapter_events, true)
+    @profile_page = false
     respond_to do |format|      
       format.js {render :partial => 'events_list' }# new.html.erb
     end
