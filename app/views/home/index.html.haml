@@ -8,10 +8,15 @@
               function redirect_to(url) {
                 return function(){window.location = url;}
               };
-              Gmaps.map.callback = function() {        
+  
+              Gmaps.map.callback = function() {
+                if (Gmaps.map.markers.length == 0 ){
+                  setTimeout(function() { Gmaps.map.serviceObject.setZoom(0);}, 50);
+                }
                 for (var i = 0; i <  Gmaps.map.markers.length; i++) {
                    google.maps.event.addListener(Gmaps.map.markers[i].serviceObject, 'click',   redirect_to(Gmaps.map.markers[i].link));
                 }
+                console.log(Gmaps.map.map_options.zoom)
               };
      
 
