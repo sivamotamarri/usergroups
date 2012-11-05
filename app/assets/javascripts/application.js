@@ -96,5 +96,30 @@ $(function(){
     return select_wrapper.load(url);
   });
 
+  $('#comment_content').die('keypress').live('keypress', function(e){
+      if(e.keyCode == 13){
+      $('#new_comment').submit();
+         
+    }         
+
+  });
+
+ $('#new_comment').die('submit').live('submit', function(e){    
+   if(e.preventDefault) {
+      e.preventDefault();
+    }
+    $.ajax({
+      context: this,
+      type: "POST",
+      data : $(this).serialize(),
+      url: '/events/create_event_comment',
+      success: function(data){      
+            $(this).parents("li").replaceWith(data);            
+      },
+      async:false,        
+      dataType: 'html'
+    });
+  });
+ 
          
 });

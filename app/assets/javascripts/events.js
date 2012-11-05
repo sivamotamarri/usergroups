@@ -40,7 +40,7 @@ Events ={
         url: '/events/full_event_content',
         data : data,
         success: function(data){            
-            $(this).parent().parent().replaceWith(data);            
+            $(this).parents("li").replaceWith(data);            
         },
         async:false,        
         dataType: 'html'

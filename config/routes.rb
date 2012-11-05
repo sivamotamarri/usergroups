@@ -14,6 +14,7 @@ CloudfoundryUsergroups::Application.routes.draw do
      end
   end
   resources :posts
+  resources :comments
   resources :events do
     collection do 
       get 'oauth_reader'
@@ -21,8 +22,10 @@ CloudfoundryUsergroups::Application.routes.draw do
       get 'get_chapter_events'      
       get 'follow_an_event'
       get 'full_event_content'
+      post 'create_event_comment'
     end  
   end
+resources :events, :has_many => :comments
 
 #scope ':locale' do
   devise_for :users , :controllers => { :registrations => "registrations" } do

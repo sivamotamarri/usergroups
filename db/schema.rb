@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121101045018) do
+ActiveRecord::Schema.define(:version => 20121105084009) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20121101045018) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.integer  "user_id"
+    t.datetime "deleted_at"
   end
 
   create_table "chapter_members", :force => true do |t|
@@ -66,6 +67,17 @@ ActiveRecord::Schema.define(:version => 20121101045018) do
     t.datetime "deleted_at"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "content"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "deleted_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "countries", :force => true do |t|
@@ -135,6 +147,7 @@ ActiveRecord::Schema.define(:version => 20121101045018) do
     t.integer  "depth"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.datetime "deleted_at"
   end
 
   create_table "states", :force => true do |t|

@@ -3,7 +3,7 @@ require 'oauth2'
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
-  before_filter :initialise_eventbrite_client
+  before_filter :initialise_eventbrite_client, :except => ['create_event_comment']
   before_filter :set_profile_page
   def index
     @events = Event.all
@@ -96,6 +96,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+
+
   def follow_an_event
     @event = Event.find(params[:event_id])
     @event_memeber = EventMember.new(:event_id => @event.id, :user_id => current_user.id)
@@ -163,10 +165,22 @@ class EventsController < ApplicationController
   end
 
   def full_event_content
-     @event = Event.find(params[:event_id])    
+     @event = Event.find(params[:event_id])     
      respond_to do |format|
       format.js { render :partial => "/events/full_event" }
     end
+  end
+
+  def create_event_comment
+   @event = Event.find(params[:comment][:commentable_id])
+   @comment = Comment.new(params[:comment])
+   
+   respond_to do |format|
+      if(@comment.save)
+        format.js { render :partial => "/events/full_event" }
+      end
+   end
+    
   end
 
   # DELETE /events/1

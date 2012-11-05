@@ -17,6 +17,27 @@
       Location: #{@event.venue}
       %br
       #{@event.description}
+  .div-d
+    - (@event.comments || []).each do |comment|
+      .divd-comment-pos
+        %table.table-c
+          %tr
+            %td
+              %img.img-c.flt-left{:src => "/assets/img-d.png"}
+            %td
+              %h5.label-27
+                #{comment.user.fullname} - 
+                
+                %label.label-25 #{Time.parse(comment.created_at.to_s).strftime('%d, %b')}
+              %p.label-16
+                #{comment.content}
+    - @comment =  @event.comments.build
+    = semantic_form_for  @comment, :remote => true do |f|      
+      = f.text_area :content, :placeholder => "comment", :label => false, :class => " content_comment_class ta-a"
+      = f.hidden_field   :commentable_type
+      = f.hidden_field   :commentable_id      
+
+              
   / .lining
   /   %img.img-b{:src => "/assets/img-g.png"}
   /   %img.img-b{:src => "/assets/img-g.png"}
