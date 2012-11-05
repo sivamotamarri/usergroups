@@ -98,13 +98,13 @@ $(function(){
 
   $('#comment_content').die('keypress').live('keypress', function(e){
       if(e.keyCode == 13){
-      $('#new_comment').submit();
+      $(this).parents('#new_comment').submit();
          
     }         
 
   });
 
- $('#new_comment').die('submit').live('submit', function(e){    
+ $('.comment').die('submit').live('submit', function(e){    
    if(e.preventDefault) {
       e.preventDefault();
     }
