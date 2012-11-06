@@ -18,4 +18,12 @@ class PostsController < ApplicationController
  
   end
 
+  def new
+    @post = Post.new    
+    respond_to do |format|      
+      format.js {render :partial => 'form'} # new.html.erb
+      format.json { render json: @event }
+    end
+  end
+
 end
