@@ -1281,6 +1281,10 @@ li{
   border-bottom: medium none !important;
 }
 
+.hidden , .semantic-frm li {
+    border-bottom: none !important;
+    padding: 0px !important;
+}
 
 
 

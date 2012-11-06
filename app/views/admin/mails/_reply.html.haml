@@ -1,0 +1,11 @@
+= semantic_form_for @mail_message ,:url => reply_admin_mail_messages_path , :remote => true do |f|
+  %div{:class => "reply-validation-error#{mail.id}"}
+  %div{:class => "reply-success-flash#{mail.id}"}
+  .div-k.semantic-frm
+    = f.input :body, :placeholder => 'reply' ,  :label =>false ,  :input_html => {:class => "textarea-a label-26"}
+    = f.input :received_id,:as => :hidden ,  :input_html =>{:value => mail.sender.id}
+    = f.input :to,:as => :hidden , :input_html =>{ :value => mail.sender.email}
+    = f.input :sender_id, :as => :hidden,  :input_html =>{:value => mail.receiver.id}
+    = f.input :subject,:as => :hidden ,  :input_html =>{:value => mail.subject}
+    = f.input :parent_id,:as => :hidden , :input_html =>{:value => mail.id}
+  %button.btn-a-small.flt-right SEND

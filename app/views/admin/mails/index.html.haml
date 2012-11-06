@@ -1,2 +1,31 @@
-%h1 Admin Mails
-%p coming soon...
+%br
+%ul.head
+  %li
+    %table.in-table
+      %tr
+        %td.h-in Inbox
+        %td.link
+          %a.cp{:href => "javascript:void();"} + Compose Message
+%br
+.compose{:style => "display:none;"}=render "compose"
+.resulted_mails= render "mails"
+
+:javascript
+  $(function(){
+    $('.cp').click(function() {
+        if($(this).text() == "+ Compose Message"){
+            $(this).text('- Compose Message')
+         }
+         else{
+            $(this).text('+ Compose Message')
+          }
+      $('.compose').slideToggle('slow', function() {
+        
+      });
+    });
+  });
+
+
+
+
+

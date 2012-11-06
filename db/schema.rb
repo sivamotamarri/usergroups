@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121106060301) do
 
   create_table "announcements", :force => true do |t|
@@ -134,6 +135,20 @@ ActiveRecord::Schema.define(:version => 20121106060301) do
     t.string   "state_name"
     t.string   "country_name"
     t.string   "eventbrite_id"
+  end
+
+  create_table "mail_messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "received_id"
+    t.string   "subject"
+    t.text     "body"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
+    t.datetime "deleted_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "messages", :force => true do |t|
