@@ -61,7 +61,11 @@ resources :events, :has_many => :comments
         get 'announcement_history'
       end
     end
-    resources :mails
+    resources :mails , :as => "mail_messages" do
+      collection do
+        post 'reply'
+      end
+    end
     resources :chapters do
       collection do
         get 'incubate'

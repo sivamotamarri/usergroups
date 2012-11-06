@@ -1,0 +1,11 @@
+- if !@mail_message.errors.full_messages.blank?
+  - if remotipart_submitted?
+    $(".reply-validation-error#{@mail_message.parent_id}").html("#{escape_javascript(render 'errors')}");
+  - else
+    $(".reply-validation-error#{@mail_message.parent_id}").html("#{escape_javascript(render 'errors')}");
+- else
+  - @mail = @mail_message
+  - @mail_message = MailMessage.new
+  $(".reply-msg#{@mail.parent_id}").html("#{escape_javascript(render :partial => 'reply' , :locals => {:mail => @mail})}");
+  $(".reply-success-flash#{@mail.parent_id}").html("Mail was sent successfully.");
+  setTimeout(function(){$('.reply-success-flash#{@mail.parent_id}').slideUp(200)}, 1500);

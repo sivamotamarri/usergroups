@@ -16,4 +16,13 @@ module ApplicationHelper
        link
     end
   end
+
+  def emails
+    data = []
+    User.all.each_with_index do |user,i|
+       data[i] = { "label" => "#{user.email}", "value" => "#{user.id}"}
+    end    
+    data.to_json
+  end
+  
 end

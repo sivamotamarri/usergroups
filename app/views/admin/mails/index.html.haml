@@ -1,2 +1,16 @@
-%h1 Admin Mails
-%p coming soon...
+%br
+%ul.head
+  %li
+    %table.in-table
+      %tr
+        %td.h-in Inbox
+        %td.link
+          %a.cp{:href => "compose.html"} +Compose Message
+%br
+.compose=render "compose"
+.resulted_mails= render "mails"
+
+
+
+
+
