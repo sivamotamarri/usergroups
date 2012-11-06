@@ -4,12 +4,21 @@
 //var Usergroups = Usergroups || {};
 Chapters ={  
 
-renderEvents: function(element){
+renderContent: function(element, type){
    // Changing chapter status      
       var data = {chapter_id: element.attr('id')};    
-      
+      var url = '/events/userevents';
+      switch(type){
+        case "Post": 
+                    url = "/posts/chapterposts";
+                    break;
+        default: 
+                  url = "/events/userevents";
+                  break;
+      }
+
       $.ajax({
-        url: '/events/userevents',
+        url: url,
         data : data,
         success: function(data){
             $('#event_content').html(data);
@@ -53,17 +62,19 @@ renderChapterAdmin: function(element){
       e.preventDefault();
       var selectedClass="ulf-selected";
 
-      if($(this).hasClass('ul-i')){
+      if($(this).hasClass('ul-i')){ //if a chapter group is clicked
       	selectedClass="uli-selected";
-        Chapters.renderEvents($(e.target));
+        //check to render events or posts or messages or multimedia        
+        Chapters.renderContent($(e.target), $('.ul-f .ulf-selected a').text())
+        
       }      
       if($(e.target).text() == "Group Admin"){
-        $($('.profile_content')[0]).hide();
+        $($('.profile_content')[0]).hide(); //hide the chapters ul for admin
         Chapters.renderChapterAdmin($(e.target))
       }else if($(e.target).text() == "Events" || $(e.target).text() == "Photos" || $(e.target).text() == "Post"){
         $($('.profile_content')[0]).show();
         $('#event_content').html("");
-      }      
+      }
 
       
       $(this).children("li").each(function(i, element){

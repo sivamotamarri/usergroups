@@ -26,7 +26,7 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.find(params[:id])
     @is_part_of_chapter =false
     if current_user
-      !@chapter.chapter_members.where({:user_id => current_user.id}).try(:first).nil? 
+       @is_part_of_chapter = !@chapter.chapter_members.where({:user_id => current_user.id}).try(:first).nil? 
     end
 
     @primary_coord = @chapter.chapter_members.where({:memeber_type => ChapterMember::PRIMARY_COORDINATOR}).try(:first)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105084009) do
+ActiveRecord::Schema.define(:version => 20121106060301) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -148,6 +148,18 @@ ActiveRecord::Schema.define(:version => 20121105084009) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.datetime "deleted_at"
+  end
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.string   "status"
+    t.string   "description"
+    t.integer  "chapter_id"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "deleted_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "states", :force => true do |t|

@@ -1,0 +1,9 @@
+Posts = {
+
+	init:function(){
+
+		
+
+	}
+
+}

@@ -8,6 +8,7 @@ class Chapter < ActiveRecord::Base
   
   has_many :users , :through => :chapter_members
   has_many :events
+  has_many :posts
   belongs_to :country
   belongs_to :state
   belongs_to :city

@@ -13,7 +13,12 @@ CloudfoundryUsergroups::Application.routes.draw do
       get  'chapter_admin_home_page'
      end
   end
-  resources :posts
+  
+  resources :posts do 
+    collection do
+      get 'chapterposts'
+    end 
+  end
   resources :comments
   resources :events do
     collection do 
