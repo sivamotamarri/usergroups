@@ -1,6 +1,6 @@
-class Admin::MailsController < ApplicationController
+class MessagesController < ApplicationController
   def index
-    @mail_messages = MailMessage.where("parent_id IS NULL AND received_id = ?",admin_user.id).paginate(:page => params[:page], :per_page => 10)
+    @mail_messages = MailMessage.where("parent_id IS NULL AND received_id = ?",current_user.id).paginate(:page => params[:page], :per_page => 10)
     @mail_message = MailMessage.new
     respond_to do |format|
       format.html {render :layout => false}

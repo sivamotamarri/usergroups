@@ -29,6 +29,20 @@ renderContent: function(element, type){
       });
     
   },
+  renderMessages: function(element){
+    // messages
+    $.ajax({
+      url: '/messages',
+      data : [],
+      success: function(data){
+         //$('#event_content').html("");
+          $('#event_content').html(data);
+      },
+      async:false,
+      dataType: 'html'
+    });
+
+},
 renderChapterAdmin: function(element){
  // Changing chapter status      
     var data = {chapter_id: element.attr('chapter_id')};    
@@ -71,6 +85,9 @@ renderChapterAdmin: function(element){
       if($(e.target).text() == "Group Admin"){
         $($('.profile_content')[0]).hide(); //hide the chapters ul for admin
         Chapters.renderChapterAdmin($(e.target))
+      }else if($(e.target).text() == "Messages"){
+        $($('.profile_content')[0]).hide();
+        Chapters.renderMessages($(e.target))
       }else if($(e.target).text() == "Events" || $(e.target).text() == "Photos" || $(e.target).text() == "Post"){
         $($('.profile_content')[0]).show();
         $('#event_content').html("");

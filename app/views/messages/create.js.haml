@@ -1,0 +1,10 @@
+- if !@mail_message.errors.full_messages.blank?
+  - if remotipart_submitted?
+    $(".validation-error").html("#{escape_javascript(render 'errors')}");
+  - else
+    $(".validation-error").html("#{escape_javascript(render 'errors')}");
+- else
+  - @mail_message = MailMessage.new
+  $(".compose").html("#{escape_javascript(render 'compose')}");
+  $(".success-flash").html("Mail was sent successfully.");
+  setTimeout(function(){$('.success-flash').slideUp(200)}, 1500);
