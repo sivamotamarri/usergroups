@@ -1205,7 +1205,10 @@ li{
   color: red;
 }
 
-
+.hidden , .semantic-frm li {
+    border-bottom: none !important;
+    padding: 0px !important;
+}
 
 
 

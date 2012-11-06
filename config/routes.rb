@@ -13,7 +13,13 @@ CloudfoundryUsergroups::Application.routes.draw do
       get  'chapter_admin_home_page'
      end
   end
-  
+
+  resources :messages , :as => "mail_messages" do
+    collection do
+      post 'reply'
+    end
+  end
+
   resources :posts do 
     collection do
       get 'chapterposts'
