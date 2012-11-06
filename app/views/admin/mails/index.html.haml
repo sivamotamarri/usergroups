@@ -5,10 +5,25 @@
       %tr
         %td.h-in Inbox
         %td.link
-          %a.cp{:href => "compose.html"} +Compose Message
+          %a.cp{:href => "javascript:void();"} + Compose Message
 %br
-.compose=render "compose"
+.compose{:style => "display:none;"}=render "compose"
 .resulted_mails= render "mails"
+
+:javascript
+  $(function(){
+    $('.cp').click(function() {
+        if($(this).text() == "+ Compose Message"){
+            $(this).text('- Compose Message')
+         }
+         else{
+            $(this).text('+ Compose Message')
+          }
+      $('.compose').slideToggle('slow', function() {
+        
+      });
+    });
+  });
 
 
 
