@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106060301) do
+ActiveRecord::Schema.define(:version => 20121107081415) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -174,6 +174,8 @@ ActiveRecord::Schema.define(:version => 20121106060301) do
     t.datetime "deleted_at"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "event_id"
+    t.string   "event_title"
   end
 
   create_table "states", :force => true do |t|

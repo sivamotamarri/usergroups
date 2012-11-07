@@ -5,16 +5,17 @@
   -(@posts || []).each do |post|
     %tr
       %td{:style => "width:95px;"}
-        %h5.label-26 Time.parse(post.created_at.to_s).strftime('%b %d, %Y')
+        %h5.label-26 #{Time.parse(post.created_at.to_s).strftime('%b %d, %Y')}
       %td{:style => "width:400px;"}
-        %a.label-46.block{:href => "#"} post.title
+        %a.label-46.block{:href => "#"} #{post.title}
         %h5.label-26
-          Posted on 1 Oct, 2012 by
-          %a.label-25{:href => "#"} Subramaniam
-        %h5.label-26 Event Name,1 Oct, 2012
+          Posted on #{Time.parse(post.created_at.to_s).strftime('%b %d, %Y')} by
+          %a.label-25{:href => "#"} #{post.user.try(:fullname)}
+        %h5.label-26 #{post.event.try(:title)}, #{Time.parse(post.created_at.to_s).strftime('%b %d, %Y')}
+        
         %img{:src => "/assets/slideshare.png", :style => "margin-top:10px;"}
-          %img{:src => "/assets/youtube.png", :style => "margin-top:10px;"}
-            %img{:src => "/assets/camera.png", :style => "margin-top:10px;"}
+        %img{:src => "/assets/youtube.png", :style => "margin-top:10px;"}
+        %img{:src => "/assets/camera.png", :style => "margin-top:10px;"}
       %td{:style => "width:140px;"}
         %button.label-50 Upload Media
       %td{:style => "width:30px;"}

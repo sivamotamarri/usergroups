@@ -182,6 +182,16 @@ class EventsController < ApplicationController
    end
     
   end
+  def title_list
+    chapter_id = params[:chapter_id]
+    @events = Event.where("chapter_id = ? and title like (?)", chapter_id, "%#{params[:term]}%")
+        data = []
+    @events.each_with_index do |event,i|
+       data[i] = { "label" => "#{event.title}", "value" => "#{event.id}"}
+    end        
+
+    render json: data.to_json
+  end
 
   # DELETE /events/1
   # DELETE /events/1.json
