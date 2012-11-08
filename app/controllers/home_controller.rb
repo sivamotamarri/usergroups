@@ -28,7 +28,7 @@ class HomeController < ApplicationController
       address = get_address(chapter)    
       if(!address.blank?)
         begin
-  		    options = Gmaps4rails.geocode('addressfdgdsfgsdg')
+  		    options = Gmaps4rails.geocode(address)
           markers << {:lat => options.first[:lat], :lng => options.first[:lng], :title => options.first[:matched_address], :link => chapter_path(chapter)}
           rescue Gmaps4rails::GeocodeStatus
         end
