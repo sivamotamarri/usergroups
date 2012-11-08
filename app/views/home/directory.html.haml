@@ -12,14 +12,30 @@
 .content.wrapper
   .content-c
     %h2.label-17{:style => "margin:0px 0px 0px 0px;"} Cloud Foundry Groups
-    .map= gmaps4rails(@markers)
-    %input.input-a{:placeholder => "Find a group...", :style => "margin-left: 0px;"}
-      %a.label-36{:href => "#"} + Create Group
-      .div-g
-        .column-a
-          - @chapters.each_with_index do |chapter,i|
-            %h3.label-37
-              = chapter.country_name
-            %ul.ui-j
-              %li
-                %a.label-28{:href => "#"}= chapter.name
+    .map
+      = gmaps4rails(@markers)
+      - content_for :javascript do        
+        :javascript
+            function redirect_to(url) {
+              return function(){window.location = url;}
+            };
+
+            Gmaps.map.callback = function() {
+              if (Gmaps.map.markers.length == 0 ){
+                setTimeout(function() { Gmaps.map.serviceObject.setZoom(1);}, 50);
+              }
+              for (var i = 0; i <  Gmaps.map.markers.length; i++) {
+                 google.maps.event.addListener(Gmaps.map.markers[i].serviceObject, 'click',   redirect_to(Gmaps.map.markers[i].link));
+              }                
+            };
+     
+    / %input.input-a{:placeholder => "Find a group...", :style => "margin-left: 0px;"}
+    /   %a.label-36{:href => "#"} + Create Group
+    .div-g
+      .column-a
+        - @chapters.each_with_index do |chapter,i|
+          %h3.label-37
+            = chapter.country_name
+          %ul.ui-j
+            %li
+              %a.label-28{:href => "#"}= chapter.name
