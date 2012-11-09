@@ -1,24 +1,48 @@
-%ul.inbox
-  - @mail_messages.each_with_index do |mail,i|
+- if @mail_messages.blank?
+  %ul.inbox
     %li
       %table.table-b
         %tr
-          %td.tb-1-4
-            %a.bg-profile-img-b{:href => "#"}
-              %img.profile-img-b{:src => "/assets/img-d.png"}/
-          %td.tb-2-4
-            %a.label-43{:href => "#"}= mail.sender.fullname
-            %a.bg-cross-b.flt-right{:href => "#"}
-            %h5.label-20.flt-right{:style => "margin-right:10px;"}= mail.created_at.strftime("%B %d, %Y")
-            .expand{:style => "cursor:pointer;"}             
-              %h5.label-20= "Location:  #{mail.sender.location || 'NV'}"
-              %h5.label-20= "Emai: #{mail.sender.email}"
-            %br/
-            %div{:class => "msg#{i}" ,:style => "display:none;"}              
-              %p.label-26= mail.body
-              %div{:class=>"reply-msg#{mail.id}"}
-                =render :partial => 'reply', :locals => {:mail => mail}
-= will_paginate(@mail_messages, :class => 'pgt-bar',:inner_window => 2, :outer_window => 0, :renderer => RemoteLinkRenderer, :previous_label => '&lt; PREVIOUS'.html_safe, :next_label => 'NEXT &gt;'.html_safe)
+          %td.tb-1-4 No Messages
+- else
+  %ul.inbox
+    - @mail_messages.each_with_index do |mail,i|
+      %li
+        %table.table-b
+          %tr
+            %td.tb-1-4
+              %a.bg-profile-img-b{:href => "#"}
+                %img.profile-img-b{:src => "/assets/img-d.png"}/
+            %td.tb-2-4
+              %a.label-43{:href => "#"}= mail.sender.fullname
+              %a.bg-cross-b.flt-right{:href => "#"}
+              %h5.label-20.flt-right{:style => "margin-right:10px;"}= mail.created_at.strftime("%B %d, %Y")
+              .expand{:style => "cursor:pointer;"}
+                %h5.label-20= "Location:  #{mail.sender.location || 'NV'}"
+                %h5.label-20= "Emai: #{mail.sender.email}"
+              %h5.label-20
+                Subject:
+                %label.label-57= mail.subject
+              %br/
+              %div{:class => "msg#{i}" ,:style => "display:none;"}
+                %p.label-26= mail.body
+              %ul{:style => "margin-bottom: 10px;display:none;" , :class => "ul-k msg#{i}"}
+                %li
+                - mail.children.each do |sb|
+                  %li{:style => "padding:10px 0px;"}
+                    %a.label-43{:href => "#"}= sb.sender.fullname
+                    %label.label-57{:style => "margin-left:10px;"}= "#{sb.sender.location || 'NV'}"
+                    %h5.label-20.flt-right{:style => "margin-right:10px;"}= sb.created_at.strftime("%B %d, %Y")
+                    %h5.label-20{:style => "margin-top:5px;"}
+                      %label.label-57 Topic For Discussion :
+                      = sb.subject
+                    %br/
+                    %p.label-26= sb.body
+                %br/
+                %div{:class => "msg#{i}" ,:style => "display:none;"}
+                  %div{:class=>"reply-msg#{mail.id}"}
+                    =render :partial => 'reply', :locals => {:mail => mail}
+  = will_paginate(@mail_messages, :class => 'pgt-bar',:inner_window => 2, :outer_window => 0, :renderer => RemoteLinkRenderer, :previous_label => '&lt; PREVIOUS'.html_safe, :next_label => 'NEXT &gt;'.html_safe)
 
 :javascript
   $(function(){
@@ -28,3 +52,12 @@
         });
     });
   });
+
+
+
+
+
+
+
+
+

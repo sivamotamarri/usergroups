@@ -24,6 +24,11 @@ class Admin::ChaptersController < ApplicationController
     render :layout => false
   end
 
+  def all
+    @chapters = Chapter.all
+    render :layout => false
+  end
+
   def change_status
     chapter = Chapter.find(params[:id])
     msg = ""

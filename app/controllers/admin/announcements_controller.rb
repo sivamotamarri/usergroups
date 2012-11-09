@@ -23,7 +23,7 @@ class Admin::AnnouncementsController < ApplicationController
   end
   
   def announcement_history
-    @announcements = Announcement.paginate(:page => params[:page], :per_page => 1)
+    @announcements = Announcement.paginate(:page => params[:page], :per_page => 3)
     respond_to do |format|
       format.html { render :layout => false }
       format.js {}
@@ -31,7 +31,7 @@ class Admin::AnnouncementsController < ApplicationController
   end
 
   def show
-    @announcements = Announcement.paginate(:page => params[:page], :per_page => 1)
+    @announcements = Announcement.paginate(:page => params[:page], :per_page => 3)
     respond_to do |format|
       format.html { render :layout => false }
       format.js {}
@@ -41,7 +41,7 @@ class Admin::AnnouncementsController < ApplicationController
   def destroy
     announcement = Announcement.find(params[:id])
     announcement.destroy
-    @announcements = Announcement.paginate(:page => params[:page], :per_page => 1)
+    @announcements = Announcement.paginate(:page => params[:page], :per_page => 3)
     respond_to do |format|
       format.html { render :layout => false }
       format.js {}

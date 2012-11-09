@@ -6,6 +6,7 @@ class FederatedController < ApplicationController
   def verify_user
     api_params = {'requestUri' => request.url, 'postBody' => request.post? ? request.raw_post : URI.parse(request.url).query }
     verify_user_details(FEDERATED_BASE_URL, api_params)
+    render :layout => false
   end
 
   def verify_user_details(api_url, api_params)

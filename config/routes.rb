@@ -83,6 +83,7 @@ resources :events, :has_many => :comments
         get 'incubate'
         get 'active'
         get 'delist'
+        get 'all'
       end
       member do
         get 'change_status'

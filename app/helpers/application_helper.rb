@@ -24,5 +24,22 @@ module ApplicationHelper
     end    
     data.to_json
   end
+
+  def photo_display_pic(obj,type, size, path , class_name)
+    if obj.photo_file_name && (obj.errors[:photo_content_type].blank? && obj.errors[:photo_file_size].blank?)
+      image_tag(obj.photo.url(type.to_sym), :alt => 'Pic', :size => size,:class => class_name)
+    else
+      image_tag(path, :alt => 'Pic', :size => size , :class => class_name)
+    end
+  end
+
+  def avatar_display_pic(obj,type, size, path , class_name)
+     if obj.avatar_file_name && (obj.errors[:avatar_content_type].blank? && obj.errors[:avatar_file_size].blank?)
+      image_tag(obj.avatar.url(type.to_sym), :alt => 'Pic', :size => size,:class => class_name)
+    else
+      image_tag(path, :alt => 'Pic', :size => size , :class => class_name)
+    end
+  end
+
   
 end

@@ -125,6 +125,7 @@ body {
 	margin: 0 auto;
 	margin-top:-70px;
 	margin-bottom: -45px;
+        min-height: 600px;
 }
 .content-a {
 	overflow: hidden;
@@ -884,7 +885,7 @@ a.label-28:hover{color: #d9541e;}
 .cb-right a.label-12{display: block;}
 .label-43{
 	font-size: 14px;
-	color:#0097d7 ;
+	color:#0097d7 !important;
 	font-weight: bold;
 }
 .label-42{

@@ -22,7 +22,7 @@
       %td{:style => "width:160px;"}
         .dd-b
           %h5.label-46
-            Action
+            Status
   %tbody
     - @chapters.each do |chapter|
       %tr
@@ -37,7 +37,6 @@
         %td
           %h5.label-48= chapter.try(:events).where("created_at >= ?", Date.today.years_ago(1)).try(:count)
         %td
-          %h5.label-48
-            %button.btn-a-small.change_status{"data-url" => "#{change_status_admin_chapter_path(chapter, :status => 'active')}"} Active
-            %button.btn-c-small.change_status{"data-url" => "#{change_status_admin_chapter_path(chapter, :status => 'delist')}"} Delist
+          %h5.label-48{:style => "text-transform: uppercase;"}= chapter.chapter_status
+
     %tr
