@@ -1,5 +1,5 @@
 -if @eb_client.nil?
-  = link_to 'Connect to Eventbrite', "#{@accept_url}"  
+  = link_to 'Connect to Eventbrite', "#{@accept_url}"    
 -else
   = semantic_form_for @event ,:remote=> true do |f| 
     .event-form
