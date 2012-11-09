@@ -35,7 +35,7 @@
       .column-a
         - @chapters.each_with_index do |chapter,i|
           %h3.label-37
-            = chapter.country_name
+            = Carmen::Country.coded(chapter.country_name).try(:name) || "No Name"
           %ul.ui-j
             %li
               %a.label-28{:href => "#"}= chapter.name

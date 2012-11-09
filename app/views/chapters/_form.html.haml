@@ -44,7 +44,7 @@
             %h4.ch_label To: admin@cloudfoundry.com
             %div{:style=> "height:15px;"} &nbsp;
             = f.semantic_fields_for :messages do |msg|
-              = msg.input :body, :as => :string, :label => false, :input_html => {  :class => "send_text" , :style => "margin-bottom: 5px;" }
+              = msg.input :body, :label => false, :input_html => {  :class => "send_text" ,:style => "margin-bottom: 5px;padding-left: 5px;padding-top: 5px;width: 59%;height: 142px;" }
               %br
               = msg.input :sender_id , :as => :hidden, :value => current_user.id
               = msg.input :received_id , :as => :hidden, :value => @admin.id
