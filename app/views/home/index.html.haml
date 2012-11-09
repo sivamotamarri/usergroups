@@ -31,13 +31,13 @@
             = "#{t('menu.signup')}!"
 
 
-    -if !current_user.blank? && !ChapterMember.is_primary_coordinator?(current_user.id)
-      .ca-bottom
-        .ca-down
-          %h2.label-6= t('chapter.create_title')
-          %h5.label-7= t('chapter.create_desc')          
-          = link_to  t('chapter.create_create') , new_chapter_path, :class => "btn-b"
-
+    -if !current_user.blank?
+      - if !ChapterMember.is_primary_coordinator?(current_user.id)
+        .ca-bottom
+          .ca-down
+            %h2.label-6= t('chapter.create_title')
+            %h5.label-7= t('chapter.create_desc')
+            = link_to  t('chapter.create_create') , new_chapter_path, :class => "btn-b"
     - else current_user.blank?
       .ca-bottom
         .ca-down
