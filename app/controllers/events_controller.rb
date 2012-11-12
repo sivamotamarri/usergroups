@@ -114,8 +114,8 @@ class EventsController < ApplicationController
   def get_venue_id
     venues_list = @eb_client.user_list_venues.parsed_response["venues"] 
     existing=venues_list.select do |venue|   venue["venue"]["name"] == "something"  end 
-    if(existing.blank?)  
-     venue = @eb_client.venue_new(:organizer_id => EVENTBRITE_ORGANIZATON_ID, :name => params[:event][:venue],  :location => params[:event][:location], :address => params[:event][:address_line1], :address2 => params[:event][:address_line2] ,:country_code => "IN")
+    if(existing.blank?)     
+     venue = @eb_client.venue_new(:organizer_id => EVENTBRITE_ORGANIZATION_ID, :name => params[:event][:venue],  :location => params[:event][:location], :address => params[:event][:address_line1], :address2 => params[:event][:address_line2] ,:country_code => "IN")
      venue_id = venue.parsed_response["process"]["id"]
     else
      venue_id = existing[0]["venue"]["id"]
