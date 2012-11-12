@@ -59,5 +59,9 @@ class Chapter < ActiveRecord::Base
     location += "," + state_name if !state_name.blank?
     location += "," + country_name if !country_name.blank?
   end
+
+  def self.total_records
+    Chapter.select('country_name').group('country_name')
+  end
   
 end

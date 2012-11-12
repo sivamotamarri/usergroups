@@ -1,4 +1,4 @@
-- if chapter.messages
+- if !chapter.messages.blank?
   - chapter.messages.root.try(:children).each do |child|
     %tr
       %td.tb-1-4

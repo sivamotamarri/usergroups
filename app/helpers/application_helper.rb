@@ -41,5 +41,9 @@ module ApplicationHelper
     end
   end
 
+  def main_chapters(country)
+    Chapter.where(:country_name => country)
+  end
+
   
 end
