@@ -32,6 +32,12 @@ Events ={
     
   });
 
+  $('#event_form_submit').die('click').live('click', function(e){
+
+    $('#options').hide();
+    $('#spinner').show();
+  });
+
   $('.event_expand').die('click').live('click', function(e){    
      e.preventDefault();
      var data = {event_id: $(this).attr('event_id')};    

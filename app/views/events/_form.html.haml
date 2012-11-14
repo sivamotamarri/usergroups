@@ -1,7 +1,7 @@
 -if @eb_client.nil?
   = link_to 'Connect to Eventbrite', "#{@accept_url}"    
 -else
-  = semantic_form_for @event ,:remote=> true do |f| 
+  = semantic_form_for @event ,:remote=> true do |f|     
     .event-form
       .event-left
         .el-cont{:style => "margin-bottom: 15px;"}
@@ -61,9 +61,11 @@
         %li{:style => "float:left;", :class => "inline-errors event_title"} &nbsp;
       .el-cont
         = f.text_field :description , :class => "input-b size-f" , :placeholder => "Event description", :style => "height: 40px;margin:5px 0px;", :label => false
-      %div{:style => "width:628px; overflow: hidden;"}
+      #spinner.spinner{:style => 'display:none;margin-right:10px;float:right;'}
+        %img{:src => "/assets/spinner.gif", :alt => "Loading" , :id => 'img-spinner'}/  
+      #options{:style => "width:628px; overflow: hidden;"}
         %button.btn-a-small.flt-right{:style => "margin-right:10px;", :id=>"event_form_submit"} CREATE
-        %button.btn-c-small.flt-right{:style => "margin-right:10px;"} DISCARD
+        /%button.btn-c-small.flt-right{:style => "margin-right:10px;"} DISCARD
 
 :javascript
   $(function(){
