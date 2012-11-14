@@ -32,10 +32,13 @@
     / %input.input-a{:placeholder => "Find a group...", :style => "margin-left: 0px;"}
     /   %a.label-36{:href => "#"} + Create Group
     .div-g
-      .column-a
-        - @chapters.each_with_index do |chapter,i|
+      - Chapter.total_records.each_with_index do |chapter,i|
+        .column-a
           %h3.label-37
             = Carmen::Country.coded(chapter.country_name).try(:name) || "No Name"
           %ul.ui-j
-            %li
-              %a.label-28{:href => "#"}= chapter.name
+            - main_chapters(chapter.country_name).each do |chp|
+              %li
+                %a.label-28{:href => "#{chapter_path(chp)}"}= chp.name
+
+        
