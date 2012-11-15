@@ -12,12 +12,12 @@ class Event < ActiveRecord::Base
   
 
   validates :event_start_date ,:format => {
-  :with => /^([0-3])?[1-9]\/[0-1][0-9]\/[1-9][0-9][0-9][0-9]$/,
+  :with => /^([0-3])?[0-9]\/[0-1][0-9]\/[1-9][0-9][0-9][0-9]$/,
     :message => "Date should be in dd/mm/yyyy format"
   } , :unless => Proc.new{|event| event.event_start_date.blank?}
 
   validates :event_end_date, :format => {
-  :with => /^([0-3])?[1-9]\/[0-1][0-9]\/[1-9][0-9][0-9][0-9]$/,
+  :with => /^([0-3])?[0-9]\/[0-1][0-9]\/[1-9][0-9][0-9][0-9]$/,
     :message => "Date should be in dd/mm/yyyy format"
   } , :unless => Proc.new{|event| event.event_end_date.blank?}
   
@@ -35,5 +35,9 @@ class Event < ActiveRecord::Base
 
   def am_i_member?(user_id)
   	self.event_members.where(:user_id => user_id).present?
+  end
+
+  def can_i_delete?(user_id, chapter_id)
+    ChapterMember.am_i_coordiantor?(user_id, chapter_id)
   end
 end

@@ -13,9 +13,11 @@
               %h1.label-23 #{Time.parse(event.event_start_date.to_s).strftime('%d')}
               %h4.label-24 #{Time.parse(event.event_start_date.to_s).strftime('%b')}
           .div-h
-            %a.label-9.event_expand{:href => "#", :event_id=> event.id} #{event.title}  
-            -if !current_user.blank? and @profile_page != true  and !event.am_i_member?(@current_user.id)                    
-              %button.btn-a-small.flt-right{:id=>"follow_an_event", :event_id => "#{event.id}"} FOLLOW
+            %a.label-9.event_expand{:href => "#", :event_id=> event.id} #{event.title} 
+            -if !current_user.blank? and @profile_page != true  and event.chapter.am_i_chapter_memeber?(@current_user.id) and !event.am_i_member?(@current_user.id)      
+              %button.btn-a-small.flt-right{:id=>"follow_an_event", :event_id => "#{event.id}"} CLICK TO ATTEND
+            -if !current_user.blank?   and event.can_i_delete?(@current_user.id, event.chapter_id)      
+              %button.btn-a-small.flt-right{:id=>"delete_an_event", :event_id => "#{event.id}"} DELETE
             %br
             %label.label-25
               -if(!event.event_start_date.blank?)
@@ -34,8 +36,10 @@
               %h4.label-24 #{Time.parse(event.event_start_date.to_s).strftime('%b')}
           .div-h
             %a.label-9.event_expand{:href => "#", :event_id => event.id} #{event.title}  
-            -if !current_user.blank? and  @profile_page != true  and !event.am_i_member?(@current_user.id)                    
-              %button.btn-a-small.flt-right{:id=>"follow_an_event", :event_id => "#{event.id}"} FOLLOW
+            -if !current_user.blank? and  @profile_page != true  and event.chapter.am_i_chapter_memeber?(@current_user.id) and !event.am_i_member?(@current_user.id)                    
+              %button.btn-a-small.flt-right{:id=>"follow_an_event", :event_id => "#{event.id}"} CLICK TO ATTEND
+            -if !current_user.blank?   and event.can_i_delete?(@current_user.id, event.chapter_id)      
+              %button.btn-a-small.flt-right{:id=>"delete_an_event", :event_id => "#{event.id}"} DELETE
             %br
             %label.label-25
               -if(!event.event_start_date.blank?)

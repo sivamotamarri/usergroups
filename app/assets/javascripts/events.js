@@ -31,6 +31,21 @@ Events ={
       });
     
   });
+  $('#delete_an_event').die('click').live('click', function(e){
+   
+      var data = {event_id: $(this).attr('event_id')};    
+      
+      $.ajax({
+        url: '/events/delete_an_event',
+        data : data,
+        success: function(data){
+            $('#events').html(data);            
+        },
+        async:false,        
+        dataType: 'html'
+      });
+    
+  });
 
   $('#event_form_submit').die('click').live('click', function(e){
 

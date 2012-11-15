@@ -108,7 +108,17 @@ class EventsController < ApplicationController
     respond_to do |format|      
       format.js {render :partial => 'events_list' }# new.html.erb
     end
+  end
 
+  def delete_an_event    
+    @event = Event.find(params[:event_id])
+    @event.soft_delete!
+    chapter_events = Event.find_all_by_chapter_id(@event.chapter_id) || []
+    get_upcoming_and_past_events(chapter_events, true)
+    @profile_page = false
+    respond_to do |format|      
+      format.js {render :partial => 'events_list' }# new.html.erb
+    end
   end
 
   def get_venue_id
@@ -201,17 +211,7 @@ class EventsController < ApplicationController
     render json: data.to_json
   end
 
-  # DELETE /events/1
-  # DELETE /events/1.json
-  def destroy
-    @event = Event.find(params[:id])
-    @event.destroy
 
-    respond_to do |format|
-      format.html { redirect_to events_url }
-      format.json { head :no_content }
-    end
-  end
 
   def initialise_eventbrite_client 
   	event_brite_oauthtoken = EventbriteOauthToken.find_by_user_id(@current_user.id)

@@ -63,5 +63,9 @@ class Chapter < ActiveRecord::Base
   def self.total_records
     Chapter.select('country_name').group('country_name')
   end
+
+  def am_i_chapter_memeber?(user_id)
+   ChapterMember.find(:all , :conditions => [" user_id = ? and chapter_id = ? and memeber_type = ?", user_id, id,  ChapterMember::MEMBER]).present?
+  end
   
 end

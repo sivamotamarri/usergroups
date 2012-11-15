@@ -32,6 +32,7 @@ CloudfoundryUsergroups::Application.routes.draw do
       get 'userevents'
       get 'get_chapter_events'      
       get 'follow_an_event'
+      get 'delete_an_event'
       get 'full_event_content'
       get 'title_list'
       post 'create_event_comment'
