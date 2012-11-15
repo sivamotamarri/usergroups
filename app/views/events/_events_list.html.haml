@@ -1,10 +1,10 @@
 #events
   - if @upcoming_events.blank? && @past_events.blank?
     .marg-top
-      %h1.label-44 No Events
+      %h1.label-44{:style=> "font-size:18px;"} No Events
   -if !@upcoming_events.blank?
     .marg-top
-      %h1.label-44 Upcoming Events
+      %h1.label-44{:style=> "font-size:18px;"} Upcoming Events
     %ul.ul-g{:style => "margin-top:-20px;" ,:id=>"two_events"}
       - @two_upcoming_events.each do |event|    
         %li

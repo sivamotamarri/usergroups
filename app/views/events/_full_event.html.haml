@@ -1,4 +1,4 @@
-%li.ulg-expanded
+%li.ulg-expanded{:style => "margin-top: -3px;"}
   .div-c
     -if(!@event.event_start_date.blank?)
       %h1.label-23 #{Time.parse(@event.event_start_date.to_s).strftime('%d')}
@@ -17,9 +17,11 @@
       Location: #{@event.venue}
       %br
       #{@event.description}
+      %br
   .div-d
     - (@event.comments || []).each do |comment|
       .divd-comment-pos
+        %br
         %table.table-c
           %tr
             %td
