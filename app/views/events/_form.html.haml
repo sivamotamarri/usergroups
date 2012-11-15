@@ -4,7 +4,7 @@
   = semantic_form_for @event ,:remote=> true do |f|     
     .event-form
       .event-left
-        .el-cont{:style => "margin-bottom: 15px;"}
+        .el-cont{:style => "margin-bottom: 16px;"}
           %h2.label-45.flt-left Create Event
         .el-cont
           %label.flt-left.label-26 Starts On
@@ -30,17 +30,15 @@
           %label.label-14 Upload Image
         .el-cont
         .el-cont{:style => "margin-top: 12px;"}
-          %label.flt-left.label-26 Entry Fee
+          %label.flt-left.label-26{:style => "padding-right:3px;"} Entry Fee
           = f.input :entry_fee , :input_html => {:class => "input-b size-d" }, :placeholder => "Rs. 0", :label => false, :style => "margin-left:10px"
           /%input.input-b.size-d{:placeholder => "Rs. 0", :style => "margin-left:10px"}
       .event-right 
         .el-cont
           %h5.label-26.flt-left Location
-          .dd-chapter-ad
-            %h5.label-11
-              New Event
-              %img.arrow-down-chap-ad-img.flt-right{:src => "/assets/arrow-down-d.png"}/
         .el-cont
+        .el-cont
+        .el-cont{:style => "margin-bottom:2px;"}
           = f.input :venue , :input_html => {:class => "input-b size-text-event-create"} , :placeholder => "Venue Name", :label => false 
           
         .el-cont
