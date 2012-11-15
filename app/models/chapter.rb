@@ -24,6 +24,7 @@ class Chapter < ActiveRecord::Base
    scope :incubated_chapters, where(:chapter_status => :incubated)
    scope :active_chapters, where(:chapter_status => :active)
    scope :delist_chapters, where(:chapter_status => :delist)
+   scope :incubated_or_active , where(:chapter_status => [:active,:incubated])
 
   state_machine :chapter_status, :initial => :applied do
 
@@ -61,7 +62,7 @@ class Chapter < ActiveRecord::Base
   end
 
   def self.total_records
-    Chapter.select('country_name').group('country_name')
+    Chapter.select('country_name').group('country_name').where(:chapter_status => [:active,:incubated])
   end
   
 end

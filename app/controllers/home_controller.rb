@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   end
 
   def directory
-    @chapters = Chapter.all
+    @chapters = Chapter.incubated_or_active || []
     @markers = get_markers.to_json
   end
 
