@@ -38,7 +38,9 @@
             = Carmen::Country.coded(chapter.country_name).try(:name) || "No Name"
           %ul.ui-j
             - main_chapters(chapter.country_name).each do |chp|
-              %li
-                %a.label-28{:href => "#{chapter_path(chp)}"}= chp.name
+              %li{:style => "line-height:30px;"}
+                %a.label-28{:href => "#{chapter_path(chp)}"}= "#{chp.name}"
+                %span{:title => "Chapter Status"}= "(#{chp.chapter_status})"
+                %span{:title => "Chapter type"}= "(#{chp.chapter_type.first})"
 
         

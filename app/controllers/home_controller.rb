@@ -3,13 +3,13 @@ class HomeController < ApplicationController
   layout "application"
 
   def index
-    @chapters = Chapter.all || []
+    @chapters = Chapter.incubated_or_active || []
   	@markers = get_markers.to_json
     @announcements = Announcement.all
   end
 
   def directory
-    @chapters = Chapter.all
+    @chapters = Chapter.incubated_or_active || []
     @markers = get_markers.to_json
   end
 
