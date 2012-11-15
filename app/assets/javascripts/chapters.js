@@ -61,7 +61,22 @@ renderChapterAdmin: function(element){
 },  
 
  firstChapterClick: function(){
-  $($('.chapter_link')[0]).click()
+  $($('.chapter_link')[0]).click();
+ },
+
+ renderEventForm: function(target){
+      window.location = $(target).attr('href');
+    /*    $.ajax({
+          url: '/events/new',         
+          success: function(data){              
+              $('#admincontent').html(data);
+              $('#event_chapter_id').val('chapter_id');
+          },
+          async:false,        
+          dataType: 'html'
+        }); */
+     /* $('#group_admin_ref').click();
+      $('#create_event').click();*/
  },
 
  init: function(){
@@ -74,7 +89,8 @@ renderChapterAdmin: function(element){
     //userprofile jquery
     $('.ul-f, .ul-i').unbind('click').bind('click', function(e){          
       e.preventDefault();
-      var selectedClass="ulf-selected";
+
+      var selectedClass="ulf-selected";      
 
       if($(this).hasClass('ul-i')){ //if a chapter group is clicked
       	selectedClass="uli-selected";
@@ -88,6 +104,10 @@ renderChapterAdmin: function(element){
       }else if($(e.target).text() == "Messages"){
         $($('.profile_content')[0]).hide();
         Chapters.renderMessages($(e.target))
+      }else if($(e.target).attr('id') == "create_event_from_chapter") {
+        Chapters.renderEventForm(e.target);
+        return;
+
       }else if($(e.target).text() == "Events" || $(e.target).text() == "Photos" || $(e.target).text() == "Post"){
         $($('.profile_content')[0]).show();
         $('#event_content').html("");
