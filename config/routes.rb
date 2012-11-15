@@ -54,7 +54,9 @@ resources :events, :has_many => :comments
   match '/login' => 'federated#login', :as => :login
   match '/logout' => 'federated#logout'
   match '/profile' => 'users#profile' , :as => :profile
-#  match '/oauth_event' => 'home#oauth_event'
+  
+  match 'settings' => 'users#settings' , :as => :settings
+  match 'settings_update/:id' => 'users#settings_update' , :as => :settings_update , :via => :put
   
 
 #  match '/catchtoken' => 'home#catchtoken'

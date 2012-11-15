@@ -4,7 +4,7 @@
       = avatar_display_pic(@user,'thumb', '100x100','profile.png',"profile-img img-a flt-left")
       %h2.label-34 Welcome #{@user.fullname}!
       %h5.label-20 Location: #{@user.location}
-      %a.label-35{:href => "#"} My Account    
+      %a.label-35{:href => "#{settings_path}"} My Account
     .cc-left      
       %ul.ul-f
         %li
