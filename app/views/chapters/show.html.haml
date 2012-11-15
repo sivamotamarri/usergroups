@@ -7,8 +7,11 @@
           %br/
           -if !@is_part_of_chapter
             = form_tag join_a_chapter_chapters_path, :method => :post do
-              = hidden_field_tag "chapter_id", "#{@chapter.id}"
-              = submit_tag 'JOIN US!' , :class => 'btn-a' 
+              = hidden_field_tag "chapter_id", "#{@chapter.id}"                            
+              - if @current_user.blank?
+                = button_tag 'JOIN US!' , :class => "btn-a signin", :type => "button"
+              - else
+                = submit_tag 'JOIN US!' , :class => "btn-a"             
               
         .div-a
           %h2.label-17 #{@chapter.try(:name)}
