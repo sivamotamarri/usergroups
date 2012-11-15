@@ -6,7 +6,7 @@
           %img{:src => "/assets/logo.png"}
       %h5.flt-right.label-2
         %form
-          %select.target
+          %select.target.label-2
             - if params[:locale].blank? || params[:locale] == 'en'
               %option{:value => "en" , :selected=>'selected'} English
               %option{:value => "CN"} Chinese
