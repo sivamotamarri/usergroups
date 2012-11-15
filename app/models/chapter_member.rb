@@ -13,6 +13,10 @@ class ChapterMember < ActiveRecord::Base
   def self.get_chapters(user_id)
     ChapterMember.find_all_by_user_id(user_id) 
   end
+
+  def self.get_member(user_id, chapter_id)
+    ChapterMember.find(:all , :conditions => [" user_id = ? and chapter_id = ? ", user_id, chapter_id])
+  end
   
   def self.get_details_if_coordinator(user_id)
     ChapterMember.find(:all , :conditions => [" user_id = ? and memeber_type in (?)", user_id, [PRIMARY_COORDINATOR, SECONDARY_COORDINATOR]])
