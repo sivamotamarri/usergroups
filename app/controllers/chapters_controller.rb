@@ -84,6 +84,7 @@ class ChaptersController < ApplicationController
 
   def create
      @admin = User.find_by_email("admin@cloudfoundry.com")
+     params[:chapter][:name] = "cfdg - " + params[:chapter][:city_name]
      @chapter = Chapter.new(params[:chapter])
      member = ChapterMember.new({:memeber_type=>ChapterMember::PRIMARY_COORDINATOR, :user_id => @current_user.id})
     

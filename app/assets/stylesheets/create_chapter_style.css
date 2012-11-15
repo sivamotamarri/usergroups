@@ -163,7 +163,8 @@ body {
 }
 .Creation-form{
 	overflow:hidden;
-	height:1000px;
+	/*height:1000px;*/ 
+	/*removing height so that it is autoadjusted*/
 }
 .proposal{
 	padding-left:5px;
