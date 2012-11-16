@@ -53,7 +53,8 @@ Events ={
     $('#spinner').show();
   });
 
-  $('.event_expand').die('click').live('click', function(e){    
+/*  $('.event_expand').die('click').live('click', function(e){    
+
      e.preventDefault();
      var data = {event_id: $(this).attr('event_id')};    
      $.ajax({
@@ -68,7 +69,7 @@ Events ={
       });
 
   }); 
-
+*/
   $('#upcoming_events').die('click').live('click', function(e){    
   	e.preventDefault();
     var default_text= "See all upcoming events...";

@@ -34,10 +34,11 @@
               %p.label-16
                 #{comment.content}
     - @comment =  @event.comments.build
-    = semantic_form_for  @comment, :remote => true do |f|      
-      = f.text_area :content, :placeholder => "comment", :label => false, :class => " content_comment_class ta-a"
-      = f.hidden_field   :commentable_type
-      = f.hidden_field   :commentable_id      
+    -if @current_user.present?
+      = semantic_form_for  @comment, :remote => true do |f|      
+        = f.text_area :content, :placeholder => "comment", :label => false, :class => " content_comment_class ta-a"
+        = f.hidden_field   :commentable_type
+        = f.hidden_field   :commentable_id      
 
               
   / .lining
