@@ -23,7 +23,7 @@
           %h5.label-19
             Primary Group Coordinator:
             %label.label-20 #{@primary_coord.try(:user).email}
-            - member = ChapterMember.get_member(@current_user.id, @chapter.id).try(:first)
+            - member = ChapterMember.get_member(@current_user.id, @chapter.id).try(:first) if @current_user.present?
             -if !@current_user.blank? and member.present?
               %br            
               %span{:style=> "color:green;font-size:14px;"} Role: #{member.memeber_type.try(:titleize)}
@@ -59,7 +59,7 @@
         / %li
         /   %a{:href => "#"} Photos
         /   %i.bg-arrow-down-b
-        -if (ChapterMember.am_i_coordiantor?(@current_user.id, @chapter.id))
+        -if @current_user.present? and (ChapterMember.am_i_coordiantor?(@current_user.id, @chapter.id))
           %li{:style => "float:right"}
             %a.cp{:href => "#{profile_path}" , :id=>"create_event_from_chapter"} + Create Event
       = render '/events/events_list' 
