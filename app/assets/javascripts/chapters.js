@@ -65,18 +65,12 @@ renderChapterAdmin: function(element){
  },
 
  renderEventForm: function(target){
-      window.location = $(target).attr('href');
-    /*    $.ajax({
-          url: '/events/new',         
-          success: function(data){              
-              $('#admincontent').html(data);
-              $('#event_chapter_id').val('chapter_id');
-          },
-          async:false,        
-          dataType: 'html'
-        }); */
-     /* $('#group_admin_ref').click();
-      $('#create_event').click();*/
+      window.location = $(target).attr('href')+"&from=chapter";    
+ },
+
+ fireclicks: function(){
+    $('#group_admin_ref').trigger('click');
+    setTimeout(function(){$('#create_event').trigger('click');}, 10);
  },
 
  init: function(){
@@ -89,6 +83,7 @@ renderChapterAdmin: function(element){
     //userprofile jquery
     $('.ul-f, .ul-i').unbind('click').bind('click', function(e){          
       e.preventDefault();
+
 
       var selectedClass="ulf-selected";      
 
