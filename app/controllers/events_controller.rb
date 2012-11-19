@@ -3,7 +3,7 @@ require 'oauth2'
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
-  before_filter :initialise_eventbrite_client, :except => ['create_event_comment']
+  before_filter :initialise_eventbrite_client, :except => ['create_event_comment', 'show']
   before_filter :set_profile_page
   def index
     @events = Event.all

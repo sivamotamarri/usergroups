@@ -6,10 +6,10 @@ Events ={
 			var chapter_id= $('#group_admin_ref').attr('chapter_id');
 		    
 		    $.ajax({
-		      url: '/events/new',		      
+		      url: '/events/new',
+          data: {chapter_id: chapter_id},		      
 		      success: function(data){		          
 		          $('#admincontent').html(data);
-		          $('#event_chapter_id').val(chapter_id);
 		      },
 		      async:false,        
 		      dataType: 'html'
@@ -53,7 +53,8 @@ Events ={
     $('#spinner').show();
   });
 
-  $('.event_expand').die('click').live('click', function(e){    
+/*  $('.event_expand').die('click').live('click', function(e){    
+
      e.preventDefault();
      var data = {event_id: $(this).attr('event_id')};    
      $.ajax({
@@ -68,7 +69,7 @@ Events ={
       });
 
   }); 
-
+*/
   $('#upcoming_events').die('click').live('click', function(e){    
   	e.preventDefault();
     var default_text= "See all upcoming events...";
