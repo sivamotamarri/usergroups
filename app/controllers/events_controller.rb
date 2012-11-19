@@ -66,30 +66,7 @@ class EventsController < ApplicationController
     end
  
   end
-
-  def get_upcoming_and_past_events(user_events, is_chapter_event=false)
-    @all_events = []
-    @past_events = []
-    @upcoming_events = []
-    user_events.each do |user_event|   
-      event = user_event
-      if(!is_chapter_event)
-       event = user_event.event      
-      end
-      @all_events.push(event)
-      
-      if(!event.event_start_date.blank? && Time.parse(event.event_start_date+" "+ event.event_start_time) >= Time.now)         
-        @upcoming_events.push(event)
-      else
-        @past_events.push(event)
-      end
-    end    
-    @two_upcoming_events = @upcoming_events.sort!.reverse!.take(2)
-
-    @past_events.sort!
-    @past_events = @past_events.paginate(:page => params[:page], :per_page => 10)
-
-  end
+  
 
   # GET /events/1/edit
   def edit
@@ -121,25 +98,7 @@ class EventsController < ApplicationController
     end
   end
 
-  def get_venue_id
-    venues_list = @eb_client.user_list_venues.parsed_response["venues"] 
-    existing=venues_list.select do |venue|   venue["venue"]["name"] == params[:event][:venue]  end 
-    if(existing.blank?)  
-     organizers_response = @eb_client.user_list_organizers 
-     organizer = organizers_response["organizers"].select do |org|  org["organizer"]["name"] =="cloudfoundry"  end
-     if(organizer.blank?) 
-      organization = @eb_client.organizer_new(:name => "cloudfoundry")  
-      organization_id = organization.parsed_response["process"]["id"]
-     else
-       organization_id = organizer[0]["organizer"]["id"]
-     end
-     venue = @eb_client.venue_new(:organizer_id => organization_id, :name => params[:event][:venue],  :location => params[:event][:location], :address => params[:event][:address_line1], :address2 => params[:event][:address_line2] ,:country_code => "IN")
-     venue_id = venue.parsed_response["process"]["id"]
-    else
-     venue_id = existing[0]["venue"]["id"]
-    end 
-    venue_id
-  end
+
 
   # POST /events
   # POST /events.json
@@ -222,4 +181,51 @@ class EventsController < ApplicationController
   	 @accept_url = @auth_client_obj.auth_code.authorize_url( :redirect_uri => EVENTBRITE_REDIRECT_URL)
   	end   
   end
+  protected
+  def get_upcoming_and_past_events(user_events, is_chapter_event=false)
+    @all_events = []
+    @past_events = []
+    @upcoming_events = []
+    user_events.each do |user_event|   
+      event = user_event
+      if(!is_chapter_event)
+       event = user_event.event      
+      end
+      @all_events.push(event)
+      
+      if(!event.event_start_date.blank? && Time.parse(event.event_start_date+" "+ event.event_start_time) >= Time.now)         
+        @upcoming_events.push(event)
+      else
+        @past_events.push(event)
+      end
+    end    
+    @two_upcoming_events = @upcoming_events.sort!.reverse!.take(2)
+
+    @past_events.sort!
+    @past_events = @past_events.paginate(:page => params[:page], :per_page => 10)
+
+  end
+
+  def get_venue_id
+    venues_list = @eb_client.user_list_venues.parsed_response["venues"] 
+    existing=venues_list.select do |venue|   venue["venue"]["name"] == params[:event][:venue]  end 
+    if(existing.blank?)  
+     organizers_response = @eb_client.user_list_organizers 
+     organizer = organizers_response["organizers"].select do |org|  org["organizer"]["name"] =="cloudfoundry"  end
+     if(organizer.blank?) 
+      organization = @eb_client.organizer_new(:name => "cloudfoundry")  
+      organization_id = organization.parsed_response["process"]["id"]
+     else
+       organization_id = organizer[0]["organizer"]["id"]
+     end
+     venue = @eb_client.venue_new(:organizer_id => organization_id, :name => params[:event][:venue],  :location => params[:event][:location], :address => params[:event][:address_line1], :address2 => params[:event][:address_line2] ,:country_code => "IN")
+     venue_id = venue.parsed_response["process"]["id"]
+    else
+     venue_id = existing[0]["venue"]["id"]
+    end 
+    venue_id
+  end
+
+
+
 end
