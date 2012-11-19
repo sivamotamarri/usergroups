@@ -17,12 +17,12 @@
           / -if  !current_user.blank? and @profile_page != true and !event.am_i_member?(@current_user.id)
           /   %button.btn-a-small.flt-right{:style => "margin-left: 10px;", :id=>"follow_an_event", :event_id => "#{event.id}"} FOLLOW
           %br
-          %a.flt-right{:href => "#", :style => "padding-left:10px"}
-            %span
-              %img{:src => "/assets/camera.png"}/
-          %a.flt-right{:href => "#", :style => "padding-left:10px"}
-            %span
-              %img{:src => "/assets/youtube.png"}/
+          / %a.flt-right{:href => "#", :style => "padding-left:10px"}
+          /   %span
+          /     %img{:src => "/assets/camera.png"}/
+          / %a.flt-right{:href => "#", :style => "padding-left:10px"}
+          /   %span
+          /     %img{:src => "/assets/youtube.png"}/
           %label.label-25 Attendees: #{event.event_members.size}
           %p.label-26{:id => "full_content"}
             #{event.description} 

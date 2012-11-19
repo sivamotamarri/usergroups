@@ -24,6 +24,7 @@ CN:
     creative: "除非另有說明，此內容的許可下"
     details: "使用Cloud Foundry的標誌及商標的詳細信息和限制，請參閱本"
     license: "內容許可證"
+    copyright: "版权所有©2012 VMware公司保留所有权利"
   welcome:
     about: "這些組集中學習和分享信息Cloud Foundry的開源PaaS的。"
     title: "Cloud Foundry的平台"

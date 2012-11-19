@@ -26,6 +26,7 @@ en:
     creative: "Creative Commons Attribution 2.5."
     details: "For details and restrictions on using Cloud Foundry Logo and Trademarks refer to this"
     license: "Content License"
+    copyright: "Copyright © 2012 VMware, Inc. All rights reserved"
   welcome:
     about:  "These groups are focussed on learning and sharing information about Cloud foundry Open Source Paas. "
     title: "Cloud Foundry PLATFORM"
