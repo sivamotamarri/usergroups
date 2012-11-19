@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   # GET /events.json
   before_filter :initialise_eventbrite_client, :except => ['create_event_comment', 'show']
   before_filter :set_profile_page
+
   def index
     @events = Event.all
     respond_to do |format|
@@ -44,6 +45,7 @@ class EventsController < ApplicationController
       access_token_obj = @auth_client_obj.auth_code.get_token(params[:code], { :redirect_uri => EVENTBRITE_REDIRECT_URL, :token_method => :post })      
       eventbrite_entry = EventbriteOauthToken.new(:user_id => @current_user.id, :event_brite_token => access_token_obj.token)
       eventbrite_entry.save!
+
       @eb_client = EventbriteClient.new({ access_token: access_token_obj.token})
     end    
     respond_to do |format|      
@@ -56,7 +58,9 @@ class EventsController < ApplicationController
   def userevents
     chapter_id = params[:chapter_id]
     user_events = EventMember.find_all_by_user_id(@current_user.id, :include => ['event'], :conditions => "events.chapter_id = #{chapter_id}") || []
+
     get_upcoming_and_past_events(user_events)
+
      respond_to do |format|      
       if !params["page"].blank?
          format.js
@@ -79,9 +83,12 @@ class EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     @event_memeber = EventMember.new(:event_id => @event.id, :user_id => current_user.id)
     @event_memeber.save!
+
     chapter_events = Event.find_all_by_chapter_id(@event.chapter_id) || []
     get_upcoming_and_past_events(chapter_events, true)
+
     @profile_page = false
+
     respond_to do |format|      
       format.js {render :partial => 'events_list' }# new.html.erb
     end
@@ -90,9 +97,11 @@ class EventsController < ApplicationController
   def delete_an_event    
     @event = Event.find(params[:event_id])
     @event.soft_delete!
+
     chapter_events = Event.find_all_by_chapter_id(@event.chapter_id) || []
     get_upcoming_and_past_events(chapter_events, true)
     @profile_page = false
+
     respond_to do |format|      
       format.js {render :partial => 'events_list' }# new.html.erb
     end
@@ -108,12 +117,15 @@ class EventsController < ApplicationController
       if @event.save
         start_date = (params[:event][:event_start_date].blank? or params[:event][:event_start_time].blank?) ? "" : Time.parse(params[:event][:event_start_date]+" " +params[:event][:event_start_time]).strftime('%Y-%m-%d %H:%M:%S')
         end_date = (params[:event][:event_end_date].blank? or  params[:event][:event_end_time].blank?) ? "" : Time.parse(params[:event][:event_end_date]+" " +params[:event][:event_end_time]).strftime('%Y-%m-%d %H:%M:%S')  
-        venue_id = get_venue_id()    
+
+        venue_id = get_venue_id
         eventbrite_event = @eb_client.event_new(:venue_id => venue_id , :organizer_id =>  EVENTBRITE_ORGANIZATION_ID , :name => params[:name], :start_date => start_date, :end_date => end_date,  :title => params[:event][:title], :description => params[:event][:description])         
         eventbrite_id = eventbrite_event.parsed_response["process"]["id"].to_s
         @event.update_attribute(:eventbrite_id, eventbrite_id)
+
         @event_memeber = EventMember.new(:event_id => @event.id, :user_id => current_user.id)
         @event_memeber.save!
+
         @chapter = Chapter.find(@event.chapter_id)
         @chapter_events = @chapter.events.sort        
         @two_chapter_events = @chapter_events.take(2)
@@ -182,7 +194,9 @@ class EventsController < ApplicationController
   	 @accept_url = @auth_client_obj.auth_code.authorize_url( :redirect_uri => EVENTBRITE_REDIRECT_URL)
   	end   
   end
+
   protected
+
   def get_upcoming_and_past_events(user_events, is_chapter_event=false)
     @all_events = []
     @past_events = []
@@ -210,21 +224,26 @@ class EventsController < ApplicationController
   def get_venue_id
     venues_list = @eb_client.user_list_venues.parsed_response["venues"] 
     existing=venues_list.select do |venue|   venue["venue"]["name"] == params[:event][:venue]  end 
+
     if(existing.blank?)  
      organizers_response = @eb_client.user_list_organizers 
      organizer = organizers_response["organizers"].select do |org|  org["organizer"]["name"] =="cloudfoundry"  end
-     if(organizer.blank?) 
-      organization = @eb_client.organizer_new(:name => "cloudfoundry")  
-      organization_id = organization.parsed_response["process"]["id"]
-     else
-       organization_id = organizer[0]["organizer"]["id"]
-     end
-     venue = @eb_client.venue_new(:organizer_id => organization_id, :name => params[:event][:venue],  :location => params[:event][:location], :address => params[:event][:address_line1], :address2 => params[:event][:address_line2] ,:country_code => "IN")
-     venue_id = venue.parsed_response["process"]["id"]
+
+       if(organizer.blank?) 
+        organization = @eb_client.organizer_new(:name => "cloudfoundry")  
+        organization_id = organization.parsed_response["process"]["id"]
+       else
+         organization_id = organizer[0]["organizer"]["id"]
+       end
+
+       venue = @eb_client.venue_new(:organizer_id => organization_id, :name => params[:event][:venue],  :location => params[:event][:location], :address => params[:event][:address_line1], :address2 => params[:event][:address_line2] ,:country_code => "IN")
+       venue_id = venue.parsed_response["process"]["id"]
     else
      venue_id = existing[0]["venue"]["id"]
     end 
+
     venue_id
+    
   end
 
 

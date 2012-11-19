@@ -8,19 +8,15 @@ class ChapterMember < ActiveRecord::Base
   PRIMARY_COORDINATOR = "primary coordinator"
   SECONDARY_COORDINATOR = "secondary coordinator"
   MEMBER = 'member'
+ 
+  scope :get_chapters, lambda{|user_id| where(:user_id => user_id)}
+  scope :get_member, lambda{|user_id, chapter_id| where(" user_id = ? and chapter_id = ? ", user_id, chapter_id)}
+  scope :get_details_if_coordinator, lambda{|user_id| where(" user_id = ? and memeber_type in (?)", user_id, [PRIMARY_COORDINATOR, SECONDARY_COORDINATOR])}
+  #scope :am_i_coordiantor?, lambda{|user_id, chapter_id)| where(" user_id = ? and chapter_id = ? and memeber_type in (?)", user_id, chapter_id, [PRIMARY_COORDINATOR, SECONDARY_COORDINATOR]]).present?}
+  #scope :is_primary_coordinator?, lambda{|user_id| where(" user_id = ? and memeber_type = ?", user_id, PRIMARY_COORDINATOR).present?}
+  #scope :is_secondary_coordinator?, lambda{|user_id| where(" user_id = ? and memeber_type = ?", user_id, SECONDARY_COORDINATOR).present?}
+  #scope :is_just_member?, lambda{|user_id| where(" user_id = ? and memeber_type = ?", user_id, MEMBER).present?}
 
-
-  def self.get_chapters(user_id)
-    ChapterMember.find_all_by_user_id(user_id) 
-  end
-
-  def self.get_member(user_id, chapter_id)
-    ChapterMember.find(:all , :conditions => [" user_id = ? and chapter_id = ? ", user_id, chapter_id])
-  end
-  
-  def self.get_details_if_coordinator(user_id)
-    ChapterMember.find(:all , :conditions => [" user_id = ? and memeber_type in (?)", user_id, [PRIMARY_COORDINATOR, SECONDARY_COORDINATOR]])
-  end
 
   def self.am_i_coordiantor?(user_id, chapter_id)
     ChapterMember.find(:all , :conditions => [" user_id = ? and chapter_id = ? and memeber_type in (?)", user_id, chapter_id, [PRIMARY_COORDINATOR, SECONDARY_COORDINATOR]]).present?
