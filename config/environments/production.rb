@@ -66,6 +66,7 @@ CloudfoundryUsergroups::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
   Ddb::Userstamp.compatibility_mode = true
+  config.assets.precompile += Ckeditor.assets
   #user-groups
   #FEDERATED_KEY = 'AIzaSyB8IrA9iaoSnQZbagf2rGxbIOk41IRKUA8'
   #EVENTBRITE_CLIENT_ID = 'VHHM4OT2VSPEEBUSWW'

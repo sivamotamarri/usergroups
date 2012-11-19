@@ -12,8 +12,9 @@
     = stylesheet_link_tag    "chapterAdmin", :media => "all"
     = stylesheet_link_tag    "site-admin", :media => "all"
     
+    = javascript_include_tag "ckeditor/init"
+    = javascript_include_tag "application"
     
-    = javascript_include_tag "application"    
     %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"}
     %script{:src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"}
     %script{:src => "//ajax.googleapis.com/ajax/libs/googleapis/0.0.4/googleapis.min.js", :type => "text/javascript"}

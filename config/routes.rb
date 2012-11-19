@@ -1,6 +1,8 @@
 CloudfoundryUsergroups::Application.routes.draw do
  
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   get '/chapters/subregion_options' => 'chapters#subregion_options'
 
   get '/directory' => 'home#directory' , :as => "directory"
@@ -57,7 +59,8 @@ resources :events, :has_many => :comments
   
   match 'settings' => 'users#settings' , :as => :settings
   match 'settings_update/:id' => 'users#settings_update' , :as => :settings_update , :via => :put
-  
+
+   
 
 #  match '/catchtoken' => 'home#catchtoken'
 #  get '/event' , :to => 'home#event'

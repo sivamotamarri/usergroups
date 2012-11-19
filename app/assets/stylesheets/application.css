@@ -1259,6 +1259,24 @@ li{
     border-top-left-radius: 4px;
   }
 
+ /* styles for agenda by developers" */
+
+/*#agenda_content table{	
+	border-collapse: separate;
+	border-spacing: 2px;
+	border-color: gray;
+
+}
+#agenda_content  ul{	
+	list-style: circle;
+	list-style-type:circle;
+	
+}
+#agenda_content ol li{
+	list-style-type: decimal;
+	list-style: decimal;
+	
+}*/
 
 
 

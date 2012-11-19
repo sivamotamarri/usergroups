@@ -56,6 +56,7 @@ module CloudfoundryUsergroups
     # Enable the asset pipeline
     config.assets.enabled = true
     config.time_zone = 'Kolkata'
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     
     config.generators do |g|
       g.template_engine :haml

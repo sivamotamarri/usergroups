@@ -66,6 +66,7 @@ gem 'carmen-rails'
 gem 'will_paginate', '~> 3.0'
 
 gem 'remotipart', '~> 1.0'
+gem "ckeditor", "~> 3.7.3"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

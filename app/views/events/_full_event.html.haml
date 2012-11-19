@@ -33,51 +33,16 @@
                 %label.label-25 #{Time.parse(comment.created_at.to_s).strftime('%d, %b')}
               %p.label-16
                 #{comment.content}
-    - @comment =  @event.comments.build
+    - @comment =  @event.comments.build    
     -if @current_user.present?
-      = semantic_form_for  @comment, :remote => true do |f|      
+      = semantic_form_for  @comment do |f|      
         = f.text_area :content, :placeholder => "comment", :label => false, :class => " content_comment_class ta-a"
         = f.hidden_field   :commentable_type
-        = f.hidden_field   :commentable_id      
-
-              
-  / .lining
-  /   %img.img-b{:src => "/assets/img-g.png"}
-  /   %img.img-b{:src => "/assets/img-g.png"}
-  /   %img.img-b{:src => "/assets/img-g.png"}
-  /   %img.img-b{:src => "/assets/img-g.png"}
-  /   %img.img-b{:src => "/assets/img-g.png"}
-  / .div-d
-  /   .divd-comment-pos
-  /     %table.table-c
-  /       %tr
-  /         %td
-  /           %img.img-c.flt-left{:src => "css/images/img-d.png"}
-  /         %td
-  /           %h5.label-27
-  /             Rohit -
-  /             %label.label-25 Delhi, 23 Sep
-  /           %p.label-16
-  /             Does JXTA supports voice chat?: I'm developing a LAN mes
-  /             senger in java. I'm followi
-  /             ng P2P, Does JXTA support
-  /             ice chat?: I'm developing a LAN mes
-  /             senger in java. I'm followi
-  /             ng P2P, Does JXTA suppos voice chat?: I'm d
-  /   .divd-comment-pos
-  /     %table.table-c
-  /       %tr
-  /         %td
-  /           %img.img-c.flt-left{:src => "css/images/img-d.png"}
-  /         %td
-  /           %h5.label-27
-  /             Rohit -
-  /             %label.label-25 Delhi, 23 Sep
-  /           %p.label-16
-  /             Does JXTA supports voice chat?: I'm developing a LAN mes
-  /             senger in java. I'm followi
-  /             ng P2P, Does JXTA support
-  /             ice chat?: I'm developing a LAN mes
-  /             senger in java. I'm followi
-  /             ng P2P, Does JXTA suppos voice chat?: I'm d
-  /             %textarea.ta-a{:placeholder => "alpha"}
+        = f.hidden_field   :commentable_id  
+  %p.label-9 Agenda and Speakers
+  #agenda_content
+    = render :inline => "#{@event.agenda_and_speakers}"
+  -if @current_user.present? and @event.can_i_delete?(@current_user.id, @event.chapter_id)
+    = semantic_form_for  @event do |f|
+      = f.input :agenda_and_speakers, :as => :ckeditor, :label => false, :input_html => { :toolbar => 'Easy' }
+      = f.submit 'CREATE' ,:class=>"btn-a-small flt-right", :style => "margin-right:10px;", :id=>"event_agnda_form_submit"

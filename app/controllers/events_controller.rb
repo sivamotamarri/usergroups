@@ -127,7 +127,8 @@ class EventsController < ApplicationController
 
   # PUT /events/1
   # PUT /events/1.json
-  def update
+  def update 
+
     @event = Event.find(params[:id])
 
     respond_to do |format|
