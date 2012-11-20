@@ -1,19 +1,19 @@
 %ul.ul-i
   %li.uli-selected
     %a{:href => "#"} Create Event
-  %li
-    %a{:href => "#"} Post
-  %li
-    %a{:href => "#"} Update Info
+  / %li
+  /   %a{:href => "#"} Post
+  / %li
+  /   %a{:href => "#"} Update Info
   
 #admincontent
   %ul.head
     %li
       %table.in-table
         %tr
-          %td.h-in Group Calendar
+          %td.h-in Chapter Calendar
           %td.link
-            %a.cp{:href => "#" , :id=> "create_event"} +Create Event
+            %a.cp{:href => "#" , :id=> "create_event"} + Create Event
   .calendar-div{:style => "margin: 0 auto;margin-top:10px;width:90%;height:250px;background-color: #e0e0e0;margin-bottom: 20px;"}
 %table.table-d{:style => "display:none", :id=>"all_events"}
   - @chapter_events.each do |event|   

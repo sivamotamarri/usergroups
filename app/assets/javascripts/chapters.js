@@ -93,7 +93,7 @@ renderChapterAdmin: function(element){
         Chapters.renderContent($(e.target), $('.ul-f .ulf-selected a').text())
         
       }      
-      if($(e.target).text() == "Group Admin"){
+      if($(e.target).text() == "Chapter Admin"){
         $($('.profile_content')[0]).hide(); //hide the chapters ul for admin
         Chapters.renderChapterAdmin($(e.target))
       }else if($(e.target).text() == "Messages"){
