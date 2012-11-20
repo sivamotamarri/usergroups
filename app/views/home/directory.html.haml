@@ -43,8 +43,9 @@
           %ul.ui-j
             - main_chapters(chapter.country_name).each do |chp|
               %li{:style => "line-height:30px;"}
+                %img{:src => "/assets/"+"#{chp.chapter_status.try(:capitalize)}"+".png", :style=> "width:15px;height:16px;margin-bottom: -3px;"}/
                 %a.label-28{:href => "#{chapter_path(chp)}"}= "#{chp.name}"
-                %span{:title => "Chapter Status"}= "(#{chp.chapter_status})"
+                /%span{:title => "Chapter Status"}= "(#{chp.chapter_status})"
                 %span{:title => "Chapter type"}= "(#{chp.chapter_type.first})"
 
         
