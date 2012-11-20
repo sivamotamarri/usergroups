@@ -38,8 +38,10 @@
       = semantic_form_for  @comment do |f|      
         = f.text_area :content, :placeholder => "comment", :label => false, :class => " content_comment_class ta-a"
         = f.hidden_field   :commentable_type
-        = f.hidden_field   :commentable_id  
-  %p.label-9 Agenda and Speakers
+        = f.hidden_field   :commentable_id
+  %br
+  %p.label-9{:style=>"font-size:20px;"} Agenda and Speakers
+  %br
   #agenda_content
     = render :inline => "#{@event.agenda_and_speakers}"
   -if @current_user.present? and @event.can_i_delete?(@current_user.id, @event.chapter_id)
