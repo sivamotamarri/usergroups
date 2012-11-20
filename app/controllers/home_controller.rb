@@ -17,7 +17,9 @@ class HomeController < ApplicationController
 
   end
   def wiki
-    
+    respond_to do |format|
+      format.html {render :layout => "wiki_page"}      
+    end
   end
 
   protected

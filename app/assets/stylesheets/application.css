@@ -1278,6 +1278,79 @@ li{
 	
 }*/
 
+/* Changes from 08112012 */
+.table-b .label-20{margin:5px 0px;}
+p.label-53{margin-bottom: 15px;}
+
+.cf-left{
+    width:500px;
+}
+.cf-right{
+    width:400px;
+}
+.blue{
+    color: #0096d6;
+}
+.cfb-div{
+    width:500px;
+}
+.cf-bottom{
+    clear:both;
+    height:180px;
+    padding: 25px 35px 45px 35px;
+    background: url('/assets/Banner Bottom Image.png') no-repeat 100% 100% #1897d4;
+}
+ 
+}.label-57{
+    font-size: 12px;
+    color:#333 ;
+}.label-56{
+    font-size: 12px;
+    color:#fff ;
+}
+.label-55{
+    font-size: 18px;
+    color:#fff ;
+    font-weight: bold;
+}.label-54{
+    font-size: 28px;
+    color:#fff ;
+    font-weight: bold;
+}.label-53{
+    font-size: 16px;
+    color:#595959 ;
+    line-height: 24px;
+}.label-52{
+    font-size: 32px;
+    color:#0097d7 ;
+}
+.ul-k li{
+    padding:3px 3px;
+    border-bottom: 1px solid #c5c6c7;
+    cursor: pointer;
+}
+ 
+.ul-k .ulk-semi{
+     padding:12px 3px;
+     background-color:#f9f9f9;
+}
+.ul-k .ulk-full{
+    padding:10px 3px;
+    cursor:default;
+}
+.ulk-full h5.label-26{
+    margin-top:20px;
+}
+.ul-k .ulk-last{
+    border-bottom:0px;
+}
+.content-f{
+    background-color: #fff;
+    overflow:hidden;
+}
+
+/* End of Changes from 08112012 */
+
 
 
 
