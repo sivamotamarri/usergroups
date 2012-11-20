@@ -1371,7 +1371,7 @@ p.label-53{margin-bottom: 15px;}
     list-style-type: disc;
     list-style-position: outside;
 }
-#agenda_content table , tr, td{
+#agenda_content table , #agenda_content tr, #agenda_content td{
     border: 1px solid gray;
     border-collapse: separate;
     border-color: gray;

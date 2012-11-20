@@ -51,7 +51,7 @@
     .cc-left
       %ul.ul-f
         %li{:style=>"padding: 7px 20px;"}
-          %a{:href => "#",:style => "font-size:20px;"} Post
+          %a{:href => "#",:style => "font-size:20px;", :id=>"chapter_page_posts", :chapter_id => @chapter.id} Post
           %i.bg-arrow-down-b
         %li.ulf-selected{:style=>"padding: 7px 20px;"}
           %a{:href => "#" , :style => "font-size:20px;"} Events
@@ -62,7 +62,8 @@
         -if @current_user.present? and (ChapterMember.am_i_coordiantor?(@current_user.id, @chapter.id))
           %li{:style => "float:right"}
             %a.cp{:href => "#{profile_path}" , :id=>"create_event_from_chapter"} + Create Event
-      = render '/events/events_list' 
+      #chapter_show_events
+        = render '/events/events_list' 
     /=render '/events/comment_partial'
 
 

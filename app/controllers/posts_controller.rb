@@ -5,8 +5,10 @@ class PostsController < ApplicationController
 
 	def chapterposts
     chapter_id = params[:chapter_id]
+    @chapter = Chapter.find(chapter_id)
     #user_events = EventMember.find_all_by_user_id(@current_user.id, :include => ['event'], :conditions => "events.chapter_id = #{chapter_id}") || []
     @posts = Post.find_all_by_chapter_id(chapter_id)
+    @chapter_home = params[:chapter_home] == "true"
     
      respond_to do |format|      
       if !params["page"].blank?

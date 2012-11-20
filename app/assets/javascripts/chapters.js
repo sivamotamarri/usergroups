@@ -115,6 +115,20 @@ renderChapterAdmin: function(element){
       $(e.target).parent("li").addClass(selectedClass);
       
     });
+    $('#chapter_page_posts').unbind('click').bind('click', function(e){
+      var data = {chapter_id: $('#chapter_page_posts').attr('chapter_id'), chapter_home: "true"};
+       $.ajax({
+        url: '/posts/chapterposts',
+        data : data,
+        success: function(data){
+            $('#chapter_show_events').html(data);
+            
+        },
+        async:false,        
+        dataType: 'html'
+      });
+
+    });
 
 
 }
