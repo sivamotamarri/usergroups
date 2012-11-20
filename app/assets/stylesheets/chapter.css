@@ -101,6 +101,7 @@ body {
 	margin: 0 auto;
 	margin-top:-70px;
 	margin-bottom: -45px;
+        min-height: 800px;
 }
 .content-a {
 	overflow: hidden;

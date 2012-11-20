@@ -124,6 +124,7 @@ body {
 	margin: 0 auto;
 	margin-top:-70px;
 	margin-bottom: -45px;
+        min-height: 800px;
 }
 .content-a {
 	overflow: hidden;
@@ -1213,7 +1214,7 @@ li{
 
 /* styles for autocomplete by developers */
 
-  .ui-autocomplete .ui-helper-hidden-accessible {
+  #post_event_title_input .ui-helper-hidden-accessible {
     clip: rect(1px, 1px, 1px, 1px);
     position: absolute !important;
   }
@@ -1258,6 +1259,9 @@ li{
    .ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
     border-top-left-radius: 4px;
   }
+  .ui-menu .ui-menu-item a {
+    padding-left: 3px;
+   }
 
  /* styles for agenda by developers" */
 
