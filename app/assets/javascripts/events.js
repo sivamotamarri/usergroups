@@ -82,6 +82,9 @@ Events ={
 
   });	
   
+  $('#edit_agenda').die('click').live('click', function(e){    
+     $('#agenda_text_area').show();
+  });
 
   }
 
