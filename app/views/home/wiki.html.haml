@@ -47,16 +47,16 @@
       %div{:style => "margin-top: 45px;"}
         %span.label-g Latest happening at CFDG
         %div{:style => "border:1px solid #ccc;height:200px;margin:7px 0px 7px 0px;padding-left:5px;"}
-          %marquee{:behavior => "scroll",:direction => "up", :onmouseover => "this.stop();" , :onmouseout => "this.start();"}
+          %marquee{:behavior => "scroll",:direction => "up",:scrollamount => "3", :onmouseover => "this.stop();" , :onmouseout => "this.start();"}
             %ul.ul-c
               - @announcements.each_with_index do |ann,i|
                 %li
                   %div
                     %h3.label-12
-                      %img.img-c{:src => "assets/img-b.png"}
-                        = ann.title
-                        %br
-                        %label.label-13= ann.created_at.strftime("%B %d, %Y")
+                      = photo_display_pic(ann,"mini","60x60","img-b.png",'img-c')
+                      = ann.title
+                      %br
+                      %label.label-13= ann.created_at.strftime("%B %d, %Y")
                     %h5.label-16= ann.body
         %div
           %h1.label-36 Title of Article

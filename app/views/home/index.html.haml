@@ -53,10 +53,10 @@
       .cb-left.flt-left
         %h2.label-8= t('announcements.heading')
         %div
-          %img.img-a.flt-left{:src => "assets/img-a.png"}
-            %h3.label-9= @announcements.first.title
-            %h5.label-10= @announcements.first.created_at.strftime("%B %d, %Y")
-            %h5.label-1= @announcements.first.body
+          = photo_display_pic(@announcements.first,"medium","650x438","img-a.png",'img-a flt-left')          
+          %h3.label-9= @announcements.first.title
+          %h5.label-10= @announcements.first.created_at.strftime("%B %d, %Y")
+          %h5.label-1= @announcements.first.body
     - unless @announcements.blank?
       .cb-right.flt-right
         %h2.label-8= t('announcements.earlier')
@@ -66,8 +66,9 @@
             %li
               %div
                 %h3.label-12
-                  %img.img-c{:src => "assets/img-b.png"}
-                    = ann.title
-                    %br
-                    %label.label-13= ann.created_at.strftime("%B %d, %Y")
+                  = photo_display_pic(ann,"mini","60x60","img-b.png",'img-c')
+                  = ann.title
+                  %br
+                  %label.label-13= ann.created_at.strftime("%B %d, %Y")
                 %h5.label-16= ann.body
+                
