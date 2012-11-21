@@ -1,21 +1,18 @@
 class HomeController < ApplicationController
+  before_filter :announcements , :only => [:index, :wiki]
+  before_filter :chapters , :only => [:index, :directory]
 
   layout "application"
 
-  def index
-    @chapters = Chapter.incubated_or_active || []
-  	@markers = get_markers.to_json
-    @announcements = Announcement.order("created_at DESC")
+  def index   
   end
 
-  def directory
-    @chapters = Chapter.incubated_or_active || []
-    @markers = get_markers.to_json
+  def directory  
   end
 
   def about
-
   end
+  
   def wiki
     respond_to do |format|
       format.html {render :layout => "wiki_page"}      
@@ -44,5 +41,14 @@ class HomeController < ApplicationController
     state = chapter.state_name.blank? ? "" : chapter.state_name + ","     
     country = chapter.country_name.blank? ? "" : chapter.country_name
     city + state + country
-  end 
+  end
+
+  def announcements
+    @announcements = Announcement.order("created_at DESC")
+  end
+
+  def chapters
+    @chapters = Chapter.incubated_or_active || []
+  	@markers = get_markers.to_json 
+  end
 end
