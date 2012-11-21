@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   def index
     @chapters = Chapter.incubated_or_active || []
   	@markers = get_markers.to_json
-    @announcements = Announcement.all
+    @announcements = Announcement.order("created_at DESC")
   end
 
   def directory

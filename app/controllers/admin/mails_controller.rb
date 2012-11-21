@@ -1,4 +1,5 @@
 class Admin::MailsController < ApplicationController
+  before_filter :admin_required
   def index
     @mail_messages = MailMessage.where("received_id = ?",admin_user.id).paginate(:page => params[:page], :per_page => 10)
     @mail_message = MailMessage.new

@@ -1,4 +1,5 @@
 class Admin::AnnouncementsController < ApplicationController
+  before_filter :admin_required
   layout 'admin'
   def index
    render :layout => false
