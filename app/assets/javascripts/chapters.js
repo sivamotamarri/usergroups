@@ -129,6 +129,21 @@ renderChapterAdmin: function(element){
       });
 
     });
+  $('#chapter_page_events').unbind('click').bind('click', function(e){
+      var chapter_id = $('#chapter_page_posts').attr('chapter_id')
+      var data = {chapter_home: "true"};
+       $.ajax({
+        url: '/chapters/'+chapter_id,
+        data : data,
+        success: function(data){
+            $('#chapter_show_events').html(data);
+            
+        },
+        async:false,        
+        dataType: 'html'
+      });
+
+    });
 
 
 }

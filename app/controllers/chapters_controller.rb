@@ -35,24 +35,15 @@ class ChaptersController < ApplicationController
 
     @totalcount = @chapter.chapter_members.size    
     
-    @all_events = Event.find_all_by_chapter_id(@chapter.id) || []
-    @past_events = []
-    @upcoming_events = []
-    @all_events.each do |event|       
-      if(!event.event_start_date.blank? && Time.parse(event.event_start_date+" "+ event.event_start_time) >= Time.now)
-        @upcoming_events.push(event)
-      else
-        @past_events.push(event)
-      end
-    end
-    @two_upcoming_events = @upcoming_events.sort!.reverse!.take(2)
-    #@upcoming_events = @upcoming_events.paginate(:page => params[:page], :per_page => 5)
-    @past_events.sort!
-    @past_events = @past_events.paginate(:page => params[:page], :per_page => 10)
+    get_upcoming_and_past_events
     @announcements = Announcement.all
     respond_to do |format|
-      if request.xhr?        
-        format.js {}
+      if request.xhr?  
+        if(params[:chapter_home] == "true" and params[:page].blank?)
+          format.html{render :partial => '/events/events_list'}
+        else      
+          format.js {}
+        end
       else
         format.html # show.html.erb
         format.json { render json: @chapter }
@@ -60,6 +51,7 @@ class ChaptersController < ApplicationController
 
     end
   end
+
 
   # GET /chapters/new
   # GET /chapters/new.json
@@ -150,5 +142,22 @@ class ChaptersController < ApplicationController
       format.js {render :partial => 'chapter_admin_home_page' }
      end
   end 
+
+  def get_upcoming_and_past_events
+    @all_events = Event.find_all_by_chapter_id(@chapter.id) || []
+    @past_events = []
+    @upcoming_events = []
+    @all_events.each do |event|       
+      if(!event.event_start_date.blank? && Time.parse(event.event_start_date+" "+ event.event_start_time) >= Time.now)
+        @upcoming_events.push(event)
+      else
+        @past_events.push(event)
+      end
+    end
+    @two_upcoming_events = @upcoming_events.sort!.reverse!.take(2)
+    #@upcoming_events = @upcoming_events.paginate(:page => params[:page], :per_page => 5)
+    @past_events.sort!
+    @past_events = @past_events.paginate(:page => params[:page], :per_page => 10)
+  end
 
 end
