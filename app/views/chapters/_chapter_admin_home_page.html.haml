@@ -50,5 +50,6 @@
         %h5.label-36 #{title}
         %h5.label-26 Post on #{Time.parse(event.created_at.to_s).strftime('%d %b, %Y')} by #{event.user.try(:fullname)}
       %td{:style => "text-align: right; padding-right:10px;"}
-        %h5.label-26 #{event.entry_fee.blank? ? "Rs 0" : event.entry_fee} per person    
-%a.label-12.flt-right.block.mar-top{:href => "#", :id=>"upcoming_events"} See all planned events....
+        %h5.label-26 #{event.entry_fee.blank? ? "Rs 0" : event.entry_fee} per person 
+-if @chapter_events.size > 2   
+  %a.label-12.flt-right.block.mar-top{:href => "#", :id=>"upcoming_events"} See all planned events....
