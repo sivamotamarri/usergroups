@@ -15,7 +15,8 @@
 //= require jquery.remotipart
 //= require_tree .
 
-$(function(){  
+$(function(){
+    alertInfo();
   $('.signin').click(function(){
     $('#navbar').accountChooser('showAccountChooser');   
   });
@@ -123,3 +124,16 @@ $(function(){
  
          
 });
+
+function alertInfo() {
+  setTimeout(showFlashMessages, 500);
+  setTimeout(hideFlashMessages, 2500);
+}
+
+function hideFlashMessages() {
+    $('.alert').slideUp(200);
+}
+
+function showFlashMessages() {
+  $('.alert').slideDown(200);
+}
