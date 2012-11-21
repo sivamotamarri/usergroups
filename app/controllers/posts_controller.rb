@@ -31,11 +31,12 @@ class PostsController < ApplicationController
 
   def create
   @post = Post.new(params[:post])
+  @chapter = Chapter.find(@post.chapter_id)
     respond_to do |format|
       if @post.save
-        @posts = Post.find_all_by_chapter_id(@post.chapter_id)
-        format.js 
+        @posts = Post.find_all_by_chapter_id(@post.chapter_id)        
       end      
+      format.js      
     end
   end
 

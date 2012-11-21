@@ -42,13 +42,19 @@ Posts = {
 		$.ajax({
 		      url: '/posts/new',		      
 		      success: function(data){		          
-		          $('#event_content').html(data);
+		          $('#events').html(data);
 		          $('#post_chapter_id').val(chapter_id);
 		      },
 		      async:false,        
 		      dataType: 'html'
 		    }); 			
-		});		
+		});
+
+		$('#post_form_submit').die('click').live('click', function(e){
+    		$('#options').hide();
+    		$('#spinner').show();
+  		});		
+
 		Posts.titlecomplete();
 	    
 	}

@@ -1,1 +1,11 @@
-$("#event_content").html("#{escape_javascript render(:partial => 'posts/posts_list')}");  
+$('#options').show();
+$('#spinner').hide();
+-if @post.errors.blank?
+  $("#events").html("#{escape_javascript render(:partial => 'posts/posts_list')}");  
+-else	
+  $("#events li.inline-errors").html("&nbsp;");
+  - @post.errors.messages.each do |attribute, errors|
+    - msg= ''
+    -errors.each do |e|
+      -msg= msg+ e  
+    $(".post_#{attribute}").html("#{msg.to_s}");
