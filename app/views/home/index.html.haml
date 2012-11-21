@@ -49,22 +49,25 @@
           %h5.label-7= t('chapter.create_desc')    
           %button.btn-b.signin= t('chapter.create_create')
   .content-b
-    .cb-left.flt-left
-      %h2.label-8= t('announcements.heading')
-      %div
-        %img.img-a.flt-left{:src => "assets/img-a.png"}
-          %h3.label-9 CFDG Launched in India
-          %h5.label-10 October 2, 2012
-          %h5.label-1 We are excited to announce launch of Cloud Foundry Developer Groups in India. This site is focussed on helping these groups coordinate and share their online activities about Cloud Foundry, create a new event or update Photos from the existing events.
+    - unless @announcements.blank?
+      .cb-left.flt-left
+        %h2.label-8= t('announcements.heading')
+        %div
+          %img.img-a.flt-left{:src => "assets/img-a.png"}
+            %h3.label-9= @announcements.first.title
+            %h5.label-10= @announcements.first.created_at.strftime("%B %d, %Y")
+            %h5.label-1= @announcements.first.body
     - unless @announcements.blank?
       .cb-right.flt-right
         %h2.label-8= t('announcements.earlier')
         %ul.ul-c
-          - @announcements.each do |ann|
+          - @announcements.each_with_index do |ann,i|
+            - next if i == 0
             %li
               %div
                 %h3.label-12
                   %img.img-c{:src => "assets/img-b.png"}
                     = ann.title
-                    %label.label-13 October 2, 2012
+                    %br
+                    %label.label-13= ann.created_at.strftime("%B %d, %Y")
                 %h5.label-16= ann.body

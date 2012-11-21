@@ -19,6 +19,14 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
+  def admin_required
+    if admin_user.nil?
+      redirect_to new_admin_session_url
+    else
+      true
+    end
+  end
+
   def default_url_options(options = {})
     options.merge!({ :locale => I18n.locale })
   end
