@@ -38,6 +38,8 @@
       uploader   : "#{uploader_users_path(:format => :json)}",
       swf        : '/assets/uploadify.swf',
       auto       : true,
+      fileSizeLimit : '1MB',
+      fileTypeExts : '*.gif; *.jpg; *.jpeg; *.png',
       fileObjName : 'user[avatar]',
       buttonText : 'Edit Profile Picture',
       buttonClass : 'fileuploader-text',
