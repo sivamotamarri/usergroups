@@ -41,7 +41,7 @@ class ChaptersController < ApplicationController
       if request.xhr?  
         if(params[:chapter_home] == "true" and params[:page].blank?)
           format.html{render :partial => '/events/events_list'}
-        else      
+        else      #this is used for pagination
           format.js {}
         end
       else

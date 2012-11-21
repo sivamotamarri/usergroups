@@ -5,25 +5,15 @@
       %h2.label-34 Welcome #{@user.fullname}!
       %h5.label-20 Location: #{@user.location}
       %a.label-35{:href => "#{settings_path}"} My Account
-    .cc-left      
-      %ul.ul-f
-        %li
-          %a{:href => "#"} Post
-          %i.bg-arrow-down-b
-        %li.ulf-selected
-          %a{:href => "#", :class=>"uli-selected"} Events
-          %i.bg-arrow-down-b
-        %li
-          -if @is_primary_coord || @is_secondary_coord
-            %a{:href => "#", :chapter_id => @chapter.id ,:id =>"group_admin_ref"} Chapter Admin
-            %i.bg-arrow-down-b                   
+    .cc-left   
+              
       
       %ul.ul-i.profile_content
         - @user_chapters.each do |chaptermember|
           %li
             %a{:href => "#{userevents_events_url(chaptermember.chapter.id)}", :id=>"#{chaptermember.chapter.id}", :class=>"chapter_link"} #{chaptermember.chapter.name}
-      
-      #event_content                
+                     
+      #event_content{:style => "min-height: 10px;"}
     /=render "/events/comment_partial"
 
 :javascript 

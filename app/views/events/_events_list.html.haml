@@ -1,3 +1,17 @@
+-if  @profile_page== true
+  %ul.ul-f
+    %li
+      %a{:href => "#", :chapter_id => @chapter.id } Post
+      %i.bg-arrow-down-b
+    %li.ulf-selected
+      %a{:href => "#", :class=>"uli-selected", :chapter_id => @chapter.id} Events
+      %i.bg-arrow-down-b
+    %li
+      -if @current_user.present? and ChapterMember.am_i_coordiantor?(@current_user.id , @chapter.id)
+        %a{:href => "#", :chapter_id => @chapter.id ,:id =>"group_admin_ref"} Chapter Admin
+        %i.bg-arrow-down-b     
+
+   
 #events
   - if @upcoming_events.blank? && @past_events.blank?
     .marg-top
@@ -60,4 +74,8 @@
 
   #past_events
     = render "events/past_events"
-  
+
+:javascript 
+  Chapters.init(); 
+  Events.init();
+  Posts.init();

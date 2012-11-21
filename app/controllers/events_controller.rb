@@ -57,6 +57,7 @@ class EventsController < ApplicationController
 
   def userevents
     chapter_id = params[:chapter_id]
+    @chapter = Chapter.find(chapter_id)
     user_events = EventMember.find_all_by_user_id(@current_user.id, :include => ['event'], :conditions => "events.chapter_id = #{chapter_id}") || []
 
     get_upcoming_and_past_events(user_events)

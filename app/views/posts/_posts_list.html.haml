@@ -1,3 +1,15 @@
+-if  @profile_page== true
+  %ul.ul-f
+    %li.ulf-selected
+      %a{:href => "#",  :class=>"uli-selected", :chapter_id => @chapter.id } Post
+      %i.bg-arrow-down-b
+    %li
+      %a{:href => "#", :chapter_id => @chapter.id} Events
+      %i.bg-arrow-down-b
+    %li
+      -if @current_user.present? and ChapterMember.am_i_coordiantor?(@current_user.id , @chapter.id)
+        %a{:href => "#", :chapter_id => @chapter.id ,:id =>"group_admin_ref"} Chapter Admin
+        %i.bg-arrow-down-b
 %h2.label-44
   Upload Post & Media
   - if @current_user.present? and ChapterMember.am_i_coordiantor?(@current_user.id, @chapter.id) and !@chapter_home
@@ -21,3 +33,7 @@
       /   %button.label-50 Upload Media
       / %td{:style => "width:30px;"}
       /   %a.bg-cross-b{:href => "#", :style => "margin-top:8px;"}
+:javascript 
+  Chapters.init(); 
+  Events.init();
+  Posts.init();

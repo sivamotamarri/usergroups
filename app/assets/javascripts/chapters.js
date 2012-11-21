@@ -4,12 +4,14 @@
 //var Usergroups = Usergroups || {};
 Chapters ={  
 
-renderContent: function(element, type){
+renderContent: function(element, type, chapter_id){
+      var id = (typeof chapter_id != 'undefined') ?  chapter_id : element.attr('id')
    // Changing chapter status      
-      var data = {chapter_id: element.attr('id')};    
+      var data = {chapter_id: id};    
       var url = '/events/userevents';
       switch(type){
         case "Post": 
+          data = $.extend(data,{profile_page:'true'})
                     url = "/posts/chapterposts";
                     break;
         default: 
@@ -61,7 +63,8 @@ renderChapterAdmin: function(element){
 },  
 
  firstChapterClick: function(){
-  $($('.chapter_link')[0]).click();
+  setTimeout(function(){
+  $($('.chapter_link')[0]).click();},10);
  },
 
  renderEventForm: function(target){
@@ -89,12 +92,16 @@ renderChapterAdmin: function(element){
 
       if($(this).hasClass('ul-i')){ //if a chapter group is clicked
       	selectedClass="uli-selected";
-        //check to render events or posts or messages or multimedia        
-        Chapters.renderContent($(e.target), $('.ul-f .ulf-selected a').text())
+        //check to render events or posts or messages or multimedia
+        Chapters.renderContent($(e.target), $('.ul-f .ulf-selected a').text());        
         
-      }      
+        
+      } 
+      /*else if ($(this).hasClass('ul-f')){
+        Chapters.renderContent($(e.target), $('.ul-f .ulf-selected a').text(), $('.ul-f .ulf-selected a').attr('chapter_id'));
+      }     */
       if($(e.target).text() == "Chapter Admin"){
-        $($('.profile_content')[0]).hide(); //hide the chapters ul for admin
+        //$($('.profile_content')[0]).hide(); //hide the chapters ul for admin
         Chapters.renderChapterAdmin($(e.target))
       }else if($(e.target).text() == "Messages"){
         $($('.profile_content')[0]).hide();
@@ -106,6 +113,8 @@ renderChapterAdmin: function(element){
       }else if($(e.target).text() == "Events" || $(e.target).text() == "Photos" || $(e.target).text() == "Post"){
         $($('.profile_content')[0]).show();
         $('#event_content').html("");
+        Chapters.renderContent($(e.target), $(e.target).text(), $(e.target).attr('chapter_id'));
+        
       }
 
       

@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
 	def chapterposts
     chapter_id = params[:chapter_id]
+    @profile_page = params[:profile_page] == "true"
     @chapter = Chapter.find(chapter_id)
     #user_events = EventMember.find_all_by_user_id(@current_user.id, :include => ['event'], :conditions => "events.chapter_id = #{chapter_id}") || []
     @posts = Post.find_all_by_chapter_id(chapter_id)
