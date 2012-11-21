@@ -54,7 +54,7 @@ renderChapterAdmin: function(element){
       data : data,
       success: function(data){
          //$('#event_content').html("");
-          $('#event_content').html(data);
+          $('#events').html(data);
       },
       async:false,        
       dataType: 'html'

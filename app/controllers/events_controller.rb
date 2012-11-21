@@ -57,8 +57,8 @@ class EventsController < ApplicationController
 
   def userevents
     chapter_id = params[:chapter_id]
-    @chapter = Chapter.find(chapter_id)
-    user_events = EventMember.find_all_by_user_id(@current_user.id, :include => ['event'], :conditions => "events.chapter_id = #{chapter_id}") || []
+    @chapter = Chapter.find(chapter_id)    
+    user_events = EventMember.find_all_by_user_id(@current_user.id, :include => ['event'], :conditions => "events.chapter_id = #{chapter_id} ") || []
 
     get_upcoming_and_past_events(user_events)
 
@@ -97,6 +97,7 @@ class EventsController < ApplicationController
 
   def delete_an_event    
     @event = Event.find(params[:event_id])
+    @event.event_members.each do|member| member.soft_delete! end
     @event.soft_delete!
 
     chapter_events = Event.find_all_by_chapter_id(@event.chapter_id) || []
