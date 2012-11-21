@@ -25,7 +25,8 @@
         %table.table-c
           %tr
             %td
-              %img.img-c.flt-left{:src => "/assets/img-d.png"}
+              = avatar_display_pic(comment.user,'thumb', '40x40','profile.png',"img-c flt-left")
+              /%img.img-c.flt-left{:src => "/assets/img-d.png"}
             %td
               %h5.label-27
                 #{comment.user.fullname} - 
