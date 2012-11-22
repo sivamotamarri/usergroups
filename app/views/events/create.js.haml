@@ -1,7 +1,7 @@
 $('#options').show();
 $('#spinner').hide();
 -if @event.errors.blank?
-  $("#event_content").html("#{escape_javascript render(:partial => 'chapters/chapter_admin_home_page')}");  
+  $("#events").html("#{escape_javascript render(:partial => 'chapters/chapter_admin_home_page')}");  
 -else    
   $("#event_content li.inline-errors").html("&nbsp;");
   - @event.errors.messages.each do |attribute, errors|
