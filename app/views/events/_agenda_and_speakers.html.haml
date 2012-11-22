@@ -14,6 +14,11 @@
     = semantic_form_for  @event do |f|
       = f.input :agenda_and_speakers, :as => :ckeditor, :label => false, :input_html => { :toolbar => 'Easy' }
       = f.submit "#{submit_val}" ,:class=>"btn-a-small flt-right", :style => "margin-right:10px;", :id=>"event_agnda_form_submit"
+  %br
+  %p.label-9{:href => '#', :style=>"font-size:20px;", :id=>"attendees_list"} 
+    Attendees List
+  %br
+  = text_area_tag 'attendes_emails', @emails, :style => "width:940px;padding-top:4px;", :readonly => 'readonly'
 
 :javascript
   Events.init();
