@@ -68,12 +68,13 @@ renderChapterAdmin: function(element){
  },
 
  renderEventForm: function(target){
-      window.location = $(target).attr('href')+"&from=chapter";    
+      window.location = $(target).attr('href')+"&from=chapter&chapter_id="+$(target).attr('chapter_id');    
  },
 
- fireclicks: function(){
-    $('#group_admin_ref').trigger('click');
-    setTimeout(function(){$('#create_event').trigger('click');}, 10);
+ fireclicks: function(chapter_id){
+    
+    
+    setTimeout(function(){$('#'+chapter_id).trigger('click');$('#group_admin_ref').trigger('click');$('#create_event').trigger('click');}, 10);
  },
 
  init: function(){
