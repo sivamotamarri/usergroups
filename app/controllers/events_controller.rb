@@ -18,6 +18,8 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+    @emails = ''
+    @event.event_members.each do |member| @emails << (member.user.try(:email).to_s+"\;")  end
 
     respond_to do |format|
       format.html # show.html.erb
