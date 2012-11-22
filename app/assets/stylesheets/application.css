@@ -1382,3 +1382,30 @@ p.label-53{margin-bottom: 15px;}
 }
 /* Custom css by developer */
 
+/* Banner Css */
+
+.banner-div{
+
+	height:180px;
+	padding: 25px 35px 45px 35px;
+	background: url('BANNER-bg.png') no-repeat 100% 100% #1897d4;
+}
+.cfb-div{
+	width: 850px;
+}
+.banner-div .label-1{
+	font-size:16px;
+	color: #fcfcfc;
+	font-weight: bold;
+	margin-top: 65px;
+	margin-bottom: 0;
+}
+.banner-div .label-2{
+	font-size: 28px;
+	color: #fcfcfc;
+
+	margin:0;
+
+}
+
+/* Banner Css */
