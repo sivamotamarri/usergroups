@@ -15,7 +15,10 @@ CloudfoundryUsergroups::Application.routes.draw do
       get  'chapter_admin_home_page'
      end
   end
-
+  get 'messaging/messages' => 'messaging/messages#index' , :as => 'mymessages'
+  get 'messaging/messages/new' => 'messaging/messages#new' , :as => 'compose'
+  post 'messaging/messages/create' => 'messaging/messages#create' , :as => 'compose_create'
+  get 'messaging/messages/:id' => 'messaging/messages#show' , :as => 'message_show'
   resources :messages , :as => "mail_messages" do
     collection do
       post 'reply'

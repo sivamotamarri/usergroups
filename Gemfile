@@ -82,3 +82,6 @@ gem 'aws-sdk'
 # gem 'capistrano'
 
 
+gem 'foreigner', '>= 0.9.1'
+gem 'carrierwave', '>= 0.5.8'
+gem 'simple_form'

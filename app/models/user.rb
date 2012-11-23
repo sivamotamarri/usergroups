@@ -28,4 +28,25 @@ class User < ActiveRecord::Base
   def admin_user
     User.find_by_email("admin@cloudfoundry.com")
   end
+
+
+
+   include Mailboxer::Models::Messageable
+  acts_as_messageable
+
+  def name
+    self.to_s
+  end
+
+  def mailboxer_email(message)
+    email
+  end
+
+  def to_s
+    email
+  end
+
+  def read(s)
+    s
+  end
 end

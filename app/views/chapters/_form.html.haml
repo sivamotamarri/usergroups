@@ -24,7 +24,7 @@
           .drop_list
             .one_side
               %div               
-                = f.country_select :country_name , priority: %w(US CA), prompt: 'Please select a country', :input_html =>  {:class => "textboxes"}
+                = f.country_select :country_name , priority: %w(US IN), prompt: 'Please select a country', :input_html =>  {:class => "textboxes"}
                 = f.hidden_field :country_id, :value => 1
               %div
                 = render partial: 'subregion_select', locals: {parent_region: f.object.country_name}
