@@ -25,11 +25,11 @@ module ApplicationHelper
     data.to_json
   end
 
-  def photo_display_pic(obj,type, size, path , class_name)
+  def photo_display_pic(obj,type, size, path , class_name, style='')
     if obj.photo_file_name && (obj.errors[:photo_content_type].blank? && obj.errors[:photo_file_size].blank?)
-      image_tag(obj.photo.url(type.to_sym), :alt => 'Pic', :size => size,:class => class_name)
+      image_tag(obj.photo.url(type.to_sym), :alt => 'Pic', :size => size,:class => class_name, :style => style)
     else
-      image_tag(path, :alt => 'Pic', :size => size , :class => class_name)
+      image_tag(path, :alt => 'Pic', :size => size , :class => class_name, :style => style)
     end
   end
 

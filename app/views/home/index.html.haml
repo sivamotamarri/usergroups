@@ -50,14 +50,14 @@
           %button.btn-b.signin= t('chapter.create_create')
   .content-b
     - unless @announcements.blank?
-      .cb-left.flt-left
+      .cb-left.flt-left{:style=>"overflow:visible;"}
         %h2.label-8= t('announcements.heading')
         %div
-          = photo_display_pic(@announcements.first,"medium","650x438","img-a.png",'img-a flt-left')          
+          = photo_display_pic(@announcements.first,"medium","650x438","img-a.png",'img-a flt-left','max-height:245px;')          
           %h3.label-9= @announcements.first.title
           %h5.label-10= @announcements.first.created_at.strftime("%B %d, %Y")
-          %h5.label-1= @announcements.first.body
-    - unless @announcements.blank?
+          %h5.label-1{:style => "word-wrap:break-word;"}= @announcements.first.body
+    - if (@announcements || []).size > 1
       .cb-right.flt-right
         %h2.label-8= t('announcements.earlier')
         %ul.ul-c
